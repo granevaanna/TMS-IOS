@@ -18,17 +18,15 @@ final class StudentCell: UITableViewCell {
     static let identifier = "kStudentCell"
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var markLabel: UILabel!
-    @IBOutlet private weak var groupLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        backgroundColor = UIColor(displayP3Red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
     }
 
     func setupCellWith(model: StudentModel){
         nameLabel.text = model.nameString
         markLabel.text = "\(model.markString)"
-        groupLabel.text = "\(model.groupString)"
     }
     
 

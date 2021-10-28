@@ -17,6 +17,8 @@
 		19B0B062272A029A0015B780 /* StudentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B0B060272A029A0015B780 /* StudentCell.xib */; };
 		19B0B06D272AE8150015B780 /* FooterCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0B06B272AE8150015B780 /* FooterCells.swift */; };
 		19B0B06E272AE8150015B780 /* FooterCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B0B06C272AE8150015B780 /* FooterCells.xib */; };
+		19B0B074272B47F20015B780 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0B072272B47F20015B780 /* HeaderCell.swift */; };
+		19B0B075272B47F20015B780 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B0B073272B47F20015B780 /* HeaderCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		19B0B060272A029A0015B780 /* StudentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudentCell.xib; sourceTree = "<group>"; };
 		19B0B06B272AE8150015B780 /* FooterCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCells.swift; sourceTree = "<group>"; };
 		19B0B06C272AE8150015B780 /* FooterCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterCells.xib; sourceTree = "<group>"; };
+		19B0B072272B47F20015B780 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		19B0B073272B47F20015B780 /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,13 +68,9 @@
 		19B0B049272826C10015B780 /* InformationAboutStudents */ = {
 			isa = PBXGroup;
 			children = (
+				19B0B06F272B42450015B780 /* View Controller */,
 				19B0B05E272A02740015B780 /* Cells */,
-				19B0B04A272826C10015B780 /* AppDelegate.swift */,
-				19B0B04C272826C10015B780 /* SceneDelegate.swift */,
-				19B0B04E272826C10015B780 /* ViewController.swift */,
-				19B0B050272826C10015B780 /* Main.storyboard */,
-				19B0B053272826C30015B780 /* Assets.xcassets */,
-				19B0B055272826C30015B780 /* LaunchScreen.storyboard */,
+				19B0B070272B42880015B780 /* Support Files */,
 				19B0B058272826C30015B780 /* Info.plist */,
 			);
 			path = InformationAboutStudents;
@@ -79,6 +79,7 @@
 		19B0B05E272A02740015B780 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				19B0B071272B47C70015B780 /* HeaderCell */,
 				19B0B06A272AE7980015B780 /* FooterCells */,
 				19B0B063272AE6B30015B780 /* StudentCell */,
 			);
@@ -101,6 +102,35 @@
 				19B0B06C272AE8150015B780 /* FooterCells.xib */,
 			);
 			path = FooterCells;
+			sourceTree = "<group>";
+		};
+		19B0B06F272B42450015B780 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				19B0B04E272826C10015B780 /* ViewController.swift */,
+				19B0B050272826C10015B780 /* Main.storyboard */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		19B0B070272B42880015B780 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				19B0B04A272826C10015B780 /* AppDelegate.swift */,
+				19B0B04C272826C10015B780 /* SceneDelegate.swift */,
+				19B0B053272826C30015B780 /* Assets.xcassets */,
+				19B0B055272826C30015B780 /* LaunchScreen.storyboard */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		19B0B071272B47C70015B780 /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				19B0B072272B47F20015B780 /* HeaderCell.swift */,
+				19B0B073272B47F20015B780 /* HeaderCell.xib */,
+			);
+			path = HeaderCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +195,7 @@
 				19B0B054272826C30015B780 /* Assets.xcassets in Resources */,
 				19B0B06E272AE8150015B780 /* FooterCells.xib in Resources */,
 				19B0B052272826C10015B780 /* Main.storyboard in Resources */,
+				19B0B075272B47F20015B780 /* HeaderCell.xib in Resources */,
 				19B0B062272A029A0015B780 /* StudentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +211,7 @@
 				19B0B04B272826C10015B780 /* AppDelegate.swift in Sources */,
 				19B0B06D272AE8150015B780 /* FooterCells.swift in Sources */,
 				19B0B04D272826C10015B780 /* SceneDelegate.swift in Sources */,
+				19B0B074272B47F20015B780 /* HeaderCell.swift in Sources */,
 				19B0B061272A029A0015B780 /* StudentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

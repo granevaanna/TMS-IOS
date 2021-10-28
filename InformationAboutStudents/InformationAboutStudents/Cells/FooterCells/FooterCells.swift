@@ -16,13 +16,13 @@ class FooterCells: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        backgroundColor = UIColor(displayP3Red: 0.88, green: 0.67, blue: 0.63, alpha: 1)
     }
     
     func setupCellWith(model: [StudentModel]){
-        let averageMarkValue = model.compactMap({$0.markString}).reduce(0, +) / model.count
+        let averageMarkValue = Double(model.compactMap({$0.markString}).reduce(0, +)) / Double(model.count)
         numberOfStudents.text = "\(model.count)"
-        averageMark.text = "\(averageMarkValue)"
+        averageMark.text = "\(round(100 * averageMarkValue)/100)"
 
     }
     
