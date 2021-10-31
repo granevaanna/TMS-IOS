@@ -7,15 +7,15 @@
 
 import UIKit
 
-class HeaderCell: UITableViewCell {
+final class HeaderCell: UITableViewCell {
 
     static let identifier = "kHeaderCell"
-    @IBOutlet  weak var headerLabel: UILabel!
+    @IBOutlet weak var headerLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        headerLabel.backgroundColor = UIColor(displayP3Red: 0.89, green: 0.59, blue: 0.54, alpha: 1)
+        headerLabel.backgroundColor = UIColor(displayP3Red: 0.88, green: 0.67, blue: 0.63, alpha: 1)
+        headerLabel.textColor = .white
+        headerLabel.font = .systemFont(ofSize: 30)
     }
-
-    
 }

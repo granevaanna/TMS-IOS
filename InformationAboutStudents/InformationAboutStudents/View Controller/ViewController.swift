@@ -7,10 +7,10 @@
 
 import UIKit
 
-
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+    
     private var studentArray:[StudentModel] = [
         StudentModel(nameString: "Акулич Артур", markString: 7, groupString: 9),
         StudentModel(nameString: "Барановская Виктория", markString: 5, groupString: 10),
@@ -48,7 +48,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "3 курс"
-        //self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -57,7 +56,6 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: HeaderCell.identifier)
     }
 }
-
 
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
@@ -71,9 +69,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         let group = setGroupArray[section]
         let students = sortStudentArray.filter({$0.groupString == group})
         return students.count
-        
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StudentCell.identifier, for: indexPath) as! StudentCell
@@ -86,7 +82,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 60
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -106,6 +102,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         let students = studentArray.filter({$0.groupString == group})
         cell.setupCellWith(model: students)
         return cell
+    }
+    
+    @IBAction func unwindSegue(segue: UIStoryboardSegue){
+        guard segue.identifier == "saveSegue" else {return}
+        let sourceVC = segue.source as! AddStudentScreen
+        let student = sourceVC.student
+        studentArray.append(student)
+        tableView.reloadData()
     }
 }
 

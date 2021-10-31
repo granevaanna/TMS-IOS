@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		198FE6FA272C1BF7004ACC3D /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FE6F9272C1BF7004ACC3D /* FirstScreen.swift */; };
+		198FE6FD272CB583004ACC3D /* AddStudentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FE6FC272CB583004ACC3D /* AddStudentScreen.swift */; };
 		19B0B04B272826C10015B780 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0B04A272826C10015B780 /* AppDelegate.swift */; };
 		19B0B04D272826C10015B780 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0B04C272826C10015B780 /* SceneDelegate.swift */; };
 		19B0B04F272826C10015B780 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0B04E272826C10015B780 /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		198FE6F9272C1BF7004ACC3D /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
+		198FE6FC272CB583004ACC3D /* AddStudentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentScreen.swift; sourceTree = "<group>"; };
 		19B0B047272826C10015B780 /* InformationAboutStudents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InformationAboutStudents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0B04A272826C10015B780 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19B0B04C272826C10015B780 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		198FE6F6272C1B64004ACC3D /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				198FE6F9272C1BF7004ACC3D /* FirstScreen.swift */,
+			);
+			path = FirstScreen;
+			sourceTree = "<group>";
+		};
+		198FE6FB272CB562004ACC3D /* AddStudentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				198FE6FC272CB583004ACC3D /* AddStudentScreen.swift */,
+			);
+			path = AddStudentScreen;
+			sourceTree = "<group>";
+		};
 		19B0B03E272826C10015B780 = {
 			isa = PBXGroup;
 			children = (
@@ -68,7 +88,9 @@
 		19B0B049272826C10015B780 /* InformationAboutStudents */ = {
 			isa = PBXGroup;
 			children = (
+				198FE6F6272C1B64004ACC3D /* FirstScreen */,
 				19B0B06F272B42450015B780 /* View Controller */,
+				198FE6FB272CB562004ACC3D /* AddStudentScreen */,
 				19B0B05E272A02740015B780 /* Cells */,
 				19B0B070272B42880015B780 /* Support Files */,
 				19B0B058272826C30015B780 /* Info.plist */,
@@ -207,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				198FE6FA272C1BF7004ACC3D /* FirstScreen.swift in Sources */,
+				198FE6FD272CB583004ACC3D /* AddStudentScreen.swift in Sources */,
 				19B0B04F272826C10015B780 /* ViewController.swift in Sources */,
 				19B0B04B272826C10015B780 /* AppDelegate.swift in Sources */,
 				19B0B06D272AE8150015B780 /* FooterCells.swift in Sources */,
