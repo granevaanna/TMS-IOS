@@ -18,8 +18,11 @@ final class FirstScreen: UIViewController{
         customizeButtonToTable()
     }
     
-    func customizeButtonToTable(){
-        buttonToTable.titleLabel?.text = "3 курс"
+    func customizeButtonToTable() {
+        
+        buttonToTable.setTitle(" 3 курс ", for: .normal)
+        
+//        buttonToTable.titleLabel?.text = "3 курс"
         buttonToTable.titleLabel?.textColor = .white
         buttonToTable.titleLabel?.font = .systemFont(ofSize: 40)
         buttonToTable.backgroundColor = UIColor(displayP3Red: 0.88, green: 0.67, blue: 0.63, alpha: 1)
