@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TableViewController" customModule="galleryHW13" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="EKU-jW-8ja" id="wc0-hG-6kG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EKU-jW-8ja">
+                    <rect key="frame" x="0.0" y="44" width="414" height="787"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="i5M-Pr-FkT" id="IxR-sn-mOW"/>
+                        <outlet property="delegate" destination="i5M-Pr-FkT" id="JFW-KL-XRV"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9q-LR-zzj">
+                    <rect key="frame" x="122.5" y="841" width="169.5" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Перейти к коллекции"/>
+                    <connections>
+                        <action selector="moveToCollection:" destination="-1" eventType="touchUpInside" id="avs-rQ-RsA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <constraints>
+                <constraint firstItem="EKU-jW-8ja" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HXp-SD-taM"/>
+                <constraint firstItem="p9q-LR-zzj" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="K79-sO-c7u"/>
+                <constraint firstItem="p9q-LR-zzj" firstAttribute="top" secondItem="EKU-jW-8ja" secondAttribute="bottom" constant="10" id="SPN-K8-Nka"/>
+                <constraint firstItem="EKU-jW-8ja" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="m6s-Q9-V9O"/>
+                <constraint firstItem="EKU-jW-8ja" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pwr-vZ-Tbf"/>
+                <constraint firstItem="p9q-LR-zzj" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="10" id="s7f-AI-hz7"/>
+            </constraints>
+            <point key="canvasLocation" x="134.78260869565219" y="84.375"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
