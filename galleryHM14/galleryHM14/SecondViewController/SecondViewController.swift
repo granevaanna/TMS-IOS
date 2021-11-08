@@ -7,16 +7,16 @@
 
 import UIKit
 
-final class SecondViewController: UIViewController {
+ final class SecondViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     let dataSource: [CollectionCellModel] = [
-        CollectionCellModel(imageString: "photo1"),
+        CollectionCellModel(imageString: "photo7"),
         CollectionCellModel(imageString: "photo2"),
         CollectionCellModel(imageString: "photo3"),
         CollectionCellModel(imageString: "photo4"),
         CollectionCellModel(imageString: "photo5"),
         CollectionCellModel(imageString: "photo6"),
-        CollectionCellModel(imageString: "photo7"),
+        CollectionCellModel(imageString: "photo1"),
         CollectionCellModel(imageString: "photo8"),
         CollectionCellModel(imageString: "photo9")
     ]
@@ -27,7 +27,9 @@ final class SecondViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         navigationItem.title = "Публикации"
+        
     }
+    
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
@@ -52,7 +54,7 @@ extension SecondViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let itemPerRow: CGFloat = 1
         let paddingWidth = 20 * (itemPerRow + 1)
         let widthForItem = (collectionView.frame.width - paddingWidth) / itemPerRow
-        return CGSize(width: widthForItem, height: widthForItem + 50)
+        return CGSize(width: widthForItem, height: widthForItem + 70)
     }
 }
 
@@ -63,7 +65,23 @@ extension SecondViewController: PhotoCellDelegate{
         collectionView.reloadData()
     }
     
-    func comment() {
+    func comment(photoName: String) {
+        let alert = UIAlertController(title: "Комментарий", message: "", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Введите ваш комментарий"
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+        })
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            guard let comment = alert.textFields?.first?.text else {return}
+            
+            self.dataSource.first(where: {$0.photoName == photoName})?.commentString = comment
+            self.collectionView.reloadData()
+            
+//            NSLog("The \"OK\" alert occured.")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
         
     }
     
@@ -71,4 +89,3 @@ extension SecondViewController: PhotoCellDelegate{
         
     }
 }
-

@@ -12,13 +12,13 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     
     let dataSource: [CollectionCellModel] = [
-        CollectionCellModel(imageString: "photo1"),
+        CollectionCellModel(imageString: "photo7"),
         CollectionCellModel(imageString: "photo2"),
         CollectionCellModel(imageString: "photo3"),
         CollectionCellModel(imageString: "photo4"),
         CollectionCellModel(imageString: "photo5"),
         CollectionCellModel(imageString: "photo6"),
-        CollectionCellModel(imageString: "photo7"),
+        CollectionCellModel(imageString: "photo1"),
         CollectionCellModel(imageString: "photo8"),
         CollectionCellModel(imageString: "photo9")
     ]
@@ -27,6 +27,16 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         navigationItem.title = "My Instagram"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationItem.title = " "
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "My Instagram"
     }
 }
 
