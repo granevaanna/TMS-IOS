@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193269E2273AD582002EC417 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193269E0273AD582002EC417 /* ProfileViewController.swift */; };
+		193269E3273AD582002EC417 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193269E1273AD582002EC417 /* ProfileViewController.xib */; };
+		193269EB273ADF41002EC417 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193269EA273ADF41002EC417 /* TabBarController.swift */; };
+		193269F1273AEC86002EC417 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193269EF273AEC86002EC417 /* AuthenticationViewController.swift */; };
+		193269F2273AEC86002EC417 /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193269F0273AEC86002EC417 /* AuthenticationViewController.xib */; };
 		19A4E79227387DCE0075B437 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4E79027387DCE0075B437 /* SecondViewController.swift */; };
 		19A4E79327387DCE0075B437 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19A4E79127387DCE0075B437 /* SecondViewController.xib */; };
 		19C6BAD4273568650066BD22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C6BAD3273568650066BD22 /* AppDelegate.swift */; };
@@ -20,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		193269E0273AD582002EC417 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		193269E1273AD582002EC417 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		193269EA273ADF41002EC417 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		193269EF273AEC86002EC417 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		193269F0273AEC86002EC417 /* AuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
 		19A4E79027387DCE0075B437 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		19A4E79127387DCE0075B437 /* SecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		19C6BAD0273568650066BD22 /* galleryHM14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = galleryHM14.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +55,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		193269DF273AD560002EC417 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				193269E0273AD582002EC417 /* ProfileViewController.swift */,
+				193269E1273AD582002EC417 /* ProfileViewController.xib */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		193269EC273AEC0F002EC417 /* AuthenticationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				193269EF273AEC86002EC417 /* AuthenticationViewController.swift */,
+				193269F0273AEC86002EC417 /* AuthenticationViewController.xib */,
+			);
+			path = AuthenticationViewController;
+			sourceTree = "<group>";
+		};
 		19A4E78F27387DAD0075B437 /* SecondViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,11 +101,14 @@
 		19C6BAD2273568650066BD22 /* galleryHM14 */ = {
 			isa = PBXGroup;
 			children = (
+				193269EC273AEC0F002EC417 /* AuthenticationViewController */,
+				193269DF273AD560002EC417 /* ProfileViewController */,
 				19A4E78F27387DAD0075B437 /* SecondViewController */,
 				19C6BAE927356AA40066BD22 /* CollectionViewCell */,
 				19C6BAE8273568C30066BD22 /* ViewController */,
 				19C6BAE7273568710066BD22 /* Support Files */,
 				19C6BAE1273568670066BD22 /* Info.plist */,
+				193269EA273ADF41002EC417 /* TabBarController.swift */,
 			);
 			path = galleryHM14;
 			sourceTree = "<group>";
@@ -169,10 +200,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				193269E3273AD582002EC417 /* ProfileViewController.xib in Resources */,
 				19C6BAE0273568670066BD22 /* LaunchScreen.storyboard in Resources */,
 				19C6BADD273568670066BD22 /* Assets.xcassets in Resources */,
 				19C6BAED27356AD00066BD22 /* CollectionViewCell.xib in Resources */,
 				19C6BADB273568650066BD22 /* Main.storyboard in Resources */,
+				193269F2273AEC86002EC417 /* AuthenticationViewController.xib in Resources */,
 				19A4E79327387DCE0075B437 /* SecondViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,9 +217,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				193269E2273AD582002EC417 /* ProfileViewController.swift in Sources */,
 				19C6BAD8273568650066BD22 /* ViewController.swift in Sources */,
 				19C6BAD4273568650066BD22 /* AppDelegate.swift in Sources */,
 				19C6BAEC27356AD00066BD22 /* CollectionViewCell.swift in Sources */,
+				193269F1273AEC86002EC417 /* AuthenticationViewController.swift in Sources */,
+				193269EB273ADF41002EC417 /* TabBarController.swift in Sources */,
 				19A4E79227387DCE0075B437 /* SecondViewController.swift in Sources */,
 				19C6BAD6273568650066BD22 /* SceneDelegate.swift in Sources */,
 			);
