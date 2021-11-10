@@ -77,8 +77,6 @@ extension SecondViewController: PhotoCellDelegate{
             
             self.dataSource.first(where: {$0.photoName == photoName})?.commentString = comment
             self.collectionView.reloadData()
-            
-//            NSLog("The \"OK\" alert occured.")
         }))
         
         self.present(alert, animated: true, completion: nil)

@@ -13,17 +13,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        if UserDefaults.isLoggedIn{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let tabbar = storyboard.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController{
+                window?.rootViewController = tabbar
+                window?.makeKeyAndVisible()
+            }
+        } else{
+            let authenticationViewController = AuthenticationViewController()
+            window?.rootViewController = authenticationViewController
+            window?.makeKeyAndVisible()
+        }
         
 //        let tabBar = TabBarController()
 //        window?.rootViewController = tabBar
 //        window?.makeKeyAndVisible()
-        
-        let authenticationViewController = AuthenticationViewController()
-        window?.rootViewController = authenticationViewController
-        window?.makeKeyAndVisible()
+//
         
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -59,3 +65,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension UserDefaults{
+    static let authenticationKey = "isLoggedIn"
+    
+    static var isLoggedIn: Bool{
+        if let valueOfIsLoggedIn = UserDefaults.standard.value(forKey: UserDefaults.authenticationKey) as? Bool{
+            return valueOfIsLoggedIn
+        }else {
+            return false
+        }
+    }
+}

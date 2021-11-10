@@ -53,7 +53,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Rqu-3u-hO4">
             <objects>
-                <tabBarController id="AHI-YB-t2e" customClass="TabBarController" customModule="galleryHM14" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="AHI-YB-t2e" customClass="TabBarController" customModule="galleryHM14" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9YF-Ve-cJw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
