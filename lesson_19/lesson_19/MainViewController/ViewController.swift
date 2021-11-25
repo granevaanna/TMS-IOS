@@ -13,15 +13,14 @@ private enum SettingSection{
 }
 
 final class ViewController: UIViewController {
-
     @IBOutlet private weak var tableView: UITableView!
+    
     private var dataSource: [SettingSection] = [.mainInfo, .addingInfo]
     private var additionalDataSource: [AdditionalInfoModel] = [
         AdditionalInfoModel(sectionName: "Дата рождения", sectionValue: UserModel.shared.birthdayString, modelType: .data),
         AdditionalInfoModel(sectionName: "Адрес", sectionValue: UserModel.shared.locationString, modelType: .address),
         AdditionalInfoModel(sectionName: "О себе", sectionValue: UserModel.shared.personalInfo, modelType: .description)]
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Apple ID"
@@ -72,6 +71,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         }
     }
 }
+
 
 //MARK: - TableViewCellWithTablelDelegate
 extension ViewController: TableViewCellWithTablelDelegate{

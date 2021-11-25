@@ -12,10 +12,8 @@ protocol TableViewCellWithTablelDelegate: AnyObject{
 }
 
 final class TableViewCellWithTablel: UITableViewCell {
-    
     static let identifier = "kTableViewCellWithTablel"
     weak var delegate: TableViewCellWithTablelDelegate?
-    
     private var dataSource: [AdditionalInfoModel] = []
 
     @IBOutlet private weak var tableView: UITableView!

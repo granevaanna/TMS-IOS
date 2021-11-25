@@ -8,7 +8,6 @@
 import UIKit
 
 final class UserModel{
-    
     static let shared = UserModel()
     
     var profileImage: UIImage?
@@ -22,7 +21,7 @@ final class UserModel{
     private init(){}
 }
 
-class AdditionalInfoModel{
+final class AdditionalInfoModel{
     let sectionName: String
     var sectionValue: String?
     let modelType: AdditionalInfoModelType

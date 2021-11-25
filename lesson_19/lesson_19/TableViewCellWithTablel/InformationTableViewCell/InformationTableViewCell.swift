@@ -7,11 +7,11 @@
 
 import UIKit
 
-class InformationTableViewCell: UITableViewCell {
+final class InformationTableViewCell: UITableViewCell {
     static let identifier = "kInformationTableViewCell"
     
     @IBOutlet private weak var sectionNameLabel: UILabel!
-    @IBOutlet weak var sectionValueLabel: UILabel!
+    @IBOutlet private weak var sectionValueLabel: UILabel!
     @IBOutlet private weak var arrowImage: UIImageView!
     
     override func awakeFromNib() {
@@ -21,8 +21,6 @@ class InformationTableViewCell: UITableViewCell {
     func setupWith(model: AdditionalInfoModel){
         sectionNameLabel.text = model.sectionName
         sectionValueLabel.text = model.sectionValue
-//        let sectionValue = UserModel.shared.birthdayString ?? ""
-//        sectionValueLabel.text = sectionValue
     }
 }
 

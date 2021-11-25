@@ -11,12 +11,11 @@ protocol SettingsPickerDelegate: AnyObject{
     func addInformationToUserModel(string: String?, modelType: AdditionalInfoModelType)
 }
 
-class SettingsPicker: UIViewController, UITextFieldDelegate {
-    @IBOutlet private weak var textField: UITextField!
+final class SettingsPicker: UIViewController, UITextFieldDelegate {
+    static var identifier: AdditionalInfoModelType = .data
     weak var delegateDataPicker: SettingsPickerDelegate?
     
-    static var identifier: AdditionalInfoModelType = .data
-    
+    @IBOutlet private weak var textField: UITextField!
     private let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
@@ -32,7 +31,6 @@ class SettingsPicker: UIViewController, UITextFieldDelegate {
         //Formate Date
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
-        
         
         //ToolBar
         let toolbar = UIToolbar();
@@ -60,7 +58,6 @@ class SettingsPicker: UIViewController, UITextFieldDelegate {
     @objc func cancelDatePicker(){
         view.endEditing(true)
     }
-    
     
     @IBAction func saveButtonAction(_ sender: Any) {
         UserModel.shared.birthdayString = textField.text
