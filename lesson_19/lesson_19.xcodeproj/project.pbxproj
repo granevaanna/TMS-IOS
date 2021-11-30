@@ -20,8 +20,8 @@
 		196B4684274BFEF600887553 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196B4682274BFEF600887553 /* InformationTableViewCell.swift */; };
 		196B4685274BFEF600887553 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196B4683274BFEF600887553 /* InformationTableViewCell.xib */; };
 		196B4688274C00F200887553 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196B4687274C00F200887553 /* UserModel.swift */; };
-		196B468C274C1A5500887553 /* SettingsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196B468A274C1A5500887553 /* SettingsPicker.swift */; };
-		196B468D274C1A5500887553 /* SettingsPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196B468B274C1A5500887553 /* SettingsPicker.xib */; };
+		199F0F6D2756966300931939 /* SettingsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F0F6B2756966300931939 /* SettingsPicker.swift */; };
+		199F0F6E2756966300931939 /* SettingsPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199F0F6C2756966300931939 /* SettingsPicker.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +40,8 @@
 		196B4682274BFEF600887553 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
 		196B4683274BFEF600887553 /* InformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationTableViewCell.xib; sourceTree = "<group>"; };
 		196B4687274C00F200887553 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		196B468A274C1A5500887553 /* SettingsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPicker.swift; sourceTree = "<group>"; };
-		196B468B274C1A5500887553 /* SettingsPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsPicker.xib; sourceTree = "<group>"; };
+		199F0F6B2756966300931939 /* SettingsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPicker.swift; sourceTree = "<group>"; };
+		199F0F6C2756966300931939 /* SettingsPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsPicker.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +144,8 @@
 		196B4689274C1A2F00887553 /* SettingsPicker */ = {
 			isa = PBXGroup;
 			children = (
-				196B468A274C1A5500887553 /* SettingsPicker.swift */,
-				196B468B274C1A5500887553 /* SettingsPicker.xib */,
+				199F0F6B2756966300931939 /* SettingsPicker.swift */,
+				199F0F6C2756966300931939 /* SettingsPicker.xib */,
 			);
 			path = SettingsPicker;
 			sourceTree = "<group>";
@@ -209,9 +209,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				196B466E274BFA0500887553 /* LaunchScreen.storyboard in Resources */,
-				196B468D274C1A5500887553 /* SettingsPicker.xib in Resources */,
 				196B4680274BFB9000887553 /* TableViewCellWithTablel.xib in Resources */,
 				196B4685274BFEF600887553 /* InformationTableViewCell.xib in Resources */,
+				199F0F6E2756966300931939 /* SettingsPicker.xib in Resources */,
 				196B466B274BFA0500887553 /* Assets.xcassets in Resources */,
 				196B467B274BFB5C00887553 /* UserDataCell.xib in Resources */,
 				196B4669274BFA0300887553 /* Main.storyboard in Resources */,
@@ -226,12 +226,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				196B4684274BFEF600887553 /* InformationTableViewCell.swift in Sources */,
-				196B468C274C1A5500887553 /* SettingsPicker.swift in Sources */,
 				196B4688274C00F200887553 /* UserModel.swift in Sources */,
 				196B467F274BFB9000887553 /* TableViewCellWithTablel.swift in Sources */,
 				196B4666274BFA0300887553 /* ViewController.swift in Sources */,
 				196B4662274BFA0300887553 /* AppDelegate.swift in Sources */,
 				196B467A274BFB5C00887553 /* UserDataCell.swift in Sources */,
+				199F0F6D2756966300931939 /* SettingsPicker.swift in Sources */,
 				196B4664274BFA0300887553 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

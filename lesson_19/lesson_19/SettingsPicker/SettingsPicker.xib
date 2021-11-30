@@ -4,12 +4,14 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsPicker" customModule="lesson_19" customModuleProvider="target">
             <connections>
-                <outlet property="textField" destination="Rdi-R7-diE" id="4L1-M6-QlF"/>
+                <outlet property="textField" destination="oN5-rK-8UW" id="EUS-SC-SoN"/>
+                <outlet property="textView" destination="AO9-7k-41N" id="yeQ-FT-3Aa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,32 +20,53 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите текст" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rdi-R7-diE">
-                    <rect key="frame" x="10" y="436" width="394" height="34"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nod-K8-ldX">
-                    <rect key="frame" x="179.5" y="540" width="55.5" height="31"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iik-54-OMf">
+                    <rect key="frame" x="179.5" y="437.5" width="55.5" height="31"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Save"/>
                     <connections>
-                        <action selector="saveButtonAction:" destination="-1" eventType="touchUpInside" id="sdB-uJ-ELp"/>
+                        <action selector="saveButtonAction:" destination="-1" eventType="touchUpInside" id="8sv-Hn-aoe"/>
                     </connections>
                 </button>
+                <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AO9-7k-41N">
+                    <rect key="frame" x="10" y="217.5" width="394" height="170"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="170" id="91y-nP-ZAL"/>
+                    </constraints>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите текст" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oN5-rK-8UW">
+                    <rect key="frame" x="10" y="333.5" width="394" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Nod-K8-ldX" firstAttribute="top" secondItem="Rdi-R7-diE" secondAttribute="bottom" constant="70" id="0Af-gv-d4A"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rdi-R7-diE" secondAttribute="trailing" constant="10" id="BgM-zZ-w62"/>
-                <constraint firstItem="Rdi-R7-diE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="XdT-zb-HmW"/>
-                <constraint firstItem="Rdi-R7-diE" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="s1L-nz-lqd"/>
-                <constraint firstItem="Rdi-R7-diE" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="thA-8d-KJs"/>
-                <constraint firstItem="Nod-K8-ldX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="wY1-mL-1LU"/>
+                <constraint firstItem="AO9-7k-41N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="23W-OJ-A6A"/>
+                <constraint firstItem="oN5-rK-8UW" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="2ee-Gk-emd"/>
+                <constraint firstItem="Iik-54-OMf" firstAttribute="top" secondItem="oN5-rK-8UW" secondAttribute="bottom" constant="70" id="3H5-jX-vss"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oN5-rK-8UW" secondAttribute="trailing" constant="10" id="BfQ-Z8-mYp"/>
+                <constraint firstItem="oN5-rK-8UW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Iy8-9x-5Vx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AO9-7k-41N" secondAttribute="trailing" constant="10" id="JuL-hk-qzU"/>
+                <constraint firstItem="Iik-54-OMf" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="hn1-df-NPh"/>
+                <constraint firstItem="Iik-54-OMf" firstAttribute="top" secondItem="AO9-7k-41N" secondAttribute="bottom" constant="50" id="mpw-hX-PEs"/>
+                <constraint firstItem="Iik-54-OMf" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="pwx-Zt-ha8"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="81"/>
+            <point key="canvasLocation" x="137.68115942028987" y="80.357142857142847"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

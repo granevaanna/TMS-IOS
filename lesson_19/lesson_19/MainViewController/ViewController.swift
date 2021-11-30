@@ -31,8 +31,8 @@ final class ViewController: UIViewController {
         
         tableView.register(UINib(nibName: "TableViewCellWithTablel", bundle: nil), forCellReuseIdentifier: TableViewCellWithTablel.identifier)
         createUser()
-        let vc = SettingsPicker(nibName: "DataPickerController", bundle: nil)
-        vc.delegateDataPicker = self
+        //let vc = SettingsPicker(nibName: "SettingsPicker", bundle: nil)
+        //vc.delegateDataPicker = self
     }
     
     private func createUser(){
@@ -54,6 +54,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         case .mainInfo:
             let cell = tableView.dequeueReusableCell(withIdentifier: UserDataCell.identifier, for: indexPath) as! UserDataCell
             cell.setupCellData()
+            cell.selectionStyle = .none
             return cell
         case .addingInfo:
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellWithTablel.identifier, for: indexPath) as! TableViewCellWithTablel
@@ -76,9 +77,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
 //MARK: - TableViewCellWithTablelDelegate
 extension ViewController: TableViewCellWithTablelDelegate{
     func birtdayAction(model: AdditionalInfoModel) {
-        let dataPickerController = SettingsPicker()
-        SettingsPicker.identifier = model.modelType
-        dataPickerController.delegateDataPicker = self
+        let dataPickerController = SettingsPicker(type: model.modelType)
+        dataPickerController.delegate = self
         self.navigationController?.pushViewController(dataPickerController, animated: true)
     }
 }
