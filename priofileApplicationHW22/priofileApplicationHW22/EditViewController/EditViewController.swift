@@ -15,6 +15,10 @@ final class EditViewController: UIViewController {
     
     static var controllerType: EditViewControllerType = .name
     @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var photoImage: UIImageView!
+    
+    @IBOutlet private weak var addPhotoButton: UIButton!
+    
     weak var delegate: EditViewControllerDelegate?
     
     private let datePicker = UIDatePicker()
@@ -28,6 +32,9 @@ final class EditViewController: UIViewController {
             textField.placeholder = "Нажмите для выбора даты рождения"
             setupDatePicker()
         case .photo:
+            textField.isHidden = true
+            photoImage.isHidden = false
+            addPhotoButton.isEnabled = true
             textField.placeholder = "Введите название фото"
         }
     }
@@ -69,20 +76,45 @@ final class EditViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func addPhotoButtonAction(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        pickerController.sourceType = .photoLibrary
+        pickerController.allowsEditing = true
+        pickerController.delegate = self
+        
+        present(pickerController, animated: true, completion: nil)
+    }
     
     @IBAction func saveAction(_ sender: Any) {
-        if let textFieldText = textField.text, !textFieldText.isEmpty{
-            
-            switch EditViewController.controllerType{
-            case .name:
+        switch EditViewController.controllerType{
+        case .name:
+            if let textFieldText = textField.text, !textFieldText.isEmpty{
                 defaults.set(textFieldText, forKey: NameTableCell.identifier)
-            case .dateOfBirth:
-                defaults.set(textFieldText, forKey: DateOfBirthTableCell.identifier)
-            case .photo:
-                defaults.set(textFieldText, forKey: PhotoTableCell.identifier)
             }
+        case .dateOfBirth:
+            if let textFieldText = textField.text, !textFieldText.isEmpty{
+                defaults.set(textFieldText, forKey: DateOfBirthTableCell.identifier)
+            }
+        case .photo:
+            
+            if let imageData = photoImage.image?.jpegData(compressionQuality: 0) {
+                defaults.set(imageData, forKey: PhotoTableCell.identifier)
+            }
+            
+          
         }
         delegate?.editInformation()
         navigationController?.popViewController(animated: true)
+        
+    }
+}
+
+//MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension EditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[ .editedImage] as? UIImage {
+            photoImage.image = image
+        }
+        picker.dismiss(animated: true)
     }
 }

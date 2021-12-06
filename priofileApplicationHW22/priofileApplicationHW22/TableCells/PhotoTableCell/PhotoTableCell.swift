@@ -12,9 +12,10 @@ final class PhotoTableCell: UITableViewCell {
     @IBOutlet private weak var photoImageView: UIImageView!
 
     func setupWith(){
-        if let photoNameString = defaults.string(forKey: PhotoTableCell.identifier){
-        photoImageView.image = UIImage(named: photoNameString)
-        } else{
+        if let photoImage = defaults.object(forKey: PhotoTableCell.identifier) as? Data {
+            photoImageView.image = UIImage(data: photoImage)
+            
+        } else {
             photoImageView.image = UIImage(systemName: "photo")
         }
     }

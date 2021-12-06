@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditViewController" customModule="priofileApplicationHW22" customModuleProvider="target">
             <connections>
+                <outlet property="addPhotoButton" destination="Chc-0T-BJD" id="bts-if-JDm"/>
+                <outlet property="photoImage" destination="nvr-Ed-aRB" id="JQh-Wt-Jyb"/>
                 <outlet property="textField" destination="ZNJ-qX-jul" id="Iul-cj-slD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -34,17 +36,44 @@
                         <action selector="saveAction:" destination="-1" eventType="touchUpInside" id="Yjb-o9-Z1Z"/>
                     </connections>
                 </button>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nvr-Ed-aRB">
+                    <rect key="frame" x="132" y="129" width="150" height="147.5"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="cER-rG-jN6"/>
+                        <constraint firstAttribute="height" constant="150" id="eQL-zQ-XnO"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chc-0T-BJD">
+                    <rect key="frame" x="132" y="128" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="4Y9-W2-Vqa"/>
+                        <constraint firstAttribute="width" constant="150" id="8od-4g-xcd"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="addPhotoButtonAction:" destination="-1" eventType="touchUpInside" id="XYY-hG-nog"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="We6-T8-ugj" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="7or-15-ja2"/>
+                <constraint firstItem="Chc-0T-BJD" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="BRU-4F-prl"/>
+                <constraint firstItem="nvr-Ed-aRB" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="FYL-iP-oKI"/>
                 <constraint firstItem="ZNJ-qX-jul" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="IDb-To-Zy4"/>
                 <constraint firstItem="We6-T8-ugj" firstAttribute="top" secondItem="ZNJ-qX-jul" secondAttribute="bottom" constant="60" id="Saw-aS-pyv"/>
                 <constraint firstItem="ZNJ-qX-jul" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="TPr-ae-TxA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZNJ-qX-jul" secondAttribute="trailing" constant="10" id="axx-8D-FcX"/>
+                <constraint firstItem="We6-T8-ugj" firstAttribute="top" secondItem="nvr-Ed-aRB" secondAttribute="bottom" constant="60" id="nTt-Sg-PYn"/>
+                <constraint firstItem="We6-T8-ugj" firstAttribute="top" secondItem="Chc-0T-BJD" secondAttribute="bottom" constant="60" id="sw6-jA-x2B"/>
             </constraints>
             <point key="canvasLocation" x="139" y="94"/>
         </view>
     </objects>
+    <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
+    </resources>
 </document>
