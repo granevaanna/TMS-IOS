@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCityPicker()
+        textField.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CollectionCustomViewCell", bundle: nil), forCellWithReuseIdentifier: CollectionCustomViewCell.identifier)
@@ -52,6 +53,12 @@ class ViewController: UIViewController {
             textField.layer.borderWidth = 2
             textField.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
         }
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
     }
 }
 
