@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  lesson_19
+
+  Created by Анна Гранёва on 23.12.21.
+  
+*/
+"Birthday Date"="Дата рождения";
+"Address"="Адрес";
+"About me"="О себе";
+"Done"="Ок";
+"Cancel"="Отменить";
+"Anna"="Анна";
+"Save"="Сохранить";
+"Tsentralnyy"="Центральный";
+"Sovetskiy"="Советский";
+"Pervomayskiy"="Первомайский";
+"Partizanskiy"="Партизанский";
+"Zavodskoy"="Заводской";
+"Leninskiy"="Ленинский";
+"Oktyabrskiy"="Октябрьский";
+"Moskovskiy"="Московский";
+"Frunzenskiy"="Фрунзенский";

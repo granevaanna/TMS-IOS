@@ -17,9 +17,9 @@ final class ViewController: UIViewController {
     
     private var dataSource: [SettingSection] = [.mainInfo, .addingInfo]
     private var additionalDataSource: [AdditionalInfoModel] = [
-        AdditionalInfoModel(sectionName: "Дата рождения", sectionValue: UserModel.shared.birthdayString, modelType: .data),
-        AdditionalInfoModel(sectionName: "Адрес", sectionValue: UserModel.shared.locationString, modelType: .address),
-        AdditionalInfoModel(sectionName: "О себе", sectionValue: UserModel.shared.personalInfo, modelType: .description)]
+        AdditionalInfoModel(sectionName: NSLocalizedString("Birthday Date", comment: ""), sectionValue: UserModel.shared.birthdayString, modelType: .data),
+        AdditionalInfoModel(sectionName: NSLocalizedString("Address", comment: ""), sectionValue: UserModel.shared.locationString, modelType: .address),
+        AdditionalInfoModel(sectionName: NSLocalizedString("About me", comment: ""), sectionValue: UserModel.shared.personalInfo, modelType: .description)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ final class ViewController: UIViewController {
     }
     
     private func createUser(){
-        UserModel.shared.profileName = "Anna"
+        UserModel.shared.profileName = NSLocalizedString("Anna", comment: "")
         UserModel.shared.profileEmail = "granevaanna7@gmail.com"
         UserModel.shared.profileImage = UIImage(named: "profile")
     }

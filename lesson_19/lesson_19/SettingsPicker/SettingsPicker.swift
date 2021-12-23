@@ -13,22 +13,21 @@ protocol SettingsPickerDelegate: AnyObject{
 
 final class SettingsPicker: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var textField: UITextField!
-    
-    @IBOutlet weak var textView: UITextView!
-    
+    @IBOutlet private weak var textView: UITextView!
+    @IBOutlet private weak var saveButton: UIButton!
     
     weak var delegate: SettingsPickerDelegate?
     private let controllerType: AdditionalInfoModelType
     
-    private let locationsData: [String] = ["Центральный",
-                                          "Советский",
-                                          "Первомайский",
-                                          "Партизанский",
-                                          "Заводской",
-                                          "Ленинский",
-                                          "Октябрьский",
-                                          "Московский",
-                                          "Фрунзенский"]
+    private let locationsData: [String] = [NSLocalizedString("Tsentralnyy",comment:""),
+         NSLocalizedString("Sovetskiy", comment: ""),
+         NSLocalizedString("Pervomayskiy", comment: ""),
+         NSLocalizedString("Partizanskiy", comment: ""),
+         NSLocalizedString("Zavodskoy", comment: ""),
+         NSLocalizedString("Leninskiy", comment: ""),
+         NSLocalizedString("Oktyabrskiy", comment: ""),
+         NSLocalizedString("Moskovskiy", comment: ""),
+         NSLocalizedString("Frunzenskiy", comment: "")]
     
     private var locationsTempString: String?
     
@@ -46,6 +45,7 @@ final class SettingsPicker: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveButton.setTitle(NSLocalizedString("Save", comment: ""), for: .normal)
         switch controllerType{
         case .data:
             setupDatePicker()
@@ -83,11 +83,11 @@ final class SettingsPicker: UIViewController, UITextFieldDelegate {
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePickerAction))
+        let doneButton = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: .plain, target: self, action: #selector(donePickerAction))
         
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker))
+        let cancelButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: .plain, target: self, action: #selector(cancelDatePicker))
         
         toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
         
