@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		197C87D427BF84D80087D3CC /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197C87D327BF84D80087D3CC /* LessonModel.swift */; };
+		197C87D727BF86BC0087D3CC /* CreateLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197C87D627BF86BC0087D3CC /* CreateLessonView.swift */; };
+		197C87D927BF86E10087D3CC /* CreateLessonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197C87D827BF86E10087D3CC /* CreateLessonView.xib */; };
 		19E5BC6D27BC539400B58EF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC6C27BC539400B58EF8 /* AppDelegate.swift */; };
 		19E5BC6F27BC539400B58EF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC6E27BC539400B58EF8 /* SceneDelegate.swift */; };
 		19E5BC7127BC539400B58EF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC7027BC539400B58EF8 /* ViewController.swift */; };
@@ -18,9 +21,18 @@
 		19E5BC8A27BC563000B58EF8 /* UIColors+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC8927BC563000B58EF8 /* UIColors+Extentions.swift */; };
 		19E5BC8F27BC5DC600B58EF8 /* DaysOfTheWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC8D27BC5DC600B58EF8 /* DaysOfTheWeekCell.swift */; };
 		19E5BC9027BC5DC600B58EF8 /* DaysOfTheWeekCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19E5BC8E27BC5DC600B58EF8 /* DaysOfTheWeekCell.xib */; };
+		19E5BC9427BD209F00B58EF8 /* DaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC9227BD209F00B58EF8 /* DaysCell.swift */; };
+		19E5BC9527BD209F00B58EF8 /* DaysCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19E5BC9327BD209F00B58EF8 /* DaysCell.xib */; };
+		19E5BC9827BD21C900B58EF8 /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC9727BD21C900B58EF8 /* DaysView.swift */; };
+		19E5BC9A27BD21E800B58EF8 /* DaysView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19E5BC9927BD21E800B58EF8 /* DaysView.xib */; };
+		19E5BC9E27BD26F100B58EF8 /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC9C27BD26F100B58EF8 /* LessonCell.swift */; };
+		19E5BC9F27BD26F100B58EF8 /* LessonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19E5BC9D27BD26F100B58EF8 /* LessonCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		197C87D327BF84D80087D3CC /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
+		197C87D627BF86BC0087D3CC /* CreateLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLessonView.swift; sourceTree = "<group>"; };
+		197C87D827BF86E10087D3CC /* CreateLessonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateLessonView.xib; sourceTree = "<group>"; };
 		19E5BC6927BC539400B58EF8 /* Timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E5BC6C27BC539400B58EF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19E5BC6E27BC539400B58EF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +46,12 @@
 		19E5BC8927BC563000B58EF8 /* UIColors+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+Extentions.swift"; sourceTree = "<group>"; };
 		19E5BC8D27BC5DC600B58EF8 /* DaysOfTheWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfTheWeekCell.swift; sourceTree = "<group>"; };
 		19E5BC8E27BC5DC600B58EF8 /* DaysOfTheWeekCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaysOfTheWeekCell.xib; sourceTree = "<group>"; };
+		19E5BC9227BD209F00B58EF8 /* DaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCell.swift; sourceTree = "<group>"; };
+		19E5BC9327BD209F00B58EF8 /* DaysCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaysCell.xib; sourceTree = "<group>"; };
+		19E5BC9727BD21C900B58EF8 /* DaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysView.swift; sourceTree = "<group>"; };
+		19E5BC9927BD21E800B58EF8 /* DaysView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaysView.xib; sourceTree = "<group>"; };
+		19E5BC9C27BD26F100B58EF8 /* LessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
+		19E5BC9D27BD26F100B58EF8 /* LessonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LessonCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +65,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		197C87D227BF84B40087D3CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				197C87D327BF84D80087D3CC /* LessonModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		197C87D527BF86960087D3CC /* CreateLessonView */ = {
+			isa = PBXGroup;
+			children = (
+				197C87D627BF86BC0087D3CC /* CreateLessonView.swift */,
+				197C87D827BF86E10087D3CC /* CreateLessonView.xib */,
+			);
+			path = CreateLessonView;
+			sourceTree = "<group>";
+		};
 		19E5BC6027BC539400B58EF8 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +101,7 @@
 		19E5BC6B27BC539400B58EF8 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				197C87D227BF84B40087D3CC /* Models */,
 				19E5BC8827BC55EE00B58EF8 /* Extentions */,
 				19E5BC8127BC544400B58EF8 /* Controllers */,
 				19E5BC8027BC53B100B58EF8 /* SupportFiles */,
@@ -99,6 +135,8 @@
 		19E5BC8227BC551900B58EF8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				197C87D527BF86960087D3CC /* CreateLessonView */,
+				19E5BC9627BD21B800B58EF8 /* DaysView */,
 				19E5BC8327BC552500B58EF8 /* HeaderView */,
 			);
 			path = Views;
@@ -124,6 +162,8 @@
 		19E5BC8B27BC5D2B00B58EF8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				19E5BC9B27BD26E300B58EF8 /* LessonCell */,
+				19E5BC9127BD208300B58EF8 /* DaysCell */,
 				19E5BC8C27BC5D4100B58EF8 /* DaysOfTheWeekCell */,
 			);
 			path = Cells;
@@ -136,6 +176,33 @@
 				19E5BC8E27BC5DC600B58EF8 /* DaysOfTheWeekCell.xib */,
 			);
 			path = DaysOfTheWeekCell;
+			sourceTree = "<group>";
+		};
+		19E5BC9127BD208300B58EF8 /* DaysCell */ = {
+			isa = PBXGroup;
+			children = (
+				19E5BC9227BD209F00B58EF8 /* DaysCell.swift */,
+				19E5BC9327BD209F00B58EF8 /* DaysCell.xib */,
+			);
+			path = DaysCell;
+			sourceTree = "<group>";
+		};
+		19E5BC9627BD21B800B58EF8 /* DaysView */ = {
+			isa = PBXGroup;
+			children = (
+				19E5BC9727BD21C900B58EF8 /* DaysView.swift */,
+				19E5BC9927BD21E800B58EF8 /* DaysView.xib */,
+			);
+			path = DaysView;
+			sourceTree = "<group>";
+		};
+		19E5BC9B27BD26E300B58EF8 /* LessonCell */ = {
+			isa = PBXGroup;
+			children = (
+				19E5BC9C27BD26F100B58EF8 /* LessonCell.swift */,
+				19E5BC9D27BD26F100B58EF8 /* LessonCell.xib */,
+			);
+			path = LessonCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,11 +263,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19E5BC9527BD209F00B58EF8 /* DaysCell.xib in Resources */,
+				19E5BC9A27BD21E800B58EF8 /* DaysView.xib in Resources */,
 				19E5BC7927BC539900B58EF8 /* LaunchScreen.storyboard in Resources */,
+				19E5BC9F27BD26F100B58EF8 /* LessonCell.xib in Resources */,
 				19E5BC7627BC539900B58EF8 /* Assets.xcassets in Resources */,
 				19E5BC9027BC5DC600B58EF8 /* DaysOfTheWeekCell.xib in Resources */,
 				19E5BC7427BC539400B58EF8 /* Main.storyboard in Resources */,
 				19E5BC8727BC556000B58EF8 /* HeaderView.xib in Resources */,
+				197C87D927BF86E10087D3CC /* CreateLessonView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +285,12 @@
 				19E5BC8A27BC563000B58EF8 /* UIColors+Extentions.swift in Sources */,
 				19E5BC8F27BC5DC600B58EF8 /* DaysOfTheWeekCell.swift in Sources */,
 				19E5BC7127BC539400B58EF8 /* ViewController.swift in Sources */,
+				19E5BC9427BD209F00B58EF8 /* DaysCell.swift in Sources */,
+				19E5BC9E27BD26F100B58EF8 /* LessonCell.swift in Sources */,
 				19E5BC6D27BC539400B58EF8 /* AppDelegate.swift in Sources */,
+				197C87D727BF86BC0087D3CC /* CreateLessonView.swift in Sources */,
+				19E5BC9827BD21C900B58EF8 /* DaysView.swift in Sources */,
+				197C87D427BF84D80087D3CC /* LessonModel.swift in Sources */,
 				19E5BC6F27BC539400B58EF8 /* SceneDelegate.swift in Sources */,
 				19E5BC8527BC554200B58EF8 /* HeaderView.swift in Sources */,
 			);

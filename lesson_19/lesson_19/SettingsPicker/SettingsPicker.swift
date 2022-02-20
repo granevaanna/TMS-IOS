@@ -13,9 +13,7 @@ protocol SettingsPickerDelegate: AnyObject{
 
 final class SettingsPicker: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var textField: UITextField!
-    
     @IBOutlet weak var textView: UITextView!
-    
     
     weak var delegate: SettingsPickerDelegate?
     private let controllerType: AdditionalInfoModelType

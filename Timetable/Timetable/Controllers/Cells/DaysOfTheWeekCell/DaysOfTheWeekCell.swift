@@ -14,6 +14,11 @@ final class DaysOfTheWeekCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func prepareForReuse() {
+        backgroundColor = .clear
+        dayLabel.textColor = .black
+    }
 
     func setupWith(day: String){
         dayLabel.text = day
@@ -21,5 +26,8 @@ final class DaysOfTheWeekCell: UICollectionViewCell {
     
     func setMainColorForDayLabel(){
         dayLabel.textColor = .mainColor
+    }
+    func setBlackColorForDayLabel(){
+        dayLabel.textColor = .black
     }
 }
