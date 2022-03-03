@@ -1,17 +1,13 @@
 //
-//  HeaderView.swift
+//  EmptyLessonsView.swift
 //  Timetable
 //
-//  Created by Анна Гранёва on 16.02.22.
+//  Created by Анна Гранёва on 3.03.22.
 //
 
 import UIKit
 
-protocol HeaderViewDelegate: AnyObject{
-    func pressedSettingButton(pressedFlag: Bool)
-}
-
-final class HeaderView: UIView{
+final class EmptyLessonsView: UIView{
     @IBOutlet private var contentView: UIView!
     private var pressedFlag = false
     weak var delegate: HeaderViewDelegate?
@@ -31,11 +27,5 @@ final class HeaderView: UIView{
             addSubview(contentView)
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            contentView.backgroundColor = .mainColor
         }
-    
-    @IBAction private func settingButtonAction(_ sender: Any) {
-        pressedFlag.toggle()
-        delegate?.pressedSettingButton(pressedFlag: pressedFlag)
-    }
 }

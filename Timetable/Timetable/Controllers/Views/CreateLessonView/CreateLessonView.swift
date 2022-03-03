@@ -7,11 +7,17 @@
 
 import UIKit
 
+enum CreateLessonViewType{
+    case add
+    case adit
+}
+
 protocol CreateLessonViewDelegate: AnyObject{
     func hideCreateLessonView()
     func changedUpHideConstraint()
     func changedDownHideConstraint()
-    func addCurrentLesson(lesson: LessonModel, index: Int)
+    func addCurrentLesson(lesson: LessonModel)
+    func aditCurrentLesson(lesson: LessonModel)
 }
 
 final class CreateLessonView: UIView{
@@ -22,8 +28,9 @@ final class CreateLessonView: UIView{
     private var timePicker = UIDatePicker()
     
     weak var delegate: CreateLessonViewDelegate?
-    private var currentLessonModel: LessonModel = LessonModel(lessonName: "", teacher: "", audience: "", startTime: "", endTime: "")
     private var tagOfSelectedTextField: Int = 0
+    
+    private var createLessonViewType: CreateLessonViewType = .add
 
     private enum TextFieldsType: Int{
         case lessonName = 0
@@ -63,21 +70,49 @@ final class CreateLessonView: UIView{
         delegate?.hideCreateLessonView()
         delegate?.changedDownHideConstraint()
         textFields.compactMap({ $0.text = "" })
+        textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.layer.borderWidth = 0
+        textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.layer.borderColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     @IBAction private func saveButtonAction(_ sender: Any) {
-        currentLessonModel.lessonName = textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text ?? "-"
-        currentLessonModel.teacher = textFields.first(where: { $0.tag == TextFieldsType.teacher.rawValue })?.text ?? "-"
-        currentLessonModel.audience = textFields.first(where: { $0.tag == TextFieldsType.audience.rawValue })?.text ?? "-"
-        currentLessonModel.startTime = textFields.first(where: { $0.tag == TextFieldsType.startTime.rawValue })?.text ?? "-"
-        currentLessonModel.endTime = textFields.first(where: { $0.tag == TextFieldsType.endTime.rawValue })?.text ?? "-"
-        
-        delegate?.addCurrentLesson(lesson: currentLessonModel, index: 0)
-        
-        endEditing(true)
-        delegate?.hideCreateLessonView()
-        delegate?.changedDownHideConstraint()
-        textFields.compactMap({ $0.text = "" })
+        if let lessonText = textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text, lessonText.isEmpty {
+            textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.layer.borderWidth = 2
+            textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
+        } else {
+            var currentLessonModel = LessonModel()
+            
+            currentLessonModel.lessonName = textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text ?? "-"
+            currentLessonModel.teacher = textFields.first(where: { $0.tag == TextFieldsType.teacher.rawValue })?.text ?? "-"
+            currentLessonModel.audience = textFields.first(where: { $0.tag == TextFieldsType.audience.rawValue })?.text ?? "-"
+            currentLessonModel.startTime = textFields.first(where: { $0.tag == TextFieldsType.startTime.rawValue })?.text ?? "-"
+            currentLessonModel.endTime = textFields.first(where: { $0.tag == TextFieldsType.endTime.rawValue })?.text ?? "-"
+            
+            switch createLessonViewType {
+            case .add:
+                delegate?.addCurrentLesson(lesson: currentLessonModel)
+            case .adit:
+                delegate?.aditCurrentLesson(lesson: currentLessonModel)
+            }
+            
+            endEditing(true)
+            delegate?.hideCreateLessonView()
+            delegate?.changedDownHideConstraint()
+            textFields.compactMap({ $0.text = "" })
+            textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.layer.borderWidth = 0
+            textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.layer.borderColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+    }
+    
+    func setToTextFields(with lessonModel: LessonModel){
+        textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text = lessonModel.lessonName
+        textFields.first(where: { $0.tag == TextFieldsType.teacher.rawValue })?.text = lessonModel.teacher
+        textFields.first(where: { $0.tag == TextFieldsType.audience.rawValue })?.text = lessonModel.audience
+        textFields.first(where: { $0.tag == TextFieldsType.startTime.rawValue })?.text = lessonModel.startTime
+        textFields.first(where: { $0.tag == TextFieldsType.endTime.rawValue })?.text = lessonModel.endTime
+    }
+    
+    func changeCreateLessonViewType(createLessonViewType: CreateLessonViewType){
+        self.createLessonViewType = createLessonViewType
     }
 }
 
@@ -118,7 +153,7 @@ extension CreateLessonView{
     
     @objc func donePickerAction() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:MM"
+        formatter.dateFormat = "HH:mm"
         textFields.first(where: { $0.tag == tagOfSelectedTextField })?.text = formatter.string(from: timePicker.date)
         endEditing(true)
     }

@@ -7,16 +7,31 @@
 
 import UIKit
 
-//protocol DaysViewDelegate: AnyObject{
-//    func setButtonTag(tag: Int)
-//}
-
 final class DaysView: UIView{
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var daysCollectionView: UICollectionView!
-    var dataSource:[[LessonModel]] = [[LessonModel(lessonName: "Математика", teacher: "Препод", audience: "409", startTime: "10:00", endTime: "11:20"), LessonModel(lessonName: "Математика", teacher: "Препод", audience: "409", startTime: "10:00", endTime: "11:20")], [], [], [], [], [], []]
+    
+    private var dataSource: [[LessonModel]] {
+        set {
+            if let encoded = try? JSONEncoder().encode(newValue) {
+                UserDefaults.standard.set(encoded, forKey: "kToDoDataSource")
+                UserDefaults.standard.synchronize()
+            }
+        }
+        
+        get {
+            if let data = UserDefaults.standard.value(forKey: "kToDoDataSource") as? Data,
+               let array = try? JSONDecoder().decode([[LessonModel]].self, from: data) {
+                return array
+            } else {
+                return [[], [], [], [], [], [], []]
+            }
+        }
+    }
+    
+    
+//    private var dataSource:[[LessonModel]] = [[LessonModel(lessonName: "Ttttttt", teacher: "Препод", audience: "409", startTime: "10:00", endTime: "11:20"), LessonModel(lessonName: "Математика", teacher: "Препод", audience: "409", startTime: "10:00", endTime: "11:20")], [], [LessonModel(lessonName: "Ttttttt", teacher: "Препод", audience: "409", startTime: "10:00", endTime: "11:20")], [], [], [], []]
     weak var delegate: DaysCellDelegate?
-//    weak var daysViewDelegate: DaysViewDelegate?
     
     override init(frame: CGRect) {
             super.init(frame: frame)
@@ -36,20 +51,30 @@ final class DaysView: UIView{
             daysCollectionView.delegate = self
             daysCollectionView.dataSource = self
             daysCollectionView.register(UINib(nibName: "DaysCell", bundle: nil), forCellWithReuseIdentifier: DaysCell.identifier)
+            
         }
     func addLessonToDataSource(lesson: LessonModel, dayIndex: Int){
         dataSource[dayIndex].append(lesson)
         daysCollectionView.reloadData()
     }
     
-//    @objc func setNumberFromArray( _ button: UIButton) {
-//        let buttonTag = button.tag
-//
-//        print(buttonTag)
-//
-//
-//        daysViewDelegate?.setButtonTag(tag: buttonTag)
-//    }
+    func aditLessonToDataSource(lesson: LessonModel, dayIndex: Int, lessonIndex: Int){
+        dataSource[dayIndex][lessonIndex] = lesson
+        daysCollectionView.reloadData()
+    }
+    
+    
+    func removeFromDataSource(dayIndex: Int, lessonIndex: Int){
+        dataSource[dayIndex].remove(at: lessonIndex)
+    }
+    
+    func updateDaysCollectionView(){
+        daysCollectionView.reloadData()
+    }
+    
+    func getLessonModelFromDataSource(dayIndex: Int, lessonIndex: Int) -> LessonModel{
+        return dataSource[dayIndex][lessonIndex]
+    }
     
 }
 
@@ -62,7 +87,7 @@ extension DaysView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = daysCollectionView.dequeueReusableCell(withReuseIdentifier: DaysCell.identifier, for: indexPath) as! DaysCell
-        cell.setup(with: dataSource[indexPath.row])
+        cell.setup(with: dataSource[indexPath.row], addButtonId: indexPath.row, dayIndex: indexPath.row)
         cell.delegate = self
         return cell
     }
@@ -82,7 +107,17 @@ extension DaysView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
 
 //MARK: - DaysCellDelegate
 extension DaysView: DaysCellDelegate{
-    func showCreateLessonView() {
-        delegate?.showCreateLessonView()
+    func moveLesson(moveRowAt: Int, destinationIndex: Int, dayIndex: Int) {
+        let movedLesson = dataSource[dayIndex].remove(at: moveRowAt)
+        dataSource[dayIndex].insert(movedLesson, at: destinationIndex)
+        daysCollectionView.reloadData()
+    }
+    
+    func showSelectedLessonView(lessonIndex: Int, dayIndex: Int) {
+        delegate?.showSelectedLessonView(lessonIndex: lessonIndex, dayIndex: dayIndex)
+    }
+    
+    func showCreateLessonView(id: Int) {
+        delegate?.showCreateLessonView(id: id)
     }
 }

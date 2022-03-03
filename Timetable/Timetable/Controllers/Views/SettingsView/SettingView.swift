@@ -1,20 +1,19 @@
 //
-//  HeaderView.swift
+//  SettingView.swift
 //  Timetable
 //
-//  Created by Анна Гранёва on 16.02.22.
+//  Created by Анна Гранёва on 3.03.22.
 //
 
 import UIKit
 
-protocol HeaderViewDelegate: AnyObject{
-    func pressedSettingButton(pressedFlag: Bool)
+protocol SettingViewDelegate: AnyObject{
+    func showDeleteAllAllert()
 }
 
-final class HeaderView: UIView{
+final class SettingView: UIView{
     @IBOutlet private var contentView: UIView!
-    private var pressedFlag = false
-    weak var delegate: HeaderViewDelegate?
+    weak var delegate: SettingViewDelegate?
 
     override init(frame: CGRect) {
             super.init(frame: frame)
@@ -31,11 +30,14 @@ final class HeaderView: UIView{
             addSubview(contentView)
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            contentView.backgroundColor = .mainColor
+            contentView.layer.cornerRadius = 10
         }
     
-    @IBAction private func settingButtonAction(_ sender: Any) {
-        pressedFlag.toggle()
-        delegate?.pressedSettingButton(pressedFlag: pressedFlag)
+    @IBAction private func editButtonAction(_ sender: Any) {
     }
+    
+    @IBAction private func deleteAllButtonAction(_ sender: Any) {
+        delegate?.showDeleteAllAllert()
+    }
+    
 }
