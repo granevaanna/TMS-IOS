@@ -28,12 +28,12 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="eS7-g1-gC5"/>
+                                    <constraint firstAttribute="height" constant="80" id="TqL-8i-w9X"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OSG-mt-lAO">
-                                <rect key="frame" x="0.0" y="124" width="414" height="40"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="127" width="414" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="uat-JE-naL"/>
                                 </constraints>
@@ -55,18 +55,18 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHa-nh-ZB3" customClass="DaysView" customModule="Timetable" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="164" width="414" height="698"/>
+                                <rect key="frame" x="0.0" y="167" width="414" height="695"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Id-wK-d0q" customClass="CreateLessonView" customModule="Timetable" customModuleProvider="target">
-                                <rect key="frame" x="47" y="224" width="320" height="385.5"/>
+                                <rect key="frame" x="33" y="227" width="348" height="408.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="8Id-wK-d0q" secondAttribute="height" multiplier="307:370" id="9d5-iC-MBN"/>
+                                    <constraint firstAttribute="width" secondItem="8Id-wK-d0q" secondAttribute="height" multiplier="307:360" id="9d5-iC-MBN"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTv-Mu-gyh" customClass="SelectedLessonView" customModule="Timetable" customModuleProvider="target">
-                                <rect key="frame" x="50" y="244" width="314" height="250"/>
+                                <rect key="frame" x="50" y="247" width="314" height="250"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="sVg-uz-8i8"/>
@@ -92,19 +92,18 @@
                             <constraint firstItem="VHa-nh-ZB3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CBx-8n-oPV"/>
                             <constraint firstItem="8Id-wK-d0q" firstAttribute="centerX" secondItem="VHa-nh-ZB3" secondAttribute="centerX" id="LFt-16-5RB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WTv-Mu-gyh" secondAttribute="trailing" constant="50" id="LuS-NY-A1o"/>
-                            <constraint firstItem="8Id-wK-d0q" firstAttribute="width" secondItem="VHa-nh-ZB3" secondAttribute="height" multiplier="320:698" id="MxQ-c4-up6"/>
+                            <constraint firstItem="8Id-wK-d0q" firstAttribute="width" secondItem="VHa-nh-ZB3" secondAttribute="height" multiplier="350:698" id="MxQ-c4-up6"/>
                             <constraint firstItem="OSG-mt-lAO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OHz-qr-Aak"/>
                             <constraint firstItem="QAE-7H-Qw6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Oh6-Ao-JB3"/>
                             <constraint firstItem="8Id-wK-d0q" firstAttribute="top" secondItem="OSG-mt-lAO" secondAttribute="bottom" constant="60" id="P5d-cc-jgr"/>
                             <constraint firstItem="QAE-7H-Qw6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="T4a-g2-DcI"/>
                             <constraint firstItem="VHa-nh-ZB3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VuZ-pv-YLi"/>
-                            <constraint firstItem="OSG-mt-lAO" firstAttribute="top" secondItem="arC-Gp-D4J" secondAttribute="bottom" id="aTP-Yl-lLU"/>
+                            <constraint firstItem="OSG-mt-lAO" firstAttribute="top" secondItem="arC-Gp-D4J" secondAttribute="bottom" constant="3" id="aTP-Yl-lLU"/>
                             <constraint firstAttribute="trailing" secondItem="QAE-7H-Qw6" secondAttribute="trailing" id="dBz-iQ-C35"/>
                             <constraint firstItem="VHa-nh-ZB3" firstAttribute="top" secondItem="OSG-mt-lAO" secondAttribute="bottom" id="pQY-JM-xmh"/>
                             <constraint firstItem="WTv-Mu-gyh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ps1-kV-141"/>
                             <constraint firstItem="OSG-mt-lAO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vBA-Zk-9j3"/>
                             <constraint firstItem="VHa-nh-ZB3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="wHw-Dy-g20"/>
-                            <constraint firstItem="OSG-mt-lAO" firstAttribute="top" secondItem="arC-Gp-D4J" secondAttribute="bottom" id="ybg-gH-7nk"/>
                             <constraint firstItem="Xuh-VW-Uee" firstAttribute="top" secondItem="arC-Gp-D4J" secondAttribute="bottom" constant="-20" id="ys1-dQ-NMb"/>
                         </constraints>
                     </view>

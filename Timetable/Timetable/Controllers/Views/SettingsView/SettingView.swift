@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SettingViewDelegate: AnyObject{
-    func showDeleteAllAllert()
+    func showDeleteAllAlert()
 }
 
 final class SettingView: UIView{
@@ -37,7 +37,7 @@ final class SettingView: UIView{
     }
     
     @IBAction private func deleteAllButtonAction(_ sender: Any) {
-        delegate?.showDeleteAllAllert()
+        delegate?.showDeleteAllAlert()
     }
     
 }

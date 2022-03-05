@@ -11,23 +11,16 @@ final class DaysOfTheWeekCell: UICollectionViewCell {
     static let identifier = "kDaysOfTheWeekCell"
     @IBOutlet weak var dayLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func prepareForReuse() {
-        backgroundColor = .clear
-        dayLabel.textColor = .black
-    }
-
     func setupWith(day: String){
         dayLabel.text = day
     }
     
     func setMainColorForDayLabel(){
-        dayLabel.textColor = .mainColor
+        backgroundColor = .mainColor
+        dayLabel.textColor = .white
     }
     func setBlackColorForDayLabel(){
+        backgroundColor = .white
         dayLabel.textColor = .black
     }
 }

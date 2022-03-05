@@ -16,8 +16,6 @@ final class LessonCell: UITableViewCell {
     @IBOutlet private weak var startTimeLabel: UILabel!
     @IBOutlet private weak var endTimeLabel: UILabel!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.borderWidth = 3

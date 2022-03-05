@@ -34,6 +34,10 @@ final class HeaderView: UIView{
             contentView.backgroundColor = .mainColor
         }
     
+    func changePressedFlag(flag: Bool){
+        pressedFlag = flag
+    }
+    
     @IBAction private func settingButtonAction(_ sender: Any) {
         pressedFlag.toggle()
         delegate?.pressedSettingButton(pressedFlag: pressedFlag)

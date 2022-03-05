@@ -18,8 +18,7 @@ final class ViewController: UIViewController {
     
     
     @IBOutlet private weak var hideConstraintCreateLessonView: NSLayoutConstraint!
-    
-    private let daysOfTheWeekDataSourse: [String] = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+    private let daysOfTheWeekDataSourse: [String] = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
     
     private var pressedAddButtonId: Int?
     
@@ -36,13 +35,39 @@ final class ViewController: UIViewController {
         settingView.delegate = self
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        daysView.scrollTo(day: getCurrentDayIndex())
+    }
+    
     private func settingsForDaysOfTheWeekCollectionView(){
         daysOfTheWeekCollectionView.delegate = self
         daysOfTheWeekCollectionView.dataSource = self
         daysOfTheWeekCollectionView.register(UINib(nibName: "DaysOfTheWeekCell", bundle: nil), forCellWithReuseIdentifier: DaysOfTheWeekCell.identifier)
     }
+    
+    func getCurrentDayIndex() -> Int{
+        let date = Date()
+        let calendar = Calendar.current
+        let weekday = calendar.component(.weekday, from: date)
+        if weekday == 1{
+            return 6
+        } else{
+            return weekday - 2
+        }
+    }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        super.touchesBegan(touches, with: event)
+//        
+//        let touch = touches.first
+//        guard let location = touch?.location(in: self.view) else { return }
+//        if selectedLessonView.frame.contains(location) {
+//            selectedLessonView.isHidden = true
+//        }
+//    }
 }
-
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -53,18 +78,23 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = daysOfTheWeekCollectionView.dequeueReusableCell(withReuseIdentifier: DaysOfTheWeekCell.identifier, for: indexPath) as! DaysOfTheWeekCell
         cell.setupWith(day: daysOfTheWeekDataSourse[indexPath.row])
+        if indexPath.row == getCurrentDayIndex(){
+            cell.setMainColorForDayLabel()
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: CGFloat(150), height: CGFloat(40))
+//        return CGSize(width: CGFloat(150), height: CGFloat(40))
+        return CGSize(width: CGFloat(view.frame.width / 8.2), height: CGFloat(40))
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if let cell = collectionView.cellForItem(at: indexPath) as? DaysOfTheWeekCell {
             cell.setMainColorForDayLabel()
         }
+        daysView.scrollTo(day: indexPath.row)
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -109,7 +139,7 @@ extension ViewController: CreateLessonViewDelegate{
     }
     
     func changedUpHideConstraint() {
-        hideConstraintCreateLessonView.constant = -35
+        hideConstraintCreateLessonView.constant = -5
     }
     
     func hideCreateLessonView(){
@@ -150,7 +180,14 @@ extension ViewController: HeaderViewDelegate{
 
 //MARK: - SettingViewDelegate
 extension ViewController: SettingViewDelegate{
-    func showDeleteAllAllert() {
-        let allertController = UIAlertController()
+    func showDeleteAllAlert() {
+        settingView.isHidden = true
+        headerView.changePressedFlag(flag: false)
+        let alertController = UIAlertController(title: "", message: "Вы точно хотите очистить расписание?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] ok in
+            self?.daysView.removeAllFromDataSource()
+        }))
+        alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }

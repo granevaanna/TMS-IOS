@@ -15,7 +15,7 @@ protocol DaysCellDelegate: AnyObject{
 
 final class DaysCell: UICollectionViewCell {
     static let identifier = "kDaysCell"
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var emptyLessonsView: EmptyLessonsView!
     
     private var lessons: [LessonModel] = []
@@ -29,6 +29,7 @@ final class DaysCell: UICollectionViewCell {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "LessonCell", bundle: nil), forCellReuseIdentifier: LessonCell.identifier)
+        
 //        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture))
 //        tableView.addGestureRecognizer(longPressGesture)
         

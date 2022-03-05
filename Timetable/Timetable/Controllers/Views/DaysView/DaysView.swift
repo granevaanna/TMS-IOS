@@ -29,8 +29,6 @@ final class DaysView: UIView{
         }
     }
     
-    
-//    private var dataSource:[[LessonModel]] = [[LessonModel(lessonName: "Ttttttt", teacher: "Препод", audience: "409", startTime: "10:00", endTime: "11:20"), LessonModel(lessonName: "Математика", teacher: "Препод", audience: "409", startTime: "10:00", endTime: "11:20")], [], [LessonModel(lessonName: "Ttttttt", teacher: "Препод", audience: "409", startTime: "10:00", endTime: "11:20")], [], [], [], []]
     weak var delegate: DaysCellDelegate?
     
     override init(frame: CGRect) {
@@ -68,8 +66,25 @@ final class DaysView: UIView{
         dataSource[dayIndex].remove(at: lessonIndex)
     }
     
-    func updateDaysCollectionView(){
+    func removeAllFromDataSource(){
+        for i in 0...dataSource.count - 1 {
+            dataSource[i].removeAll()
+        }
         daysCollectionView.reloadData()
+    }
+    
+    func updateDaysCollectionView() {
+        daysCollectionView.reloadData()
+    }
+    
+    
+    func scrollTo(day: Int) {
+        DispatchQueue.main.async { [weak self] in
+            let indexPath = IndexPath(row: day, section: 0)
+            self?.daysCollectionView.scrollToItem(at: indexPath,
+                                                  at: .centeredHorizontally,
+                                                  animated: true)
+        }
     }
     
     func getLessonModelFromDataSource(dayIndex: Int, lessonIndex: Int) -> LessonModel{
