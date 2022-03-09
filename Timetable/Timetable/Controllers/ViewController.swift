@@ -58,17 +58,34 @@ final class ViewController: UIViewController {
         }
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        super.touchesBegan(touches, with: event)
-//
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+
 //        let touch = touches.first
 //        guard let location = touch?.location(in: self.view) else { return }
-//        
-//
-//        if !selectedLessonView.frame.contains(location){
-//            selectedLessonView.isHidden = true
-//        }
-//    }
+
+        if !selectedLessonView.isHidden{
+            selectedLessonView.isHidden = true
+            enabledViews()
+        }
+        
+        if !settingView.isHidden{
+            settingView.isHidden = true
+            enabledViews()
+        }
+    }
+    
+    func enabledViews(){
+        headerView.enabledSettingButton()
+        daysOfTheWeekCollectionView.isUserInteractionEnabled = true
+        daysView.enabledDaysCollectionView()
+    }
+    
+    func disableViews(){
+        headerView.disableSettingButton()
+        daysOfTheWeekCollectionView.isUserInteractionEnabled = false
+        daysView.disableDaysCollectionView()
+    }
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
@@ -116,13 +133,15 @@ extension ViewController: DaysCellDelegate{
         pressedAddButtonId = id
         createLessonView.changeCreateLessonViewType(createLessonViewType: .add)
         
-        
+        disableViews()
     }
     
     func showSelectedLessonView(lessonIndex: Int, dayIndex: Int) {
         currentSelectedLessonIndex = lessonIndex
         currentSelectedDayIndex = dayIndex
         selectedLessonView.isHidden = false
+        
+        disableViews()
     }
 }
 
@@ -148,6 +167,7 @@ extension ViewController: CreateLessonViewDelegate{
     
     func hideCreateLessonView(){
         createLessonView.isHidden = true
+        enabledViews()
     }
 }
 
@@ -178,16 +198,20 @@ extension ViewController: SelectedLessonViewDelegate{
                 self?.daysView.removeFromDataSource(dayIndex: dayIndex, lessonIndex: lessonIndex)
             }
             self?.daysView.updateDaysCollectionView()
+            self?.enabledViews()
         }))
-        alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: { [weak self] cancel in
+            self?.enabledViews()
+        }))
         present(alertController, animated: true, completion: nil)
     }
 }
 
 //MARK: - HeaderViewDelegate
 extension ViewController: HeaderViewDelegate{
-    func pressedSettingButton(pressedFlag: Bool) {
-        settingView.isHidden = pressedFlag ? false : true
+    func showSettingView() {
+        settingView.isHidden = false
+        disableViews()
     }
 }
 
@@ -196,16 +220,19 @@ extension ViewController: SettingViewDelegate{
     func editTableView() {
         settingView.isHidden = true
         daysView.updateDaysCollectionView()
+        enabledViews()
     }
     
     func showDeleteAllAlert() {
         settingView.isHidden = true
-        headerView.changePressedFlag(flag: false)
         let alertController = UIAlertController(title: "", message: "Вы точно хотите очистить расписание?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] ok in
             self?.daysView.removeAllFromDataSource()
+            self?.enabledViews()
         }))
-        alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: { [weak self] cancel in
+                self?.enabledViews()
+        }))
         present(alertController, animated: true, completion: nil)
     }
 }

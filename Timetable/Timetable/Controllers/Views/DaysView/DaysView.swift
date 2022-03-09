@@ -122,6 +122,14 @@ extension DaysView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: CGFloat(contentView.frame.width), height: CGFloat(contentView.frame.height))
     }
+    
+    func disableDaysCollectionView(){
+        daysCollectionView.isUserInteractionEnabled = false
+    }
+    
+    func enabledDaysCollectionView(){
+        daysCollectionView.isUserInteractionEnabled = true
+    }
 }
 
 //MARK: - DaysCellDelegate

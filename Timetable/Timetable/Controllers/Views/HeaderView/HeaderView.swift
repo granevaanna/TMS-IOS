@@ -8,12 +8,13 @@
 import UIKit
 
 protocol HeaderViewDelegate: AnyObject{
-    func pressedSettingButton(pressedFlag: Bool)
+    func showSettingView()
 }
 
 final class HeaderView: UIView{
     @IBOutlet private var contentView: UIView!
-    private var pressedFlag = false
+    @IBOutlet private weak var settingButton: UIButton!
+    
     weak var delegate: HeaderViewDelegate?
 
     override init(frame: CGRect) {
@@ -34,12 +35,15 @@ final class HeaderView: UIView{
             contentView.backgroundColor = .mainColor
         }
     
-    func changePressedFlag(flag: Bool){
-        pressedFlag = flag
+    func disableSettingButton(){
+        settingButton.isEnabled = false
+    }
+    
+    func enabledSettingButton(){
+        settingButton.isEnabled = true
     }
     
     @IBAction private func settingButtonAction(_ sender: Any) {
-        pressedFlag.toggle()
-        delegate?.pressedSettingButton(pressedFlag: pressedFlag)
+        delegate?.showSettingView()
     }
 }
