@@ -17,6 +17,9 @@ final class DaysCell: UICollectionViewCell {
     static let identifier = "kDaysCell"
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var emptyLessonsView: EmptyLessonsView!
+    @IBOutlet private weak var saveButton: UIButton!
+    @IBOutlet private weak var addLessonButton: UIButton!
+    
     
     private var lessons: [LessonModel] = []
     weak var delegate: DaysCellDelegate?
@@ -29,23 +32,7 @@ final class DaysCell: UICollectionViewCell {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "LessonCell", bundle: nil), forCellReuseIdentifier: LessonCell.identifier)
-        
-//        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture))
-//        tableView.addGestureRecognizer(longPressGesture)
-        
-//        tableView.isEditing = true
     }
-    
-//    @objc private func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer){
-//        switch gesture.state{
-//        case .began:
-//            tableView.isEditing = true
-//        case .ended:
-//            tableView.isEditing = false
-//        @unknown default:
-//            tableView.isEditing = false
-//        }
-//    }
     
     func setup(with lessons: [LessonModel], addButtonId: Int, dayIndex: Int) {
         self.lessons = lessons
@@ -56,23 +43,50 @@ final class DaysCell: UICollectionViewCell {
         } else {
             showTableWithLessons()
         }
+        setupSettingsForSaveButton()
         tableView.reloadData()
     }
     
-    func showEmptyLessonsView(){
+    private func setupSettingsForSaveButton(){
+        saveButton.backgroundColor = UIColor.mainColor
+        saveButton.titleLabel?.textColor = .white
+        saveButton.layer.cornerRadius = 10
+    }
+    
+    private func showEmptyLessonsView(){
         emptyLessonsView.isHidden = false
         tableView.isHidden = true
     }
     
-    func showTableWithLessons(){
+    private func showTableWithLessons(){
         emptyLessonsView.isHidden = true
         tableView.isHidden = false
+    }
+    
+    func editingTableView(){
+        tableView.isEditing = true
+    }
+    
+    func showSaveButton(){
+        saveButton.isHidden = false
+        addLessonButton.isHidden = true
+    }
+    
+    func showAddLessonButton(){
+        saveButton.isHidden = true
+        addLessonButton.isHidden = false
     }
     
     @IBAction private func addLessonButtonAction(_ sender: Any) {
         if let id = addButtonId {
             delegate?.showCreateLessonView(id: id)
         }
+    }
+    
+    @IBAction private func saveButtonAction(_ sender: Any) {
+        tableView.isEditing = false
+        showAddLessonButton()
+        SettingView.editFlag = false
     }
 }
 
@@ -89,9 +103,9 @@ extension DaysCell: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(20)
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return CGFloat(90)
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let dayId = dayIdForSelectedLesson{

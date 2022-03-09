@@ -66,10 +66,10 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTv-Mu-gyh" customClass="SelectedLessonView" customModule="Timetable" customModuleProvider="target">
-                                <rect key="frame" x="50" y="247" width="314" height="250"/>
+                                <rect key="frame" x="50" y="247" width="314" height="130"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="sVg-uz-8i8"/>
+                                    <constraint firstAttribute="height" constant="130" id="sVg-uz-8i8"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xuh-VW-Uee" customClass="SettingView" customModule="Timetable" customModuleProvider="target">

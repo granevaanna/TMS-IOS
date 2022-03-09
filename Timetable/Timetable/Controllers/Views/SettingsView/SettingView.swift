@@ -9,11 +9,14 @@ import UIKit
 
 protocol SettingViewDelegate: AnyObject{
     func showDeleteAllAlert()
+    func editTableView()
 }
 
 final class SettingView: UIView{
     @IBOutlet private var contentView: UIView!
     weak var delegate: SettingViewDelegate?
+    
+    static var editFlag = false
 
     override init(frame: CGRect) {
             super.init(frame: frame)
@@ -34,10 +37,12 @@ final class SettingView: UIView{
         }
     
     @IBAction private func editButtonAction(_ sender: Any) {
+        SettingView.editFlag = true
+        delegate?.editTableView()
     }
     
     @IBAction private func deleteAllButtonAction(_ sender: Any) {
         delegate?.showDeleteAllAlert()
+        delegate?.editTableView()
     }
-    
 }

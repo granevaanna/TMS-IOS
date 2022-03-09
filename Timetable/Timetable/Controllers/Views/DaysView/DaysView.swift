@@ -103,6 +103,10 @@ extension DaysView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = daysCollectionView.dequeueReusableCell(withReuseIdentifier: DaysCell.identifier, for: indexPath) as! DaysCell
         cell.setup(with: dataSource[indexPath.row], addButtonId: indexPath.row, dayIndex: indexPath.row)
+        if SettingView.editFlag{
+            cell.editingTableView()
+            cell.showSaveButton()
+        }
         cell.delegate = self
         return cell
     }

@@ -60,10 +60,12 @@ final class ViewController: UIViewController {
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        super.touchesBegan(touches, with: event)
-//        
+//
 //        let touch = touches.first
 //        guard let location = touch?.location(in: self.view) else { return }
-//        if selectedLessonView.frame.contains(location) {
+//        
+//
+//        if !selectedLessonView.frame.contains(location){
 //            selectedLessonView.isHidden = true
 //        }
 //    }
@@ -113,6 +115,8 @@ extension ViewController: DaysCellDelegate{
         createLessonView.isHidden = false
         pressedAddButtonId = id
         createLessonView.changeCreateLessonViewType(createLessonViewType: .add)
+        
+        
     }
     
     func showSelectedLessonView(lessonIndex: Int, dayIndex: Int) {
@@ -160,14 +164,23 @@ extension ViewController: SelectedLessonViewDelegate{
     }
     
     func deleteSelectedLesson() {
-        if let dayIndex = currentSelectedDayIndex, let lessonIndex = currentSelectedLessonIndex{
-            daysView.removeFromDataSource(dayIndex: dayIndex, lessonIndex: lessonIndex)
-        }
-        daysView.updateDaysCollectionView()
+        showDeleteLessonAlert()
     }
     
     func hideSelectedLessonView() {
         selectedLessonView.isHidden = true
+    }
+    
+    private func showDeleteLessonAlert(){
+        let alertController = UIAlertController(title: "", message: "Вы точно хотите удалить занятие?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] ok in
+            if let dayIndex = self?.currentSelectedDayIndex, let lessonIndex = self?.currentSelectedLessonIndex{
+                self?.daysView.removeFromDataSource(dayIndex: dayIndex, lessonIndex: lessonIndex)
+            }
+            self?.daysView.updateDaysCollectionView()
+        }))
+        alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -180,6 +193,11 @@ extension ViewController: HeaderViewDelegate{
 
 //MARK: - SettingViewDelegate
 extension ViewController: SettingViewDelegate{
+    func editTableView() {
+        settingView.isHidden = true
+        daysView.updateDaysCollectionView()
+    }
+    
     func showDeleteAllAlert() {
         settingView.isHidden = true
         headerView.changePressedFlag(flag: false)
