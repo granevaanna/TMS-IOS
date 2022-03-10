@@ -15,7 +15,8 @@ protocol SelectedLessonViewDelegate: AnyObject{
 
 final class SelectedLessonView: UIView{
     @IBOutlet private var contentView: UIView!
-    
+    @IBOutlet private weak var editButton: UIButton!
+    @IBOutlet private weak var deleteLessonButton: UIButton!
     weak var delegate: SelectedLessonViewDelegate?
 
     override init(frame: CGRect) {
@@ -34,6 +35,9 @@ final class SelectedLessonView: UIView{
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             contentView.layer.cornerRadius = 20
+            contentView.backgroundColor = .settingBackgroundColor
+            editButton.settingButton()
+            deleteLessonButton.settingButton()
         }
     
     

@@ -43,14 +43,8 @@ final class DaysCell: UICollectionViewCell {
         } else {
             showTableWithLessons()
         }
-        setupSettingsForSaveButton()
+        saveButton.mainButton()
         tableView.reloadData()
-    }
-    
-    private func setupSettingsForSaveButton(){
-        saveButton.backgroundColor = UIColor.mainColor
-        saveButton.titleLabel?.textColor = .white
-        saveButton.layer.cornerRadius = 10
     }
     
     private func showEmptyLessonsView(){

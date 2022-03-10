@@ -11,8 +11,14 @@ final class DaysOfTheWeekCell: UICollectionViewCell {
     static let identifier = "kDaysOfTheWeekCell"
     @IBOutlet weak var dayLabel: UILabel!
     
-    func setupWith(day: String){
-        dayLabel.text = day
+    func setupWith(day: DayOfTheWeekModel){
+        dayLabel.text = day.dayName
+        
+        if day.isSelect{
+            setMainColorForDayLabel()
+        } else {
+            setBlackColorForDayLabel()
+        }
     }
     
     func setMainColorForDayLabel(){
@@ -20,7 +26,7 @@ final class DaysOfTheWeekCell: UICollectionViewCell {
         dayLabel.textColor = .white
     }
     func setBlackColorForDayLabel(){
-        backgroundColor = .white
+        backgroundColor = .clear
         dayLabel.textColor = .black
     }
 }

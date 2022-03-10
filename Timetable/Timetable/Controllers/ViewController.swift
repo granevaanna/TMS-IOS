@@ -18,7 +18,7 @@ final class ViewController: UIViewController {
     
     
     @IBOutlet private weak var hideConstraintCreateLessonView: NSLayoutConstraint!
-    private let daysOfTheWeekDataSourse: [String] = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+    private var daysOfTheWeekDataSourse: [DayOfTheWeekModel] = [DayOfTheWeekModel(dayName: "Пн"), DayOfTheWeekModel(dayName: "Вт"), DayOfTheWeekModel(dayName: "Ср"), DayOfTheWeekModel(dayName: "Чт"), DayOfTheWeekModel(dayName: "Пт"), DayOfTheWeekModel(dayName: "Сб"), DayOfTheWeekModel(dayName: "Вс")]
     
     private var pressedAddButtonId: Int?
     
@@ -33,6 +33,7 @@ final class ViewController: UIViewController {
         selectedLessonView.delegate = self
         headerView.delegate = self
         settingView.delegate = self
+        daysOfTheWeekDataSourse[getCurrentDayIndex()].isSelect = true
     }
     
     
@@ -60,9 +61,6 @@ final class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-
-//        let touch = touches.first
-//        guard let location = touch?.location(in: self.view) else { return }
 
         if !selectedLessonView.isHidden{
             selectedLessonView.isHidden = true
@@ -97,22 +95,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = daysOfTheWeekCollectionView.dequeueReusableCell(withReuseIdentifier: DaysOfTheWeekCell.identifier, for: indexPath) as! DaysOfTheWeekCell
         cell.setupWith(day: daysOfTheWeekDataSourse[indexPath.row])
-        if indexPath.row == getCurrentDayIndex(){
-            cell.setMainColorForDayLabel()
-            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
-        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: CGFloat(150), height: CGFloat(40))
         return CGSize(width: CGFloat(view.frame.width / 8.2), height: CGFloat(40))
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? DaysOfTheWeekCell {
-            cell.setMainColorForDayLabel()
+        
+        for i in 0...daysOfTheWeekDataSourse.count - 1{
+            daysOfTheWeekDataSourse[i].isSelect = false
         }
+        daysOfTheWeekDataSourse[indexPath.row].isSelect = true
+        daysOfTheWeekCollectionView.reloadData()
+        
         daysView.scrollTo(day: indexPath.row)
     }
 
@@ -120,6 +117,18 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         if let cell = collectionView.cellForItem(at: indexPath) as? DaysOfTheWeekCell {
             cell.setBlackColorForDayLabel()
         }
+    }
+}
+
+//MARK: - DaysViewScrollDelegate
+extension ViewController: DaysViewScrollDelegate {
+    func didScrollto(indexPath: IndexPath) {
+        
+//        for i in 0...daysOfTheWeekDataSourse.count - 1{
+//            daysOfTheWeekDataSourse[i].isSelect = false
+//        }
+//        daysOfTheWeekDataSourse[indexPath.row].isSelect = true
+//        daysOfTheWeekCollectionView.reloadData()
     }
 }
 
@@ -143,6 +152,8 @@ extension ViewController: DaysCellDelegate{
         
         disableViews()
     }
+    
+    
 }
 
 //MARK: - CreateLessonViewDelegate

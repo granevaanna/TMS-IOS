@@ -7,10 +7,14 @@
 
 import UIKit
 
+protocol DaysViewScrollDelegate: DaysCellDelegate {
+    func didScrollto(indexPath: IndexPath)
+}
+
 final class DaysView: UIView{
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var daysCollectionView: UICollectionView!
-    
+
     private var dataSource: [[LessonModel]] {
         set {
             if let encoded = try? JSONEncoder().encode(newValue) {
@@ -29,7 +33,7 @@ final class DaysView: UIView{
         }
     }
     
-    weak var delegate: DaysCellDelegate?
+    weak var delegate: DaysViewScrollDelegate?
     
     override init(frame: CGRect) {
             super.init(frame: frame)
@@ -100,6 +104,10 @@ extension DaysView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         return dataSource.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        delegate?.didScrollto(indexPath: indexPath)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = daysCollectionView.dequeueReusableCell(withReuseIdentifier: DaysCell.identifier, for: indexPath) as! DaysCell
         cell.setup(with: dataSource[indexPath.row], addButtonId: indexPath.row, dayIndex: indexPath.row)
@@ -130,6 +138,8 @@ extension DaysView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func enabledDaysCollectionView(){
         daysCollectionView.isUserInteractionEnabled = true
     }
+    
+    
 }
 
 //MARK: - DaysCellDelegate

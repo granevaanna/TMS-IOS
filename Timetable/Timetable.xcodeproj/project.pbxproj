@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		197A006E27DA985B00F267F9 /* DayOfTheWeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A006D27DA985B00F267F9 /* DayOfTheWeekModel.swift */; };
+		197A007027DAA26400F267F9 /* UIButtons+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A006F27DAA26400F267F9 /* UIButtons+Extentions.swift */; };
 		197C87D427BF84D80087D3CC /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197C87D327BF84D80087D3CC /* LessonModel.swift */; };
 		197C87D727BF86BC0087D3CC /* CreateLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197C87D627BF86BC0087D3CC /* CreateLessonView.swift */; };
 		197C87D927BF86E10087D3CC /* CreateLessonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197C87D827BF86E10087D3CC /* CreateLessonView.xib */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		197A006D27DA985B00F267F9 /* DayOfTheWeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfTheWeekModel.swift; sourceTree = "<group>"; };
+		197A006F27DAA26400F267F9 /* UIButtons+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButtons+Extentions.swift"; sourceTree = "<group>"; };
 		197C87D327BF84D80087D3CC /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
 		197C87D627BF86BC0087D3CC /* CreateLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLessonView.swift; sourceTree = "<group>"; };
 		197C87D827BF86E10087D3CC /* CreateLessonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateLessonView.xib; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				197C87D327BF84D80087D3CC /* LessonModel.swift */,
+				197A006D27DA985B00F267F9 /* DayOfTheWeekModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				19E5BC8927BC563000B58EF8 /* UIColors+Extentions.swift */,
+				197A006F27DAA26400F267F9 /* UIButtons+Extentions.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -340,6 +346,8 @@
 				19E5BC6F27BC539400B58EF8 /* SceneDelegate.swift in Sources */,
 				19E5BC8527BC554200B58EF8 /* HeaderView.swift in Sources */,
 				19F1102B27D0C0C200337249 /* EmptyLessonsView.swift in Sources */,
+				197A006E27DA985B00F267F9 /* DayOfTheWeekModel.swift in Sources */,
+				197A007027DAA26400F267F9 /* UIButtons+Extentions.swift in Sources */,
 				197C87DC27C3EF750087D3CC /* SelectedLessonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

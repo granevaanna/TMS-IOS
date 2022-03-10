@@ -34,6 +34,7 @@ final class SettingView: UIView{
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             contentView.layer.cornerRadius = 10
+            contentView.backgroundColor = .settingBackgroundColor
         }
     
     @IBAction private func editButtonAction(_ sender: Any) {
