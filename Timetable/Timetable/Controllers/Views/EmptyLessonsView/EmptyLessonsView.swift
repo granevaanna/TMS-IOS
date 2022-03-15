@@ -9,8 +9,6 @@ import UIKit
 
 final class EmptyLessonsView: UIView{
     @IBOutlet private var contentView: UIView!
-    private var pressedFlag = false
-    weak var delegate: HeaderViewDelegate?
 
     override init(frame: CGRect) {
             super.init(frame: frame)

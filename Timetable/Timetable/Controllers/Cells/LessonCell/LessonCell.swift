@@ -18,6 +18,10 @@ final class LessonCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
+    }
+    
+    private func setup(){
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 10
         self.layer.borderColor = UIColor.mainColor.cgColor

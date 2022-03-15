@@ -44,6 +44,5 @@ final class SettingView: UIView{
     
     @IBAction private func deleteAllButtonAction(_ sender: Any) {
         delegate?.showDeleteAllAlert()
-        delegate?.editTableView()
     }
 }

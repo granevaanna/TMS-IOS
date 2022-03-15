@@ -15,19 +15,18 @@ final class DaysOfTheWeekCell: UICollectionViewCell {
         dayLabel.text = day.dayName
         
         if day.isSelect{
-            setMainColorForDayLabel()
+            setSelectedColor()
         } else {
-            setBlackColorForDayLabel()
+            setStandartColor()
         }
     }
     
-    func setMainColorForDayLabel(){
+    private func setSelectedColor(){
         backgroundColor = .mainColor
         dayLabel.textColor = .white
     }
-    func setBlackColorForDayLabel(){
+    private func setStandartColor(){
         backgroundColor = .clear
-//        dayLabel.textColor = .black
         dayLabel.textColor = UIColor(named: "labelTextColor")
     }
 }

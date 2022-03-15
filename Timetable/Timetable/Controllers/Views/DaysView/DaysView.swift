@@ -50,11 +50,15 @@ final class DaysView: UIView{
             addSubview(contentView)
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            daysCollectionView.delegate = self
-            daysCollectionView.dataSource = self
-            daysCollectionView.register(UINib(nibName: "DaysCell", bundle: nil), forCellWithReuseIdentifier: DaysCell.identifier)
-            
+            setupCollectionSettings()
         }
+    
+    private func setupCollectionSettings(){
+        daysCollectionView.delegate = self
+        daysCollectionView.dataSource = self
+        daysCollectionView.register(UINib(nibName: "DaysCell", bundle: nil), forCellWithReuseIdentifier: DaysCell.identifier)
+    }
+    
     func addLessonToDataSource(lesson: LessonModel, dayIndex: Int){
         dataSource[dayIndex].append(lesson)
         daysCollectionView.reloadData()
@@ -81,20 +85,18 @@ final class DaysView: UIView{
         daysCollectionView.reloadData()
     }
     
-    
     func scrollTo(day: Int) {
         DispatchQueue.main.async { [weak self] in
             let indexPath = IndexPath(row: day, section: 0)
             self?.daysCollectionView.scrollToItem(at: indexPath,
                                                   at: .centeredHorizontally,
-                                                  animated: true)
+                                                  animated: false)
         }
     }
     
     func getLessonModelFromDataSource(dayIndex: Int, lessonIndex: Int) -> LessonModel{
         return dataSource[dayIndex][lessonIndex]
     }
-    
 }
 
 
@@ -102,10 +104,6 @@ final class DaysView: UIView{
 extension DaysView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        delegate?.didScrollto(indexPath: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -139,8 +137,17 @@ extension DaysView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         daysCollectionView.isUserInteractionEnabled = true
     }
     
+//    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        delegate?.didScrollto(indexPath: indexPath)
+//    }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+        delegate?.didScrollto(indexPath: indexPath)
+
+    }
 }
+
 
 //MARK: - DaysCellDelegate
 extension DaysView: DaysCellDelegate{

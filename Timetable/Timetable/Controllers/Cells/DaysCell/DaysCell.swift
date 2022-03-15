@@ -29,6 +29,10 @@ final class DaysCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupTableSettings()
+    }
+    
+    private func setupTableSettings(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "LessonCell", bundle: nil), forCellReuseIdentifier: LessonCell.identifier)
@@ -97,10 +101,6 @@ extension DaysCell: UITableViewDelegate, UITableViewDataSource{
         cell.setupWith(lesson: lessons[indexPath.row])
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return CGFloat(90)
-//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let dayId = dayIdForSelectedLesson{

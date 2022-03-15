@@ -60,7 +60,7 @@ final class CreateLessonView: UIView{
             setupDatePicker()
         }
     
-    @IBAction func textFieldsAction(_ sender: UITextField) {
+    @IBAction private func textFieldsAction(_ sender: UITextField) {
         tagOfSelectedTextField = sender.tag
         delegate?.changedUpHideConstraint()
     }

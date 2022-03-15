@@ -41,8 +41,6 @@ final class SelectedLessonView: UIView{
     
     @IBAction private func aditLessonButtonAction(_ sender: Any) {
         delegate?.editSelectedLesson()
-        
-        
         delegate?.hideSelectedLessonView()
     }
     

@@ -27,7 +27,7 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingsForDaysOfTheWeekCollectionView()
+        setupCollectionSettings()
         daysView.delegate = self
         createLessonView.delegate = self
         selectedLessonView.delegate = self
@@ -36,13 +36,12 @@ final class ViewController: UIViewController {
         daysOfTheWeekDataSourse[getCurrentDayIndex()].isSelect = true
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         daysView.scrollTo(day: getCurrentDayIndex())
     }
     
-    private func settingsForDaysOfTheWeekCollectionView(){
+    private func setupCollectionSettings(){
         daysOfTheWeekCollectionView.delegate = self
         daysOfTheWeekCollectionView.dataSource = self
         daysOfTheWeekCollectionView.register(UINib(nibName: "DaysOfTheWeekCell", bundle: nil), forCellWithReuseIdentifier: DaysOfTheWeekCell.identifier)
@@ -73,13 +72,13 @@ final class ViewController: UIViewController {
         }
     }
     
-    func enabledViews(){
+    private func enabledViews(){
         headerView.enabledSettingButton()
         daysOfTheWeekCollectionView.isUserInteractionEnabled = true
         daysView.enabledDaysCollectionView()
     }
     
-    func disableViews(){
+    private func disableViews(){
         headerView.disableSettingButton()
         daysOfTheWeekCollectionView.isUserInteractionEnabled = false
         daysView.disableDaysCollectionView()
@@ -112,23 +111,17 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         daysView.scrollTo(day: indexPath.row)
     }
-
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? DaysOfTheWeekCell {
-            cell.setBlackColorForDayLabel()
-        }
-    }
 }
 
 //MARK: - DaysViewScrollDelegate
 extension ViewController: DaysViewScrollDelegate {
     func didScrollto(indexPath: IndexPath) {
         
-//        for i in 0...daysOfTheWeekDataSourse.count - 1{
-//            daysOfTheWeekDataSourse[i].isSelect = false
-//        }
-//        daysOfTheWeekDataSourse[indexPath.row].isSelect = true
-//        daysOfTheWeekCollectionView.reloadData()
+        for i in 0...daysOfTheWeekDataSourse.count - 1{
+            daysOfTheWeekDataSourse[i].isSelect = false
+        }
+        daysOfTheWeekDataSourse[indexPath.row].isSelect = true
+        daysOfTheWeekCollectionView.reloadData()
     }
 }
 
@@ -152,8 +145,6 @@ extension ViewController: DaysCellDelegate{
         
         disableViews()
     }
-    
-    
 }
 
 //MARK: - CreateLessonViewDelegate
