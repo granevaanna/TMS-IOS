@@ -36,8 +36,6 @@ final class SelectedLessonView: UIView{
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             contentView.layer.cornerRadius = 20
             contentView.backgroundColor = .settingBackgroundColor
-            editButton.settingButton()
-            deleteLessonButton.settingButton()
         }
     
     

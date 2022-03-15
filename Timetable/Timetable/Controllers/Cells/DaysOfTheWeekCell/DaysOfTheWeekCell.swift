@@ -27,6 +27,7 @@ final class DaysOfTheWeekCell: UICollectionViewCell {
     }
     func setBlackColorForDayLabel(){
         backgroundColor = .clear
-        dayLabel.textColor = .black
+//        dayLabel.textColor = .black
+        dayLabel.textColor = UIColor(named: "labelTextColor")
     }
 }

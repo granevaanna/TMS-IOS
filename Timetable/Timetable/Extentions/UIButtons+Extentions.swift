@@ -13,8 +13,4 @@ extension UIButton{
         titleLabel?.textColor = .white
         layer.cornerRadius = 10
     }
-    
-    func settingButton(){
-        titleLabel?.textColor = .black
-    }
 }

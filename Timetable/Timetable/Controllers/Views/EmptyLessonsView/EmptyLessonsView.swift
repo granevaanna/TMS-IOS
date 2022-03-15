@@ -27,5 +27,6 @@ final class EmptyLessonsView: UIView{
             addSubview(contentView)
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            contentView.backgroundColor = UIColor(named: "backgroundColor")
         }
 }
