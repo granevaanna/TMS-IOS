@@ -7,9 +7,20 @@
 
 import UIKit
 
+
+final class RoundedView : UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
 class ViewController: UIViewController {
     
-    var viewArray: [UIView] = []
+    var viewArray: [RoundedView] = []
     let numberOfViews = 4
     let numberOfPointsToJump: CGFloat = 50
 
@@ -18,52 +29,25 @@ class ViewController: UIViewController {
         let maxWidthOfBall = view.frame.width / 2
         let minWidthOfBall: Double = 50
         
+        let tapGestureFirst = UITapGestureRecognizer(target: self,
+                                                action: #selector(jumpFirstViewOnClick(_:)))
+        view.addGestureRecognizer(tapGestureFirst)
+        
         for i in 0...numberOfViews - 1 {
             let width = Double.random(in: minWidthOfBall...maxWidthOfBall)
             let positionX = Double.random(in: 0...view.frame.width - width)
             let positionY = Double.random(in: 0...view.frame.height - width)
             
-            viewArray.append(UIView(frame: CGRect(x: positionX, y: positionY, width: width, height: width)))
+            viewArray.append(RoundedView(frame: CGRect(x: positionX, y: positionY, width: width, height: width)))
             viewArray[i].backgroundColor = UIColor(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1), alpha: 1)
             viewArray[i].layer.cornerRadius = viewArray[i].frame.width / 2
             view.addSubview(viewArray[i])
         }
-        
-//        for i in 0...numberOfViews - 1 {
-//        let tapGesture = UITapGestureRecognizer(target: self,
-//                                                action: #selector(jumpViewOnClick(index: i)))
-//
-//        tapGesture.cancelsTouchesInView = false
-//        viewArray[i].addGestureRecognizer(tapGesture)
-//        }
-        
-        let tapGestureFirst = UITapGestureRecognizer(target: self,
-                                                action: #selector(jumpFirstViewOnClick))
-        tapGestureFirst.cancelsTouchesInView = false
-        viewArray[0].addGestureRecognizer(tapGestureFirst)
-        
-        
-        
-        let tapGestureSecond = UITapGestureRecognizer(target: self,
-                                                action: #selector(jumpSecondViewOnClick))
-        tapGestureSecond.cancelsTouchesInView = false
-        viewArray[1].addGestureRecognizer(tapGestureSecond)
-        
-        
-        let tapGestureThird = UITapGestureRecognizer(target: self,
-                                                action: #selector(jumpThirdViewOnClick))
-        tapGestureThird.cancelsTouchesInView = false
-        viewArray[2].addGestureRecognizer(tapGestureThird)
-
-        let tapGestureFouth = UITapGestureRecognizer(target: self,
-                                                action: #selector(jumpFouthViewOnClick))
-        tapGestureFouth.cancelsTouchesInView = false
-        viewArray[3].addGestureRecognizer(tapGestureFouth)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animate(withDuration: 2){
+        UIView.animate(withDuration: 2) {
             for i in 0...self.viewArray.count - 1 {
                 self.viewArray[i].frame.origin.y = self.view.frame.height - self.viewArray[i].frame.height
                 self.view.layoutSubviews()
@@ -71,43 +55,20 @@ class ViewController: UIViewController {
         }
     }
     
+    private func animateJumping(view: UIView) {
+        UIView.animate(withDuration: 0.3) {
+            view.frame.origin.y -= CGFloat.random(in: 50...300)
+        } completion: { success in
+            UIView.animate(withDuration: 2) {
+                view.frame.origin.y = self.view.frame.height - view.frame.height
+            }
+        }
+    }
     
-//    @objc func jumpViewOnClick(index: Int) {
-//        if viewArray[index].frame.origin.y - numberOfPointsToJump > 0 {
-//             viewArray[index].frame.origin.y = viewArray[index].frame.origin.y - numberOfPointsToJump
-//        } else {
-//            viewArray[index].frame.origin.y = 0
-//        }
-//    }
-    
-    @objc func jumpFirstViewOnClick() {
-       if viewArray[0].frame.origin.y - numberOfPointsToJump > 0 {
-            viewArray[0].frame.origin.y = viewArray[0].frame.origin.y - numberOfPointsToJump
-       } else {
-           viewArray[0].frame.origin.y = 0
-       }
-    }
-    @objc func jumpSecondViewOnClick() {
-        if viewArray[1].frame.origin.y - numberOfPointsToJump > 0 {
-             viewArray[1].frame.origin.y = viewArray[1].frame.origin.y - numberOfPointsToJump
-        } else {
-            viewArray[1].frame.origin.y = 0
+    @objc private func jumpFirstViewOnClick(_ sender: UITapGestureRecognizer) {
+        let point = sender.location(in: sender.view)
+        if let view = sender.view?.hitTest(point, with: nil) as? RoundedView {
+            animateJumping(view: view)
         }
     }
-    @objc func jumpThirdViewOnClick() {
-        if viewArray[2].frame.origin.y - numberOfPointsToJump > 0 {
-             viewArray[2].frame.origin.y = viewArray[2].frame.origin.y - numberOfPointsToJump
-        } else {
-            viewArray[2].frame.origin.y = 0
-        }
-    }
-    @objc func jumpFouthViewOnClick() {
-        if viewArray[3].frame.origin.y - numberOfPointsToJump > 0 {
-             viewArray[3].frame.origin.y = viewArray[3].frame.origin.y - numberOfPointsToJump
-        } else {
-            viewArray[3].frame.origin.y = 0
-        }
-    }
-
 }
-
