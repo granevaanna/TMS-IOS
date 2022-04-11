@@ -18,12 +18,6 @@
             <rect key="frame" x="0.0" y="0.0" width="757" height="161"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расписание занятий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kn6-Xb-6aG">
-                    <rect key="frame" x="20" y="69.5" width="251.5" height="32.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYa-bC-9Sh">
                     <rect key="frame" x="699" y="66.5" width="48" height="38"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,20 +27,34 @@
                         <action selector="settingButtonAction:" destination="-1" eventType="touchUpInside" id="W7W-Fw-leK"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRQ-d4-GJC">
+                    <rect key="frame" x="10" y="63.5" width="54" height="44"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="menu"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Расписание занятий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kn6-Xb-6aG">
+                    <rect key="frame" x="224" y="69" width="251.5" height="32.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.51453305915970016" green="0.7693973183631897" blue="0.52009200983955572" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="QYa-bC-9Sh" firstAttribute="centerY" secondItem="kn6-Xb-6aG" secondAttribute="centerY" id="4B7-GG-9mb"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QYa-bC-9Sh" secondAttribute="trailing" constant="10" id="Gf7-Tf-eHz"/>
-                <constraint firstItem="kn6-Xb-6aG" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="HFv-bK-E6n"/>
-                <constraint firstItem="kn6-Xb-6aG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="qQc-xO-cMn"/>
+                <constraint firstItem="sRQ-d4-GJC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="Ehu-nT-96r"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QYa-bC-9Sh" secondAttribute="trailing" constant="10" id="Njw-6L-ld9"/>
+                <constraint firstItem="kn6-Xb-6aG" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="QxQ-Qp-oMI"/>
+                <constraint firstItem="QYa-bC-9Sh" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="XPw-Z3-mmn"/>
+                <constraint firstItem="kn6-Xb-6aG" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="rjy-QO-eqr"/>
+                <constraint firstItem="sRQ-d4-GJC" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="yt0-SR-RG4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="386.23188405797106" y="-148.32589285714286"/>
         </view>
     </objects>
     <resources>
+        <image name="menu" width="30" height="30"/>
         <image name="threePoints" width="24" height="24"/>
     </resources>
 </document>

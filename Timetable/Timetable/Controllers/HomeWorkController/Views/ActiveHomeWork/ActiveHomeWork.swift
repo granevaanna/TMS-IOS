@@ -29,6 +29,7 @@ final class ActiveHomeWork: UIView{
             addSubview(contentView)
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+//            tableView.backgroundColor = UIColor(named: "backgroundColor")
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(UINib(nibName: "HomeWorkCell", bundle: nil), forCellReuseIdentifier: HomeWorkCell.identifier)

@@ -12,6 +12,6 @@ extension UITableViewCell{
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 10
         self.layer.borderColor = UIColor.mainColor.cgColor
-        self.backgroundColor = UIColor(named: "backgroundColor")
+//        self.backgroundColor = UIColor(named: "backgroundColor")
     }
 }

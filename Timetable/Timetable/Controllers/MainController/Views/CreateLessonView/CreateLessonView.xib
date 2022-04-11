@@ -45,6 +45,7 @@
                         </textField>
                         <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Тип занятия" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Me1-mz-kdc">
                             <rect key="frame" x="0.0" y="131.5" width="424" height="61"/>
+                            <color key="backgroundColor" name="createLessonColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>

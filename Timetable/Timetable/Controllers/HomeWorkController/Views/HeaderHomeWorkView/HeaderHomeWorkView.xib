@@ -3,8 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,16 +15,45 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="590" height="189"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbd-iN-MWd">
+                    <rect key="frame" x="532" y="80.5" width="48" height="38"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="threePoints"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJM-sf-kXU">
+                    <rect key="frame" x="10" y="77.5" width="54" height="44"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="menu"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Домашнее задание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjm-aE-VTs">
+                    <rect key="frame" x="175" y="83.5" width="240" height="32.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="139" y="78"/>
+            <color key="backgroundColor" name="mainColor"/>
+            <constraints>
+                <constraint firstItem="Xjm-aE-VTs" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="AOX-TT-ask"/>
+                <constraint firstItem="Xjm-aE-VTs" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="KBZ-K7-jgg"/>
+                <constraint firstItem="GJM-sf-kXU" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="KxG-00-QT6"/>
+                <constraint firstItem="Bbd-iN-MWd" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="a87-jf-55D"/>
+                <constraint firstItem="GJM-sf-kXU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="bF4-Ee-4zJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bbd-iN-MWd" secondAttribute="trailing" constant="10" id="iPg-aJ-0aA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="265.21739130434787" y="-159.04017857142856"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="menu" width="30" height="30"/>
+        <image name="threePoints" width="24" height="24"/>
+        <namedColor name="mainColor">
+            <color red="0.37999999523162842" green="0.85000002384185791" blue="0.5899999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -36,7 +36,6 @@ final class DaysCell: UICollectionViewCell {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "LessonCell", bundle: nil), forCellReuseIdentifier: LessonCell.identifier)
-        tableView.backgroundColor = UIColor(named: "backgroundColor")
     }
     
     func setup(with lessons: [LessonModel], addButtonId: Int, dayIndex: Int) {

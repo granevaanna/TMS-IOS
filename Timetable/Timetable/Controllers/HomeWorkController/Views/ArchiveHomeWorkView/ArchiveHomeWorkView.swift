@@ -27,7 +27,5 @@ final class ArchiveHomeWorkView: UIView{
             addSubview(contentView)
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            contentView.backgroundColor = .red
-            
         }
 }
