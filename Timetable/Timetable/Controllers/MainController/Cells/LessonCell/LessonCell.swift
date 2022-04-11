@@ -19,15 +19,16 @@ final class LessonCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setup()
+//        setup()
+        setupMainAppearance()
     }
     
-    private func setup(){
-        self.layer.borderWidth = 3
-        self.layer.cornerRadius = 10
-        self.layer.borderColor = UIColor.mainColor.cgColor
-        self.backgroundColor = UIColor(named: "backgroundColor")
-    }
+//    private func setup(){
+//        self.layer.borderWidth = 3
+//        self.layer.cornerRadius = 10
+//        self.layer.borderColor = UIColor.mainColor.cgColor
+//        self.backgroundColor = UIColor(named: "backgroundColor")
+//    }
     
     func setupWith(lesson: LessonModel){
         lessonNameLabel.text = lesson.lessonName

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArchiveHomeWorkView: UIView{
+final class ArchiveHomeWorkView: UIView{
     @IBOutlet private var contentView: UIView!
     
     weak var delegate: HeaderViewDelegate?

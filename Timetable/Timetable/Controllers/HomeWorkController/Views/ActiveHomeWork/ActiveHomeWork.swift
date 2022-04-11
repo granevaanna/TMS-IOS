@@ -7,8 +7,10 @@
 
 import UIKit
 
-class ActiveHomeWork: UIView{
+final class ActiveHomeWork: UIView{
     @IBOutlet private var contentView: UIView!
+    @IBOutlet private weak var tableView: UITableView!
+    private var activeHomeWorks: [HomeWorkModel] = []
     
     weak var delegate: HeaderViewDelegate?
 
@@ -27,6 +29,40 @@ class ActiveHomeWork: UIView{
             addSubview(contentView)
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            contentView.backgroundColor = .yellow
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.register(UINib(nibName: "HomeWorkCell", bundle: nil), forCellReuseIdentifier: HomeWorkCell.identifier)
+            print(activeHomeWorks)
         }
+    
+    func setActiveHomeWork(activeHomeWorks: [HomeWorkModel]){
+        self.activeHomeWorks = activeHomeWorks
+    }
+    
+    
+    @IBAction private func addButtonAction(_ sender: Any) {
+    }
+}
+
+
+//MARK: - UITableViewDelegate, UITableViewDataSource
+extension ActiveHomeWork: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return activeHomeWorks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeWorkCell.identifier, for: indexPath) as! HomeWorkCell
+        cell.setup(with: activeHomeWorks[indexPath.row], addButtonId: indexPath.row)
+        cell.delegate = self
+        return cell
+    }
+}
+
+//MARK: - HomeWorkCellDelegate
+extension ActiveHomeWork: HomeWorkCellDelegate{
+    func changeIsDoneMeaning(id: Int) {
+        activeHomeWorks[id].isDone.toggle()
+        tableView.reloadData()
+    }
 }
