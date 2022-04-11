@@ -10,7 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeWorkViewController" customModule="Timetable" customModuleProvider="target">
             <connections>
+                <outlet property="activeHomeWork" destination="mg0-OE-RfD" id="fZC-Ru-dOI"/>
+                <outlet property="archiveHomeWorkView" destination="MHx-mv-JcA" id="tRd-bt-uMh"/>
                 <outlet property="headerHomeWorkView" destination="wnR-bw-J0S" id="0KI-3D-3CT"/>
+                <outlet property="homeWorkTabBar" destination="MvN-9A-8F0" id="HhM-oP-kbn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,23 +37,39 @@
                     <rect key="frame" x="0.0" y="129" width="414" height="49"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <items>
-                        <tabBarItem title="Активные" image="star" catalog="system" springLoaded="YES" id="Qad-5h-MnH"/>
-                        <tabBarItem title="Архив" image="triangle" catalog="system" id="qYd-Bt-kiQ"/>
+                        <tabBarItem tag="1" title="Активные" image="star" catalog="system" springLoaded="YES" id="Qad-5h-MnH"/>
+                        <tabBarItem tag="2" title="Архив" image="triangle" catalog="system" id="qYd-Bt-kiQ"/>
                     </items>
                 </tabBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mg0-OE-RfD" customClass="ActiveHomeWork" customModule="Timetable" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="183" width="414" height="679"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHx-mv-JcA" customClass="ArchiveHomeWorkView" customModule="Timetable" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="183" width="414" height="679"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mg0-OE-RfD" secondAttribute="bottom" id="4oH-3o-xsE"/>
+                <constraint firstItem="MHx-mv-JcA" firstAttribute="top" secondItem="MvN-9A-8F0" secondAttribute="bottom" constant="5" id="7DP-b7-qxD"/>
                 <constraint firstItem="f7K-qE-gdg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Mh-0c-yhj"/>
                 <constraint firstItem="MvN-9A-8F0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="B7F-R9-gPC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MHx-mv-JcA" secondAttribute="bottom" id="CcR-ir-WfV"/>
+                <constraint firstItem="mg0-OE-RfD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="M34-BK-EIB"/>
                 <constraint firstItem="MvN-9A-8F0" firstAttribute="top" secondItem="wnR-bw-J0S" secondAttribute="bottom" constant="5" id="VJc-7R-G94"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mg0-OE-RfD" secondAttribute="trailing" id="aNF-a5-j03"/>
                 <constraint firstItem="wnR-bw-J0S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="adJ-Bm-Wou"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wnR-bw-J0S" secondAttribute="trailing" id="cQB-f4-iHI"/>
+                <constraint firstItem="mg0-OE-RfD" firstAttribute="top" secondItem="MvN-9A-8F0" secondAttribute="bottom" constant="5" id="fV5-dK-lOd"/>
                 <constraint firstItem="wnR-bw-J0S" firstAttribute="top" secondItem="f7K-qE-gdg" secondAttribute="bottom" id="iGm-aK-9uQ"/>
                 <constraint firstAttribute="trailing" secondItem="MvN-9A-8F0" secondAttribute="trailing" id="iz1-bK-L7a"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MHx-mv-JcA" secondAttribute="trailing" id="oRf-eS-5ng"/>
                 <constraint firstItem="f7K-qE-gdg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ou7-iB-Kq2"/>
                 <constraint firstAttribute="trailing" secondItem="f7K-qE-gdg" secondAttribute="trailing" id="pRU-pP-YhU"/>
+                <constraint firstItem="MHx-mv-JcA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uEu-Ee-1YO"/>
                 <constraint firstItem="wnR-bw-J0S" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="wne-du-dRO"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="77.678571428571431"/>

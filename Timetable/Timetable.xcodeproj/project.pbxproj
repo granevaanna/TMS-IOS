@@ -12,6 +12,10 @@
 		197774D7280450C300554AD0 /* HomeWorkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197774D6280450C300554AD0 /* HomeWorkModel.swift */; };
 		197774DB2804530100554AD0 /* HeaderHomeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197774DA2804530100554AD0 /* HeaderHomeWorkView.swift */; };
 		197774DD2804534400554AD0 /* HeaderHomeWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197774DC2804534400554AD0 /* HeaderHomeWorkView.xib */; };
+		197774E02804567400554AD0 /* ActiveHomeWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197774DF2804567400554AD0 /* ActiveHomeWork.swift */; };
+		197774E22804568600554AD0 /* ActiveHomeWork.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197774E12804568600554AD0 /* ActiveHomeWork.xib */; };
+		197774E52804A45F00554AD0 /* ArchiveHomeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197774E42804A45F00554AD0 /* ArchiveHomeWorkView.swift */; };
+		197774E72804A47500554AD0 /* ArchiveHomeWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197774E62804A47500554AD0 /* ArchiveHomeWorkView.xib */; };
 		197A006E27DA985B00F267F9 /* DayOfTheWeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A006D27DA985B00F267F9 /* DayOfTheWeekModel.swift */; };
 		197A007027DAA26400F267F9 /* UIButtons+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A006F27DAA26400F267F9 /* UIButtons+Extentions.swift */; };
 		197C87D427BF84D80087D3CC /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197C87D327BF84D80087D3CC /* LessonModel.swift */; };
@@ -48,6 +52,10 @@
 		197774D6280450C300554AD0 /* HomeWorkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkModel.swift; sourceTree = "<group>"; };
 		197774DA2804530100554AD0 /* HeaderHomeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHomeWorkView.swift; sourceTree = "<group>"; };
 		197774DC2804534400554AD0 /* HeaderHomeWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderHomeWorkView.xib; sourceTree = "<group>"; };
+		197774DF2804567400554AD0 /* ActiveHomeWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveHomeWork.swift; sourceTree = "<group>"; };
+		197774E12804568600554AD0 /* ActiveHomeWork.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveHomeWork.xib; sourceTree = "<group>"; };
+		197774E42804A45F00554AD0 /* ArchiveHomeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveHomeWorkView.swift; sourceTree = "<group>"; };
+		197774E62804A47500554AD0 /* ArchiveHomeWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveHomeWorkView.xib; sourceTree = "<group>"; };
 		197A006D27DA985B00F267F9 /* DayOfTheWeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfTheWeekModel.swift; sourceTree = "<group>"; };
 		197A006F27DAA26400F267F9 /* UIButtons+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButtons+Extentions.swift"; sourceTree = "<group>"; };
 		197C87D327BF84D80087D3CC /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
@@ -115,6 +123,8 @@
 		197774D82804521000554AD0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				197774E32804A43A00554AD0 /* ArchiveHomeWorkView */,
+				197774DE2804565900554AD0 /* ActiveHomeWork */,
 				197774D9280452D500554AD0 /* HeaderHomeWorkView */,
 			);
 			path = Views;
@@ -127,6 +137,24 @@
 				197774DC2804534400554AD0 /* HeaderHomeWorkView.xib */,
 			);
 			path = HeaderHomeWorkView;
+			sourceTree = "<group>";
+		};
+		197774DE2804565900554AD0 /* ActiveHomeWork */ = {
+			isa = PBXGroup;
+			children = (
+				197774DF2804567400554AD0 /* ActiveHomeWork.swift */,
+				197774E12804568600554AD0 /* ActiveHomeWork.xib */,
+			);
+			path = ActiveHomeWork;
+			sourceTree = "<group>";
+		};
+		197774E32804A43A00554AD0 /* ArchiveHomeWorkView */ = {
+			isa = PBXGroup;
+			children = (
+				197774E42804A45F00554AD0 /* ArchiveHomeWorkView.swift */,
+				197774E62804A47500554AD0 /* ArchiveHomeWorkView.xib */,
+			);
+			path = ArchiveHomeWorkView;
 			sourceTree = "<group>";
 		};
 		197C87D227BF84B40087D3CC /* Models */ = {
@@ -359,10 +387,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				19F1102327D01BB600337249 /* SettingView.xib in Resources */,
+				197774E72804A47500554AD0 /* ArchiveHomeWorkView.xib in Resources */,
 				19E5BC9527BD209F00B58EF8 /* DaysCell.xib in Resources */,
 				19F1102D27D0C0D800337249 /* EmptyLessonsView.xib in Resources */,
 				19E5BC9A27BD21E800B58EF8 /* DaysView.xib in Resources */,
 				19E5BC7927BC539900B58EF8 /* LaunchScreen.storyboard in Resources */,
+				197774E22804568600554AD0 /* ActiveHomeWork.xib in Resources */,
 				19E5BC9F27BD26F100B58EF8 /* LessonCell.xib in Resources */,
 				19E5BC7627BC539900B58EF8 /* Assets.xcassets in Resources */,
 				19E5BC9027BC5DC600B58EF8 /* DaysOfTheWeekCell.xib in Resources */,
@@ -385,6 +415,7 @@
 				19E5BC8A27BC563000B58EF8 /* UIColors+Extentions.swift in Sources */,
 				19E5BC8F27BC5DC600B58EF8 /* DaysOfTheWeekCell.swift in Sources */,
 				19E5BC7127BC539400B58EF8 /* ViewController.swift in Sources */,
+				197774E52804A45F00554AD0 /* ArchiveHomeWorkView.swift in Sources */,
 				19E5BC9427BD209F00B58EF8 /* DaysCell.swift in Sources */,
 				19E5BC9E27BD26F100B58EF8 /* LessonCell.swift in Sources */,
 				197774D42804500700554AD0 /* HomeWorkViewController.swift in Sources */,
@@ -393,6 +424,7 @@
 				19E5BC9827BD21C900B58EF8 /* DaysView.swift in Sources */,
 				197774D7280450C300554AD0 /* HomeWorkModel.swift in Sources */,
 				19F1102127D01BAC00337249 /* SettingView.swift in Sources */,
+				197774E02804567400554AD0 /* ActiveHomeWork.swift in Sources */,
 				197C87D427BF84D80087D3CC /* LessonModel.swift in Sources */,
 				19E5BC6F27BC539400B58EF8 /* SceneDelegate.swift in Sources */,
 				19E5BC8527BC554200B58EF8 /* HeaderView.swift in Sources */,
