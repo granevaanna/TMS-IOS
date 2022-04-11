@@ -15,6 +15,7 @@ final class LessonCell: UITableViewCell {
     @IBOutlet private weak var audienceLabel: UILabel!
     @IBOutlet private weak var startTimeLabel: UILabel!
     @IBOutlet private weak var endTimeLabel: UILabel!
+    @IBOutlet private weak var lessonTypeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,5 +35,6 @@ final class LessonCell: UITableViewCell {
         audienceLabel.text = lesson.audience
         startTimeLabel.text = lesson.startTime
         endTimeLabel.text = lesson.endTime
+        lessonTypeLabel.text = lesson.lessonType
     }
 }

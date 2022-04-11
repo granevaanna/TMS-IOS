@@ -38,6 +38,7 @@ final class CreateLessonView: UIView{
         case audience = 2
         case startTime = 3
         case endTime = 4
+        case lessonType = 5
     }
     
     override init(frame: CGRect) {
@@ -86,6 +87,7 @@ final class CreateLessonView: UIView{
             currentLessonModel.audience = textFields.first(where: { $0.tag == TextFieldsType.audience.rawValue })?.text ?? "-"
             currentLessonModel.startTime = textFields.first(where: { $0.tag == TextFieldsType.startTime.rawValue })?.text ?? "-"
             currentLessonModel.endTime = textFields.first(where: { $0.tag == TextFieldsType.endTime.rawValue })?.text ?? "-"
+            currentLessonModel.lessonType = textFields.first(where: { $0.tag == TextFieldsType.lessonType.rawValue })?.text ?? "-"
             
             switch createLessonViewType {
             case .add:

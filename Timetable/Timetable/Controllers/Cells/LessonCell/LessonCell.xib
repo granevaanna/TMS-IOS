@@ -54,10 +54,18 @@
                         <color key="textColor" name="labelTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="тип" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpK-nG-ghw">
+                        <rect key="frame" x="327" y="80.5" width="28" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="uKw-el-gcX" secondAttribute="trailing" constant="10" id="0az-wY-jry"/>
+                    <constraint firstItem="gpK-nG-ghw" firstAttribute="centerY" secondItem="huo-8E-ZP5" secondAttribute="centerY" id="1bj-15-Y0U"/>
+                    <constraint firstAttribute="trailing" secondItem="gpK-nG-ghw" secondAttribute="trailing" constant="10" id="5am-V3-HLI"/>
                     <constraint firstAttribute="bottom" secondItem="yF5-Gc-Ir1" secondAttribute="bottom" constant="10" id="64B-F3-6f9"/>
                     <constraint firstItem="huo-8E-ZP5" firstAttribute="leading" secondItem="F7f-bU-6Cr" secondAttribute="trailing" constant="5" id="BtU-HE-Hc0"/>
                     <constraint firstItem="csL-nv-zcy" firstAttribute="top" secondItem="ASI-pn-JzP" secondAttribute="bottom" constant="7" id="EM6-dY-qNq"/>
@@ -78,6 +86,7 @@
                 <outlet property="audienceLabel" destination="uKw-el-gcX" id="p0n-gO-PQ3"/>
                 <outlet property="endTimeLabel" destination="huo-8E-ZP5" id="bT8-Dj-7Qo"/>
                 <outlet property="lessonNameLabel" destination="ASI-pn-JzP" id="ngG-D6-iFh"/>
+                <outlet property="lessonTypeLabel" destination="gpK-nG-ghw" id="XDv-2z-jHl"/>
                 <outlet property="startTimeLabel" destination="yF5-Gc-Ir1" id="UFH-xS-W7h"/>
                 <outlet property="teacherLabel" destination="csL-nv-zcy" id="EDD-Rl-wfq"/>
             </connections>
