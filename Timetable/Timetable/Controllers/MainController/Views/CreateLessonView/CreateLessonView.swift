@@ -24,7 +24,7 @@ final class CreateLessonView: UIView{
     @IBOutlet private var contentView: UIView!
     @IBOutlet private var textFields: [UITextField]!
     
-    private let viewController = ViewController()
+    private let viewController = TimetableViewController()
     private var timePicker = UIDatePicker()
     
     weak var delegate: CreateLessonViewDelegate?

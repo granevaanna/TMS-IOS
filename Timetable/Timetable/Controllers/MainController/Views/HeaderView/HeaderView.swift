@@ -9,11 +9,13 @@ import UIKit
 
 protocol HeaderViewDelegate: AnyObject{
     func showSettingView()
+    func showMenuView()
 }
 
 final class HeaderView: UIView{
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var settingButton: UIButton!
+    @IBOutlet private weak var menuButton: UIButton!
     
     weak var delegate: HeaderViewDelegate?
 
@@ -35,15 +37,21 @@ final class HeaderView: UIView{
             contentView.backgroundColor = .mainColor
         }
     
-    func disableSettingButton(){
+    func disableHeaderView(){
         settingButton.isEnabled = false
+        menuButton.isEnabled = false
     }
     
-    func enabledSettingButton(){
+    func enabledHeaderView(){
         settingButton.isEnabled = true
+        menuButton.isEnabled = true
     }
     
     @IBAction private func settingButtonAction(_ sender: Any) {
         delegate?.showSettingView()
+    }
+    
+    @IBAction private func menuButtonAction(_ sender: Any) {
+        delegate?.showMenuView()
     }
 }

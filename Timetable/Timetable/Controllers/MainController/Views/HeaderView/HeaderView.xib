@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderView" customModule="Timetable" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Ruj-j1-nWP"/>
+                <outlet property="menuButton" destination="sRQ-d4-GJC" id="QrT-L4-xmv"/>
                 <outlet property="settingButton" destination="QYa-bC-9Sh" id="BHA-7n-3sf"/>
             </connections>
         </placeholder>
@@ -31,10 +32,13 @@
                     <rect key="frame" x="10" y="63.5" width="54" height="44"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="menu"/>
+                    <connections>
+                        <action selector="menuButtonAction:" destination="-1" eventType="touchUpInside" id="Y4S-t8-YwI"/>
+                    </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Расписание занятий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kn6-Xb-6aG">
-                    <rect key="frame" x="224" y="69" width="251.5" height="32.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расписание занятий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kn6-Xb-6aG">
+                    <rect key="frame" x="262" y="70.5" width="233" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>

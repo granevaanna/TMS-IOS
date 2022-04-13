@@ -19,6 +19,8 @@
 		197774EC2804AE4200554AD0 /* HomeWorkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197774EA2804AE4200554AD0 /* HomeWorkCell.swift */; };
 		197774ED2804AE4200554AD0 /* HomeWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197774EB2804AE4200554AD0 /* HomeWorkCell.xib */; };
 		197774EF2804B15A00554AD0 /* UITableViewCell+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197774EE2804B15A00554AD0 /* UITableViewCell+Extentions.swift */; };
+		197774F2280718FF00554AD0 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197774F1280718FF00554AD0 /* MenuView.swift */; };
+		197774F42807197900554AD0 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197774F32807197900554AD0 /* MenuView.xib */; };
 		197A006E27DA985B00F267F9 /* DayOfTheWeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A006D27DA985B00F267F9 /* DayOfTheWeekModel.swift */; };
 		197A007027DAA26400F267F9 /* UIButtons+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A006F27DAA26400F267F9 /* UIButtons+Extentions.swift */; };
 		197C87D427BF84D80087D3CC /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197C87D327BF84D80087D3CC /* LessonModel.swift */; };
@@ -28,7 +30,7 @@
 		197C87DE27C3EF8C0087D3CC /* SelectedLessonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197C87DD27C3EF8C0087D3CC /* SelectedLessonView.xib */; };
 		19E5BC6D27BC539400B58EF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC6C27BC539400B58EF8 /* AppDelegate.swift */; };
 		19E5BC6F27BC539400B58EF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC6E27BC539400B58EF8 /* SceneDelegate.swift */; };
-		19E5BC7127BC539400B58EF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC7027BC539400B58EF8 /* ViewController.swift */; };
+		19E5BC7127BC539400B58EF8 /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC7027BC539400B58EF8 /* TimetableViewController.swift */; };
 		19E5BC7427BC539400B58EF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E5BC7227BC539400B58EF8 /* Main.storyboard */; };
 		19E5BC7627BC539900B58EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E5BC7527BC539900B58EF8 /* Assets.xcassets */; };
 		19E5BC7927BC539900B58EF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E5BC7727BC539900B58EF8 /* LaunchScreen.storyboard */; };
@@ -62,6 +64,8 @@
 		197774EA2804AE4200554AD0 /* HomeWorkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkCell.swift; sourceTree = "<group>"; };
 		197774EB2804AE4200554AD0 /* HomeWorkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeWorkCell.xib; sourceTree = "<group>"; };
 		197774EE2804B15A00554AD0 /* UITableViewCell+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extentions.swift"; sourceTree = "<group>"; };
+		197774F1280718FF00554AD0 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		197774F32807197900554AD0 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		197A006D27DA985B00F267F9 /* DayOfTheWeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfTheWeekModel.swift; sourceTree = "<group>"; };
 		197A006F27DAA26400F267F9 /* UIButtons+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButtons+Extentions.swift"; sourceTree = "<group>"; };
 		197C87D327BF84D80087D3CC /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
@@ -72,7 +76,7 @@
 		19E5BC6927BC539400B58EF8 /* Timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E5BC6C27BC539400B58EF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19E5BC6E27BC539400B58EF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		19E5BC7027BC539400B58EF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		19E5BC7027BC539400B58EF8 /* TimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
 		19E5BC7327BC539400B58EF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19E5BC7527BC539900B58EF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19E5BC7827BC539900B58EF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -108,7 +112,7 @@
 		197774D028044FB400554AD0 /* MainController */ = {
 			isa = PBXGroup;
 			children = (
-				19E5BC7027BC539400B58EF8 /* ViewController.swift */,
+				19E5BC7027BC539400B58EF8 /* TimetableViewController.swift */,
 				19E5BC7227BC539400B58EF8 /* Main.storyboard */,
 				19E5BC8227BC551900B58EF8 /* Views */,
 				19E5BC8B27BC5D2B00B58EF8 /* Cells */,
@@ -171,6 +175,15 @@
 				197774EB2804AE4200554AD0 /* HomeWorkCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		197774F0280718DF00554AD0 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				197774F1280718FF00554AD0 /* MenuView.swift */,
+				197774F32807197900554AD0 /* MenuView.xib */,
+			);
+			path = MenuView;
 			sourceTree = "<group>";
 		};
 		197C87D227BF84B40087D3CC /* Models */ = {
@@ -243,6 +256,7 @@
 		19E5BC8127BC544400B58EF8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				197774F0280718DF00554AD0 /* MenuView */,
 				197774D128044FD400554AD0 /* HomeWorkController */,
 				197774D028044FB400554AD0 /* MainController */,
 			);
@@ -416,6 +430,7 @@
 				19E5BC9027BC5DC600B58EF8 /* DaysOfTheWeekCell.xib in Resources */,
 				19E5BC7427BC539400B58EF8 /* Main.storyboard in Resources */,
 				19E5BC8727BC556000B58EF8 /* HeaderView.xib in Resources */,
+				197774F42807197900554AD0 /* MenuView.xib in Resources */,
 				197C87D927BF86E10087D3CC /* CreateLessonView.xib in Resources */,
 				197774D52804500700554AD0 /* HomeWorkViewController.xib in Resources */,
 				197C87DE27C3EF8C0087D3CC /* SelectedLessonView.xib in Resources */,
@@ -432,7 +447,7 @@
 			files = (
 				19E5BC8A27BC563000B58EF8 /* UIColors+Extentions.swift in Sources */,
 				19E5BC8F27BC5DC600B58EF8 /* DaysOfTheWeekCell.swift in Sources */,
-				19E5BC7127BC539400B58EF8 /* ViewController.swift in Sources */,
+				19E5BC7127BC539400B58EF8 /* TimetableViewController.swift in Sources */,
 				197774EF2804B15A00554AD0 /* UITableViewCell+Extentions.swift in Sources */,
 				197774E52804A45F00554AD0 /* ArchiveHomeWorkView.swift in Sources */,
 				19E5BC9427BD209F00B58EF8 /* DaysCell.swift in Sources */,
@@ -451,6 +466,7 @@
 				197774EC2804AE4200554AD0 /* HomeWorkCell.swift in Sources */,
 				19F1102B27D0C0C200337249 /* EmptyLessonsView.swift in Sources */,
 				197A006E27DA985B00F267F9 /* DayOfTheWeekModel.swift in Sources */,
+				197774F2280718FF00554AD0 /* MenuView.swift in Sources */,
 				197A007027DAA26400F267F9 /* UIButtons+Extentions.swift in Sources */,
 				197C87DC27C3EF750087D3CC /* SelectedLessonView.swift in Sources */,
 			);

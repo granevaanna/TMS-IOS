@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class TimetableViewController: UIViewController {
 
     @IBOutlet private weak var headerView: HeaderView!
     @IBOutlet private weak var daysOfTheWeekCollectionView: UICollectionView!
@@ -15,7 +15,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var createLessonView: CreateLessonView!
     @IBOutlet private weak var selectedLessonView: SelectedLessonView!
     @IBOutlet private weak var settingView: SettingView!
-    
+    @IBOutlet private weak var menuView: MenuView!
     
     @IBOutlet private weak var hideConstraintCreateLessonView: NSLayoutConstraint!
     private var daysOfTheWeekDataSourse: [DayOfTheWeekModel] = [DayOfTheWeekModel(dayName: "Пн"), DayOfTheWeekModel(dayName: "Вт"), DayOfTheWeekModel(dayName: "Ср"), DayOfTheWeekModel(dayName: "Чт"), DayOfTheWeekModel(dayName: "Пт"), DayOfTheWeekModel(dayName: "Сб"), DayOfTheWeekModel(dayName: "Вс")]
@@ -33,6 +33,7 @@ final class ViewController: UIViewController {
         selectedLessonView.delegate = self
         headerView.delegate = self
         settingView.delegate = self
+        menuView.delegate = self
         daysOfTheWeekDataSourse[getCurrentDayIndex()].isSelect = true
     }
     
@@ -70,23 +71,28 @@ final class ViewController: UIViewController {
             settingView.isHidden = true
             enabledViews()
         }
+        
+        if !menuView.isHidden{
+            menuView.isHidden = true
+            enabledViews()
+        }
     }
     
     private func enabledViews(){
-        headerView.enabledSettingButton()
+        headerView.enabledHeaderView()
         daysOfTheWeekCollectionView.isUserInteractionEnabled = true
         daysView.enabledDaysCollectionView()
     }
     
     private func disableViews(){
-        headerView.disableSettingButton()
+        headerView.disableHeaderView()
         daysOfTheWeekCollectionView.isUserInteractionEnabled = false
         daysView.disableDaysCollectionView()
     }
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension TimetableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return daysOfTheWeekDataSourse.count
     }
@@ -114,7 +120,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
 }
 
 //MARK: - DaysViewScrollDelegate
-extension ViewController: DaysViewScrollDelegate {
+extension TimetableViewController: DaysViewScrollDelegate {
     func didScrollto(indexPath: IndexPath) {
         
         for i in 0...daysOfTheWeekDataSourse.count - 1{
@@ -126,7 +132,7 @@ extension ViewController: DaysViewScrollDelegate {
 }
 
 //MARK: - DaysCellDelegate
-extension ViewController: DaysCellDelegate{
+extension TimetableViewController: DaysCellDelegate{
     func moveLesson(moveRowAt: Int, destinationIndex: Int, dayIndex: Int) {
     }
     
@@ -148,7 +154,7 @@ extension ViewController: DaysCellDelegate{
 }
 
 //MARK: - CreateLessonViewDelegate
-extension ViewController: CreateLessonViewDelegate{
+extension TimetableViewController: CreateLessonViewDelegate{
     func aditCurrentLesson(lesson: LessonModel) {
         guard let dayIndex = currentSelectedDayIndex, let lessonIndex = currentSelectedLessonIndex else { return }
         daysView.aditLessonToDataSource(lesson: lesson, dayIndex: dayIndex, lessonIndex: lessonIndex)
@@ -175,7 +181,7 @@ extension ViewController: CreateLessonViewDelegate{
 
 
 //MARK: - SelectedLessonViewDelegate
-extension ViewController: SelectedLessonViewDelegate{
+extension TimetableViewController: SelectedLessonViewDelegate{
     func editSelectedLesson() {
         if let dayIndex = currentSelectedDayIndex, let lessonIndex = currentSelectedLessonIndex{
             let lessonModel = daysView.getLessonModelFromDataSource(dayIndex: dayIndex, lessonIndex: lessonIndex)
@@ -210,7 +216,12 @@ extension ViewController: SelectedLessonViewDelegate{
 }
 
 //MARK: - HeaderViewDelegate
-extension ViewController: HeaderViewDelegate{
+extension TimetableViewController: HeaderViewDelegate{
+    func showMenuView() {
+        menuView.isHidden = false
+        disableViews()
+    }
+    
     func showSettingView() {
         settingView.isHidden = false
         disableViews()
@@ -218,7 +229,7 @@ extension ViewController: HeaderViewDelegate{
 }
 
 //MARK: - SettingViewDelegate
-extension ViewController: SettingViewDelegate{
+extension TimetableViewController: SettingViewDelegate{
     func editTableView() {
         settingView.isHidden = true
         daysView.updateDaysCollectionView()
@@ -236,5 +247,20 @@ extension ViewController: SettingViewDelegate{
                 self?.enabledViews()
         }))
         present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension TimetableViewController: MenuViewDelegate{
+    func presentTimetableVC() {
+        menuView.isHidden = true
+        enabledViews()
+    }
+    
+    func presentHomeWorkVC() {
+        let homeWorkVC = HomeWorkViewController()
+        homeWorkVC.modalPresentationStyle = .fullScreen
+        homeWorkVC.modalTransitionStyle = .crossDissolve
+        present(homeWorkVC, animated: true, completion: nil)
+        menuView.isHidden = true
     }
 }

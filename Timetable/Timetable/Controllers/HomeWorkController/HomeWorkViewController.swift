@@ -12,6 +12,8 @@ final class HomeWorkViewController: UIViewController {
     @IBOutlet private weak var activeHomeWork: ActiveHomeWork!
     @IBOutlet private weak var archiveHomeWorkView: ArchiveHomeWorkView!
     @IBOutlet private weak var homeWorkTabBar: UITabBar!
+    @IBOutlet private weak var menuView: MenuView!
+    
     
     private enum TabBarItemType: Int{
         case active = 1
@@ -22,9 +24,32 @@ final class HomeWorkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeWorkTabBar.delegate = self
+        headerHomeWorkView.delegate = self
+        menuView.delegate = self
         showActiveHomeWorkView()
         activeHomeWork.setActiveHomeWork(activeHomeWorks: getActiveHomeWorks())
         settingsForTabBar()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+
+        if !menuView.isHidden{
+            menuView.isHidden = true
+            enabledViews()
+        }
+    }
+    
+    private func enabledViews(){
+        headerHomeWorkView.enabledHeaderView()
+        activeHomeWork.enabledTableView()
+        homeWorkTabBar.isUserInteractionEnabled = true
+    }
+    
+    private func disableViews(){
+        headerHomeWorkView.disableHeaderView()
+        activeHomeWork.disableTableView()
+        homeWorkTabBar.isUserInteractionEnabled = false
     }
     
     private func settingsForTabBar(){
@@ -57,5 +82,30 @@ extension HomeWorkViewController: UITabBarDelegate{
         default:
             showActiveHomeWorkView()
         }
+    }
+}
+
+//MARK: - HeaderHomeWorkViewDelegate
+extension HomeWorkViewController: HeaderHomeWorkViewDelegate{
+    func showMenuView() {
+        menuView.isHidden = false
+        disableViews()
+    }
+}
+
+//MARK: - MenuViewDelegate
+extension HomeWorkViewController: MenuViewDelegate{
+    func presentTimetableVC() {
+        let timetable = UIStoryboard(name: "Main", bundle: nil)
+        let timetableVC = timetable.instantiateViewController(withIdentifier: "TimetableViewController")
+        timetableVC.modalPresentationStyle = .fullScreen
+        timetableVC.modalTransitionStyle = .crossDissolve
+        present(timetableVC, animated: true, completion: nil)
+        menuView.isHidden = true
+    }
+    
+    func presentHomeWorkVC() {
+        menuView.isHidden = true
+        enabledViews()
     }
 }

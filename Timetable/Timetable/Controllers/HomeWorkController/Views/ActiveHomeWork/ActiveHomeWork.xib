@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActiveHomeWork" customModule="Timetable" customModuleProvider="target">
             <connections>
+                <outlet property="addButton" destination="l8R-lY-G26" id="Vnc-QX-qW4"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="nj7-hU-6qy"/>
                 <outlet property="tableView" destination="EpJ-fR-goc" id="e8N-Sb-DIq"/>
             </connections>

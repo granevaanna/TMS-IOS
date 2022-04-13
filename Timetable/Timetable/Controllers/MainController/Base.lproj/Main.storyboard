@@ -5,14 +5,15 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Timetable View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Timetable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimetableViewController" id="BYZ-38-t0r" customClass="TimetableViewController" customModule="Timetable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,6 +82,13 @@
                                     <constraint firstAttribute="width" constant="250" id="lWh-gL-pMO"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XA8-t4-xR5" customClass="MenuView" customModule="Timetable" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="300" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="AfT-L3-tD5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="backgroundColor"/>
@@ -101,8 +109,11 @@
                             <constraint firstItem="VHa-nh-ZB3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VuZ-pv-YLi"/>
                             <constraint firstItem="OSG-mt-lAO" firstAttribute="top" secondItem="arC-Gp-D4J" secondAttribute="bottom" constant="3" id="aTP-Yl-lLU"/>
                             <constraint firstAttribute="trailing" secondItem="QAE-7H-Qw6" secondAttribute="trailing" id="dBz-iQ-C35"/>
+                            <constraint firstItem="XA8-t4-xR5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ghS-of-oUF"/>
+                            <constraint firstItem="XA8-t4-xR5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lsj-3l-Hwy"/>
                             <constraint firstItem="VHa-nh-ZB3" firstAttribute="top" secondItem="OSG-mt-lAO" secondAttribute="bottom" id="pQY-JM-xmh"/>
                             <constraint firstItem="WTv-Mu-gyh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ps1-kV-141"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XA8-t4-xR5" secondAttribute="bottom" id="s7Q-XF-lg9"/>
                             <constraint firstItem="OSG-mt-lAO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vBA-Zk-9j3"/>
                             <constraint firstItem="VHa-nh-ZB3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="wHw-Dy-g20"/>
                             <constraint firstItem="Xuh-VW-Uee" firstAttribute="top" secondItem="arC-Gp-D4J" secondAttribute="bottom" constant="-20" id="ys1-dQ-NMb"/>
@@ -114,6 +125,7 @@
                         <outlet property="daysView" destination="VHa-nh-ZB3" id="ev1-Xk-SVj"/>
                         <outlet property="headerView" destination="arC-Gp-D4J" id="5lS-Lp-5Ls"/>
                         <outlet property="hideConstraintCreateLessonView" destination="P5d-cc-jgr" id="0Cj-HQ-79b"/>
+                        <outlet property="menuView" destination="XA8-t4-xR5" id="Nh1-Yt-C70"/>
                         <outlet property="selectedLessonView" destination="WTv-Mu-gyh" id="Xps-kU-RBI"/>
                         <outlet property="settingView" destination="Xuh-VW-Uee" id="iTR-8Z-EPN"/>
                     </connections>
@@ -127,5 +139,8 @@
         <namedColor name="backgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

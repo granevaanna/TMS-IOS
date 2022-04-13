@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol HeaderHomeWorkViewDelegate: AnyObject{
+    func showMenuView()
+}
+
 final class HeaderHomeWorkView: UIView{
     @IBOutlet private var contentView: UIView!
+    @IBOutlet private weak var settingButton: UIButton!
+    @IBOutlet private weak var menuButton: UIButton!
     
-    weak var delegate: HeaderViewDelegate?
+    weak var delegate: HeaderHomeWorkViewDelegate?
 
     override init(frame: CGRect) {
             super.init(frame: frame)
@@ -28,4 +34,19 @@ final class HeaderHomeWorkView: UIView{
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         }
+    
+    func disableHeaderView(){
+        settingButton.isEnabled = false
+        menuButton.isEnabled = false
+    }
+    
+    func enabledHeaderView(){
+        settingButton.isEnabled = true
+        menuButton.isEnabled = true
+    }
+    
+    @IBAction func menuButtonAction(_ sender: Any) {
+        delegate?.showMenuView()
+    }
+    
 }

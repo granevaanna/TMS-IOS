@@ -10,6 +10,8 @@ import UIKit
 final class ActiveHomeWork: UIView{
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var addButton: UIButton!
+    
     private var activeHomeWorks: [HomeWorkModel] = []
     
     weak var delegate: HeaderViewDelegate?
@@ -38,6 +40,16 @@ final class ActiveHomeWork: UIView{
     
     func setActiveHomeWork(activeHomeWorks: [HomeWorkModel]){
         self.activeHomeWorks = activeHomeWorks
+    }
+    
+    func disableTableView(){
+        tableView.isUserInteractionEnabled = false
+        addButton.isEnabled = false
+    }
+    
+    func enabledTableView(){
+        tableView.isUserInteractionEnabled = true
+        addButton.isEnabled = true
     }
     
     
