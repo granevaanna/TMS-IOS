@@ -56,7 +56,6 @@ final class CreateLessonView: UIView{
             addSubview(contentView)
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            contentView.backgroundColor = .mainColor
             contentView.layer.cornerRadius = 20
             setupDatePicker()
         }

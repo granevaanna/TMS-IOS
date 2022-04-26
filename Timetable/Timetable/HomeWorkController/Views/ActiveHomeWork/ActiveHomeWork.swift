@@ -7,14 +7,20 @@
 
 import UIKit
 
+protocol ActiveHomeWorkDelegate: AnyObject{
+    func enabledViews()
+    func disableViews()
+}
+
 final class ActiveHomeWork: UIView{
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var createHomeWorkView: CreateHomeWorkView!
     @IBOutlet private weak var addButton: UIButton!
     
     private var activeHomeWorks: [HomeWorkModel] = []
     
-    weak var delegate: HeaderViewDelegate?
+    weak var delegate: ActiveHomeWorkDelegate?
 
     override init(frame: CGRect) {
             super.init(frame: frame)
@@ -35,7 +41,7 @@ final class ActiveHomeWork: UIView{
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(UINib(nibName: "HomeWorkCell", bundle: nil), forCellReuseIdentifier: HomeWorkCell.identifier)
-            print(activeHomeWorks)
+            createHomeWorkView.delegate = self
         }
     
     func setActiveHomeWork(activeHomeWorks: [HomeWorkModel]){
@@ -52,8 +58,13 @@ final class ActiveHomeWork: UIView{
         addButton.isEnabled = true
     }
     
+    func showCreateHomeWorkView(){
+        createHomeWorkView.isHidden = false
+    }
     
     @IBAction private func addButtonAction(_ sender: Any) {
+        showCreateHomeWorkView()
+        delegate?.disableViews()
     }
 }
 
@@ -77,5 +88,18 @@ extension ActiveHomeWork: HomeWorkCellDelegate{
     func changeIsDoneMeaning(id: Int) {
         activeHomeWorks[id].isDone.toggle()
         tableView.reloadData()
+    }
+}
+
+//MARK: - CreateHomeWorkViewDelegate
+extension ActiveHomeWork: CreateHomeWorkViewDelegate{
+    func addHomeWorkToDataSource(homeWork: HomeWorkModel) {
+        activeHomeWorks.append(homeWork)
+        tableView.reloadData()
+    }
+    
+    func hideCreateHomeWorkView() {
+        createHomeWorkView.isHidden = true
+        delegate?.enabledViews()
     }
 }

@@ -26,6 +26,7 @@ final class HomeWorkViewController: UIViewController {
         homeWorkTabBar.delegate = self
         headerHomeWorkView.delegate = self
         menuView.delegate = self
+        activeHomeWork.delegate = self
         showActiveHomeWorkView()
         activeHomeWork.setActiveHomeWork(activeHomeWorks: getActiveHomeWorks())
         settingsForTabBar()
@@ -40,17 +41,6 @@ final class HomeWorkViewController: UIViewController {
         }
     }
     
-    private func enabledViews(){
-        headerHomeWorkView.enabledHeaderView()
-        activeHomeWork.enabledTableView()
-        homeWorkTabBar.isUserInteractionEnabled = true
-    }
-    
-    private func disableViews(){
-        headerHomeWorkView.disableHeaderView()
-        activeHomeWork.disableTableView()
-        homeWorkTabBar.isUserInteractionEnabled = false
-    }
     
     private func settingsForTabBar(){
         homeWorkTabBar.items?.first(where: { $0.tag == TabBarItemType.active.rawValue })?.selectedImage = UIImage(systemName: "star.fill")
@@ -78,6 +68,7 @@ extension HomeWorkViewController: UITabBarDelegate{
         case 1:
             showActiveHomeWorkView()
         case 2:
+            activeHomeWork.hideCreateHomeWorkView()
             showArchiveHomeWorkView()
         default:
             showActiveHomeWorkView()
@@ -96,7 +87,7 @@ extension HomeWorkViewController: HeaderHomeWorkViewDelegate{
 //MARK: - MenuViewDelegate
 extension HomeWorkViewController: MenuViewDelegate{
     func presentTimetableVC() {
-        let timetable = UIStoryboard(name: "Main", bundle: nil)
+        let timetable = UIStoryboard(name: "Timetable", bundle: nil)
         let timetableVC = timetable.instantiateViewController(withIdentifier: "TimetableViewController")
         timetableVC.modalPresentationStyle = .fullScreen
         timetableVC.modalTransitionStyle = .crossDissolve
@@ -107,5 +98,21 @@ extension HomeWorkViewController: MenuViewDelegate{
     func presentHomeWorkVC() {
         menuView.isHidden = true
         enabledViews()
+    }
+}
+
+
+//MARK: - ActiveHomeWorkDelegate
+extension HomeWorkViewController: ActiveHomeWorkDelegate{
+    func enabledViews(){
+        headerHomeWorkView.enabledHeaderView()
+        activeHomeWork.enabledTableView()
+        homeWorkTabBar.isUserInteractionEnabled = true
+    }
+    
+    func disableViews(){
+        headerHomeWorkView.disableHeaderView()
+        activeHomeWork.disableTableView()
+        homeWorkTabBar.isUserInteractionEnabled = false
     }
 }

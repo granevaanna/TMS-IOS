@@ -21,4 +21,11 @@ struct HomeWorkModel{
         self.isDone = isDone
         self.isActive = isActive
     }
+    init(){
+        self.lessonName = ""
+        self.homeWork = ""
+        self.deadline = ""
+        self.isDone = false
+        self.isActive = true
+    }
 }
