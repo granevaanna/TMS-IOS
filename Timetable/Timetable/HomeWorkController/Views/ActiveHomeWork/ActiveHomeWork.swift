@@ -10,6 +10,7 @@ import UIKit
 protocol ActiveHomeWorkDelegate: AnyObject{
     func enabledViews()
     func disableViews()
+    func showDeleteHomeWorkAlert(at index: Int)
 }
 
 final class ActiveHomeWork: UIView{
@@ -18,6 +19,7 @@ final class ActiveHomeWork: UIView{
     @IBOutlet private weak var createHomeWorkView: CreateHomeWorkView!
     @IBOutlet private weak var addButton: UIButton!
     @IBOutlet private weak var hideConstraintCreateHomeWorkView: NSLayoutConstraint!
+    @IBOutlet private(set) weak var selectedHomeWorkView: SelectedHomeWorkView!
     
     private var activeHomeWorks: [HomeWorkModel] {
         set {
@@ -38,6 +40,7 @@ final class ActiveHomeWork: UIView{
     }
     
     weak var delegate: ActiveHomeWorkDelegate?
+    private var selectedHomeWorkIndex: Int?
 
     override init(frame: CGRect) {
             super.init(frame: frame)
@@ -58,6 +61,7 @@ final class ActiveHomeWork: UIView{
             tableView.dataSource = self
             tableView.register(UINib(nibName: "HomeWorkCell", bundle: nil), forCellReuseIdentifier: HomeWorkCell.identifier)
             createHomeWorkView.delegate = self
+            selectedHomeWorkView.delegate = self
         }
     
     func setActiveHomeWork(activeHomeWorks: [HomeWorkModel]){
@@ -78,9 +82,29 @@ final class ActiveHomeWork: UIView{
         createHomeWorkView.isHidden = false
     }
     
+    func removeFromActiveHomeWorks(at index: Int){
+        activeHomeWorks.remove(at: index)
+    }
+    
+    func updateTableView(){
+        tableView.reloadData()
+    }
+    
+    
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        super.touchesBegan(touches, with: event)
+//
+//        if !selectedHomeWorkView.isHidden{
+//            selectedHomeWorkView.isHidden = true
+//            delegate?.enabledViews()
+//        }
+//    }
+    
     @IBAction private func addButtonAction(_ sender: Any) {
         showCreateHomeWorkView()
         delegate?.disableViews()
+        createHomeWorkView.changeCreateHomeWorkViewType(createHomeWorkViewType: .add)
     }
 }
 
@@ -97,6 +121,13 @@ extension ActiveHomeWork: UITableViewDelegate, UITableViewDataSource{
         cell.delegate = self
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedHomeWorkIndex = indexPath.row
+        selectedHomeWorkView.isHidden = false
+        delegate?.disableViews()
+        createHomeWorkView.changeCreateHomeWorkViewType(createHomeWorkViewType: .adit)
+    }
 }
 
 //MARK: - HomeWorkCellDelegate
@@ -109,6 +140,12 @@ extension ActiveHomeWork: HomeWorkCellDelegate{
 
 //MARK: - CreateHomeWorkViewDelegate
 extension ActiveHomeWork: CreateHomeWorkViewDelegate{
+    func aditHomeWork(newHomeWork: HomeWorkModel) {
+        guard let selectedIndex = selectedHomeWorkIndex else { return}
+        activeHomeWorks[selectedIndex] = newHomeWork
+        tableView.reloadData()
+    }
+    
     func changedUpHideConstraint() {
         hideConstraintCreateHomeWorkView.constant = -30
     }
@@ -117,7 +154,7 @@ extension ActiveHomeWork: CreateHomeWorkViewDelegate{
         hideConstraintCreateHomeWorkView.constant = 60
     }
     
-    func addHomeWorkToTableView(homeWork: HomeWorkModel) {
+    func addHomeWorkToActiveHomeworks(homeWork: HomeWorkModel) {
         activeHomeWorks.append(homeWork)
         tableView.reloadData()
     }
@@ -126,5 +163,25 @@ extension ActiveHomeWork: CreateHomeWorkViewDelegate{
         createHomeWorkView.isHidden = true
         delegate?.enabledViews()
     }
+}
+
+//MARK: - SelectedHomeWorkViewDelegate
+extension ActiveHomeWork: SelectedHomeWorkViewDelegate{
+    func deleteSelectedHomeWork() {
+        guard let selectedIndex = selectedHomeWorkIndex else { return }
+        delegate?.showDeleteHomeWorkAlert(at: selectedIndex)
+    }
+    
+    func editSelectedHomeWork() {
+        guard let selectedIndex = selectedHomeWorkIndex else { return }
+        hideSelectedHomeWorkView()
+        createHomeWorkView.setToTextFields(homeWork: activeHomeWorks[selectedIndex])
+        showCreateHomeWorkView()
+    }
+    
+    func hideSelectedHomeWorkView(){
+        selectedHomeWorkView.isHidden = true
+    }
+    
 }
 

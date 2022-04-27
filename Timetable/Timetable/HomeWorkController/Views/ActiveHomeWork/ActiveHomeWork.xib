@@ -14,6 +14,7 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="nj7-hU-6qy"/>
                 <outlet property="createHomeWorkView" destination="Lgv-4y-xgj" id="L9Y-p6-2f3"/>
                 <outlet property="hideConstraintCreateHomeWorkView" destination="h1F-2E-3Ya" id="WYJ-uE-XvH"/>
+                <outlet property="selectedHomeWorkView" destination="G3w-xc-ZAn" id="ud3-1D-ipk"/>
                 <outlet property="tableView" destination="EpJ-fR-goc" id="e8N-Sb-DIq"/>
             </connections>
         </placeholder>
@@ -37,6 +38,14 @@
                         <constraint firstAttribute="width" constant="300" id="nYe-VX-J8C"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3w-xc-ZAn" customClass="SelectedHomeWorkView" customModule="Timetable" customModuleProvider="target">
+                    <rect key="frame" x="67" y="124" width="280" height="130"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="uE0-gd-3AG"/>
+                        <constraint firstAttribute="width" constant="280" id="zfe-QT-J05"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8R-lY-G26">
                     <rect key="frame" x="352.5" y="845" width="41.5" height="31"/>
                     <color key="tintColor" name="labelTextColor"/>
@@ -51,9 +60,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EpJ-fR-goc" secondAttribute="trailing" constant="10" id="2JX-8j-iPL"/>
+                <constraint firstItem="G3w-xc-ZAn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="80" id="2Qj-HD-P3E"/>
                 <constraint firstAttribute="bottom" secondItem="l8R-lY-G26" secondAttribute="bottom" constant="20" id="8GA-Yq-s4m"/>
                 <constraint firstItem="Lgv-4y-xgj" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Ggt-nS-6FT"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="EpJ-fR-goc" secondAttribute="bottom" id="N6p-oF-dn2"/>
+                <constraint firstItem="G3w-xc-ZAn" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="OTh-UQ-DYJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="l8R-lY-G26" secondAttribute="trailing" constant="20" id="fMs-ek-kW3"/>
                 <constraint firstItem="EpJ-fR-goc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="gab-dw-j6g"/>
                 <constraint firstItem="Lgv-4y-xgj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="h1F-2E-3Ya"/>

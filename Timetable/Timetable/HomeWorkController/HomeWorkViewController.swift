@@ -37,6 +37,10 @@ final class HomeWorkViewController: UIViewController {
             menuView.isHidden = true
             enabledViews()
         }
+        if !activeHomeWork.selectedHomeWorkView.isHidden{
+            activeHomeWork.hideSelectedHomeWorkView()
+            enabledViews()
+        }
     }
     
     
@@ -98,6 +102,19 @@ extension HomeWorkViewController: MenuViewDelegate{
 
 //MARK: - ActiveHomeWorkDelegate
 extension HomeWorkViewController: ActiveHomeWorkDelegate{
+    func showDeleteHomeWorkAlert(at index: Int) {
+        let alertController = UIAlertController(title: "", message: "Вы точно хотите удалить домашнее задание?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] ok in
+            self?.activeHomeWork.removeFromActiveHomeWorks(at: index)
+            self?.activeHomeWork.updateTableView()
+            self?.enabledViews()
+        }))
+        alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: { [weak self] cancel in
+            self?.enabledViews()
+        }))
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func enabledViews(){
         headerHomeWorkView.enabledHeaderView()
         activeHomeWork.enabledTableView()

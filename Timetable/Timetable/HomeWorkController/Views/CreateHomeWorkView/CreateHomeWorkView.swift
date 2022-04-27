@@ -9,7 +9,8 @@ import UIKit
 
 protocol CreateHomeWorkViewDelegate: AnyObject{
     func hideCreateHomeWorkView()
-    func addHomeWorkToTableView(homeWork: HomeWorkModel)
+    func addHomeWorkToActiveHomeworks(homeWork: HomeWorkModel)
+    func aditHomeWork(newHomeWork: HomeWorkModel)
     func changedUpHideConstraint()
     func changedDownHideConstraint()
 }
@@ -25,6 +26,10 @@ class CreateHomeWorkView: UIView{
         case lessonName = 2
         case homeWork = 3
     }
+    
+    private var createHomeWorkViewType: CreateLessonViewType = .add
+//    private var selectedHomeWorkIndex: Int?
+//    private var selectedHomeWork: HomeWorkModel?
     
     override init(frame: CGRect) {
             super.init(frame: frame)
@@ -46,6 +51,17 @@ class CreateHomeWorkView: UIView{
     
     private func clearAllTextFields(){
         textFields.compactMap({ $0.text = "" })
+    }
+    
+    func changeCreateHomeWorkViewType(createHomeWorkViewType: CreateLessonViewType){
+        self.createHomeWorkViewType = createHomeWorkViewType
+    }
+    
+    func setToTextFields(homeWork: HomeWorkModel){
+        textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.text = homeWork.deadline
+        textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text = homeWork.lessonName
+        textFields.first(where: { $0.tag == TextFieldsType.homeWork.rawValue
+        })?.text = homeWork.homeWork
     }
     
     @IBAction func textFieldsAction(_ sender: UITextField) {
@@ -79,7 +95,13 @@ class CreateHomeWorkView: UIView{
         
         let homeWorkModel = HomeWorkModel(deadline:deadline, lessonName: lessonName, homeWork: homeWork)
         
-        delegate?.addHomeWorkToTableView(homeWork: homeWorkModel)
+        switch createHomeWorkViewType {
+        case .add:
+            delegate?.addHomeWorkToActiveHomeworks(homeWork: homeWorkModel)
+        case .adit:
+            delegate?.aditHomeWork(newHomeWork: homeWorkModel)
+        }
+        
         textFields.compactMap({ $0.layer.borderWidth = 0 })
         endEditing(true)
         delegate?.hideCreateHomeWorkView()
