@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct HomeWorkModel{
+struct HomeWorkModel: Codable, Equatable{
     var lessonName: String
     var homeWork: String
     var deadline: String

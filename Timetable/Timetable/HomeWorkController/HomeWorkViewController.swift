@@ -19,7 +19,6 @@ final class HomeWorkViewController: UIViewController {
         case active = 1
         case archive = 2
     }
-    private var dataSource: [HomeWorkModel] = [HomeWorkModel(lessonName: "aaa", homeWork: "aaa", deadline: "22.02.2021", isDone: true, isActive: true), HomeWorkModel(lessonName: "bbb", homeWork: "bbb", deadline: "23.08.2021", isDone: false, isActive: true)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +27,6 @@ final class HomeWorkViewController: UIViewController {
         menuView.delegate = self
         activeHomeWork.delegate = self
         showActiveHomeWorkView()
-        activeHomeWork.setActiveHomeWork(activeHomeWorks: getActiveHomeWorks())
         settingsForTabBar()
     }
     
@@ -54,10 +52,6 @@ final class HomeWorkViewController: UIViewController {
     private func showArchiveHomeWorkView(){
         activeHomeWork.isHidden = true
         archiveHomeWorkView.isHidden = false
-    }
-    
-    private func getActiveHomeWorks() -> [HomeWorkModel]{
-        return dataSource.filter({ $0.isActive == true })
     }
 }
 

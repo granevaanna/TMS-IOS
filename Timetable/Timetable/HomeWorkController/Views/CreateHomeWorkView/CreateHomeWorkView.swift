@@ -9,7 +9,7 @@ import UIKit
 
 protocol CreateHomeWorkViewDelegate: AnyObject{
     func hideCreateHomeWorkView()
-    func addHomeWorkToDataSource(homeWork: HomeWorkModel)
+    func addHomeWorkToTableView(homeWork: HomeWorkModel)
     func changedUpHideConstraint()
     func changedDownHideConstraint()
 }
@@ -79,7 +79,7 @@ class CreateHomeWorkView: UIView{
         
         let homeWorkModel = HomeWorkModel(deadline:deadline, lessonName: lessonName, homeWork: homeWork)
         
-        delegate?.addHomeWorkToDataSource(homeWork: homeWorkModel)
+        delegate?.addHomeWorkToTableView(homeWork: homeWorkModel)
         textFields.compactMap({ $0.layer.borderWidth = 0 })
         endEditing(true)
         delegate?.hideCreateHomeWorkView()

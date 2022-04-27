@@ -19,7 +19,23 @@ final class ActiveHomeWork: UIView{
     @IBOutlet private weak var addButton: UIButton!
     @IBOutlet private weak var hideConstraintCreateHomeWorkView: NSLayoutConstraint!
     
-    private var activeHomeWorks: [HomeWorkModel] = []
+    private var activeHomeWorks: [HomeWorkModel] {
+        set {
+            if let encoded = try? JSONEncoder().encode(newValue) {
+                UserDefaults.standard.set(encoded, forKey: "kToDoHomeWorkDataSource")
+                UserDefaults.standard.synchronize()
+            }
+        }
+        
+        get {
+            if let data = UserDefaults.standard.value(forKey: "kToDoHomeWorkDataSource") as? Data,
+               let array = try? JSONDecoder().decode([HomeWorkModel].self, from: data) {
+                return array
+            } else {
+                return []
+            }
+        }
+    }
     
     weak var delegate: ActiveHomeWorkDelegate?
 
@@ -38,7 +54,6 @@ final class ActiveHomeWork: UIView{
             addSubview(contentView)
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//            tableView.backgroundColor = UIColor(named: "backgroundColor")
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(UINib(nibName: "HomeWorkCell", bundle: nil), forCellReuseIdentifier: HomeWorkCell.identifier)
@@ -102,7 +117,7 @@ extension ActiveHomeWork: CreateHomeWorkViewDelegate{
         hideConstraintCreateHomeWorkView.constant = 60
     }
     
-    func addHomeWorkToDataSource(homeWork: HomeWorkModel) {
+    func addHomeWorkToTableView(homeWork: HomeWorkModel) {
         activeHomeWorks.append(homeWork)
         tableView.reloadData()
     }
@@ -112,3 +127,4 @@ extension ActiveHomeWork: CreateHomeWorkViewDelegate{
         delegate?.enabledViews()
     }
 }
+
