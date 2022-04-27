@@ -17,6 +17,7 @@ final class ActiveHomeWork: UIView{
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var createHomeWorkView: CreateHomeWorkView!
     @IBOutlet private weak var addButton: UIButton!
+    @IBOutlet private weak var hideConstraintCreateHomeWorkView: NSLayoutConstraint!
     
     private var activeHomeWorks: [HomeWorkModel] = []
     
@@ -93,6 +94,14 @@ extension ActiveHomeWork: HomeWorkCellDelegate{
 
 //MARK: - CreateHomeWorkViewDelegate
 extension ActiveHomeWork: CreateHomeWorkViewDelegate{
+    func changedUpHideConstraint() {
+        hideConstraintCreateHomeWorkView.constant = -30
+    }
+    
+    func changedDownHideConstraint() {
+        hideConstraintCreateHomeWorkView.constant = 60
+    }
+    
     func addHomeWorkToDataSource(homeWork: HomeWorkModel) {
         activeHomeWorks.append(homeWork)
         tableView.reloadData()

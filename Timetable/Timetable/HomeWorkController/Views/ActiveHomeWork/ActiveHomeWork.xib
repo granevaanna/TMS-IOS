@@ -13,6 +13,7 @@
                 <outlet property="addButton" destination="l8R-lY-G26" id="Vnc-QX-qW4"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="nj7-hU-6qy"/>
                 <outlet property="createHomeWorkView" destination="Lgv-4y-xgj" id="L9Y-p6-2f3"/>
+                <outlet property="hideConstraintCreateHomeWorkView" destination="h1F-2E-3Ya" id="WYJ-uE-XvH"/>
                 <outlet property="tableView" destination="EpJ-fR-goc" id="e8N-Sb-DIq"/>
             </connections>
         </placeholder>

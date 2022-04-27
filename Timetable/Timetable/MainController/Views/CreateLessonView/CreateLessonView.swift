@@ -75,18 +75,20 @@ final class CreateLessonView: UIView{
     }
     
     @IBAction private func saveButtonAction(_ sender: Any) {
-        if let lessonText = textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text, lessonText.isEmpty {
+        guard let lessonName = textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text,
+              let teacher = textFields.first(where: { $0.tag == TextFieldsType.teacher.rawValue })?.text,
+              let audience = textFields.first(where: { $0.tag == TextFieldsType.audience.rawValue })?.text,
+              let startTime = textFields.first(where: { $0.tag == TextFieldsType.startTime.rawValue })?.text,
+              let endTime = textFields.first(where: { $0.tag == TextFieldsType.endTime.rawValue })?.text,
+              let lessonType = textFields.first(where: { $0.tag == TextFieldsType.lessonType.rawValue })?.text
+        else { return }
+        
+        
+        if lessonName.isEmpty {
             textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.layer.borderWidth = 2
             textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
         } else {
-            var currentLessonModel = LessonModel()
-            
-            currentLessonModel.lessonName = textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text ?? "-"
-            currentLessonModel.teacher = textFields.first(where: { $0.tag == TextFieldsType.teacher.rawValue })?.text ?? "-"
-            currentLessonModel.audience = textFields.first(where: { $0.tag == TextFieldsType.audience.rawValue })?.text ?? "-"
-            currentLessonModel.startTime = textFields.first(where: { $0.tag == TextFieldsType.startTime.rawValue })?.text ?? "-"
-            currentLessonModel.endTime = textFields.first(where: { $0.tag == TextFieldsType.endTime.rawValue })?.text ?? "-"
-            currentLessonModel.lessonType = textFields.first(where: { $0.tag == TextFieldsType.lessonType.rawValue })?.text ?? "-"
+            let currentLessonModel = LessonModel(lessonName: lessonName, teacher: teacher, audience: audience, startTime: startTime, endTime: endTime, lessonType: lessonType)
             
             switch createLessonViewType {
             case .add:

@@ -10,6 +10,8 @@ import UIKit
 protocol CreateHomeWorkViewDelegate: AnyObject{
     func hideCreateHomeWorkView()
     func addHomeWorkToDataSource(homeWork: HomeWorkModel)
+    func changedUpHideConstraint()
+    func changedDownHideConstraint()
 }
 
 class CreateHomeWorkView: UIView{
@@ -46,19 +48,50 @@ class CreateHomeWorkView: UIView{
         textFields.compactMap({ $0.text = "" })
     }
     
+    @IBAction func textFieldsAction(_ sender: UITextField) {
+        delegate?.changedUpHideConstraint()
+        sender.layer.borderWidth = 0
+    }
+    
+    
+    
     @IBAction private func saveButtonAction(_ sender: Any) {
-        var homeWorkModel = HomeWorkModel()
-        homeWorkModel.deadline = textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.text ?? ""
-        homeWorkModel.lessonName = textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text ?? ""
-        homeWorkModel.homeWork = textFields.first(where: { $0.tag == TextFieldsType.homeWork.rawValue })?.text ?? ""
+        guard let deadline = textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.text,
+              let lessonName = textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text,
+              let homeWork = textFields.first(where: { $0.tag == TextFieldsType.homeWork.rawValue })?.text
+        else { return }
+        
+        guard !deadline.isEmpty, !lessonName.isEmpty, !homeWork.isEmpty else {
+            if deadline.isEmpty{
+                textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.layer.borderWidth = 2
+                textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
+            }
+            if lessonName.isEmpty{
+                textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.layer.borderWidth = 2
+                textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
+            }
+            if homeWork.isEmpty{
+                textFields.first(where: { $0.tag == TextFieldsType.homeWork.rawValue })?.layer.borderWidth = 2
+                textFields.first(where: { $0.tag == TextFieldsType.homeWork.rawValue })?.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
+            }
+            return
+        }
+        
+        let homeWorkModel = HomeWorkModel(deadline:deadline, lessonName: lessonName, homeWork: homeWork)
         
         delegate?.addHomeWorkToDataSource(homeWork: homeWorkModel)
+        textFields.compactMap({ $0.layer.borderWidth = 0 })
+        endEditing(true)
         delegate?.hideCreateHomeWorkView()
         clearAllTextFields()
+        delegate?.changedDownHideConstraint()
     }
     
     @IBAction private func cancelButtonAction(_ sender: Any) {
+        endEditing(true)
+        textFields.compactMap({ $0.layer.borderWidth = 0 })
         delegate?.hideCreateHomeWorkView()
         clearAllTextFields()
+        delegate?.changedDownHideConstraint()
     }
 }

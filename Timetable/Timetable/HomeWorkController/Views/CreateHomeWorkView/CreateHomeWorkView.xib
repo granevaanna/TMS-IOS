@@ -35,18 +35,27 @@
                             <color key="backgroundColor" name="createLessonColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldsAction:" destination="-1" eventType="editingDidBegin" id="gKx-zT-Icr"/>
+                            </connections>
                         </textField>
                         <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Предмет" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uHc-R7-sp9">
                             <rect key="frame" x="0.0" y="317" width="384" height="154"/>
                             <color key="backgroundColor" name="createLessonColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldsAction:" destination="-1" eventType="editingDidBegin" id="4ch-Fl-IXr"/>
+                            </connections>
                         </textField>
                         <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Задание" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="atL-07-cKj">
                             <rect key="frame" x="0.0" y="476" width="384" height="153.5"/>
                             <color key="backgroundColor" name="createLessonColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldsAction:" destination="-1" eventType="editingDidBegin" id="BR1-rS-B2S"/>
+                            </connections>
                         </textField>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRl-z0-x6f">
                             <rect key="frame" x="0.0" y="634.5" width="384" height="153.5"/>
