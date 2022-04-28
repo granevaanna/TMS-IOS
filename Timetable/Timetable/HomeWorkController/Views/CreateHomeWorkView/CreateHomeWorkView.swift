@@ -101,7 +101,7 @@ class CreateHomeWorkView: UIView{
             return
         }
         
-        let deadline = HomeWorkModel.convertStringToDate(deadlineString: deadlineString)!
+        let deadline = HomeWorkModel.convertStringToDate(deadlineString: deadlineString)
         let homeWorkModel = HomeWorkModel(deadline: deadline, lessonName: lessonName, homeWork: homeWork)
         
         switch createHomeWorkViewType {

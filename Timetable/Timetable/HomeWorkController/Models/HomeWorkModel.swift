@@ -28,11 +28,11 @@ struct HomeWorkModel: Codable, Equatable{
         return formatter.string(from: deadline)
     }
     
-    static func convertStringToDate(deadlineString: String) -> Date? {
+    static func convertStringToDate(deadlineString: String) -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE, dd.MM.YYYY"
         let dateFormatter = formatter
-        return dateFormatter.date(from: deadlineString)
+        return dateFormatter.date(from: deadlineString)!
     }
     
     static func convertDateToString(deadline: Date) -> String {
