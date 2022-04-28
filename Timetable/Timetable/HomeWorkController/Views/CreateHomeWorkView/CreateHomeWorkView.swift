@@ -18,6 +18,8 @@ protocol CreateHomeWorkViewDelegate: AnyObject{
 class CreateHomeWorkView: UIView{
     @IBOutlet private var contentView: UIView!
     @IBOutlet private var textFields: [UITextField]!
+    @IBOutlet private weak var calendarView: CalendarView!
+    
     
     weak var delegate: CreateHomeWorkViewDelegate?
     
@@ -47,6 +49,7 @@ class CreateHomeWorkView: UIView{
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             contentView.layer.cornerRadius = 20
+            calendarView.delegate = self
         }
     
     private func clearAllTextFields(){
@@ -58,27 +61,32 @@ class CreateHomeWorkView: UIView{
     }
     
     func setToTextFields(homeWork: HomeWorkModel){
-        textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.text = homeWork.deadline
+        textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.text = homeWork.deadlineString
         textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text = homeWork.lessonName
         textFields.first(where: { $0.tag == TextFieldsType.homeWork.rawValue
         })?.text = homeWork.homeWork
     }
     
     @IBAction func textFieldsAction(_ sender: UITextField) {
-        delegate?.changedUpHideConstraint()
+        if sender.tag == TextFieldsType.deadline.rawValue {
+            calendarView.isHidden = false
+            endEditing(true)
+        } else {
+            delegate?.changedUpHideConstraint()
+        }
         sender.layer.borderWidth = 0
     }
     
     
     
     @IBAction private func saveButtonAction(_ sender: Any) {
-        guard let deadline = textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.text,
+        guard let deadlineString = textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.text,
               let lessonName = textFields.first(where: { $0.tag == TextFieldsType.lessonName.rawValue })?.text,
               let homeWork = textFields.first(where: { $0.tag == TextFieldsType.homeWork.rawValue })?.text
         else { return }
         
-        guard !deadline.isEmpty, !lessonName.isEmpty, !homeWork.isEmpty else {
-            if deadline.isEmpty{
+        guard !deadlineString.isEmpty, !lessonName.isEmpty, !homeWork.isEmpty else {
+            if deadlineString.isEmpty{
                 textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.layer.borderWidth = 2
                 textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
             }
@@ -93,7 +101,8 @@ class CreateHomeWorkView: UIView{
             return
         }
         
-        let homeWorkModel = HomeWorkModel(deadline:deadline, lessonName: lessonName, homeWork: homeWork)
+        let deadline = HomeWorkModel.convertStringToDate(deadlineString: deadlineString)!
+        let homeWorkModel = HomeWorkModel(deadline: deadline, lessonName: lessonName, homeWork: homeWork)
         
         switch createHomeWorkViewType {
         case .add:
@@ -115,5 +124,16 @@ class CreateHomeWorkView: UIView{
         delegate?.hideCreateHomeWorkView()
         clearAllTextFields()
         delegate?.changedDownHideConstraint()
+    }
+}
+
+//MARK: - CalendarViewDelegate
+extension CreateHomeWorkView: CalendarViewDelegate{
+    func hideCalendarView() {
+        calendarView.isHidden = true
+    }
+    
+    func saveSelectedDate(date: Date) {
+        textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.text = HomeWorkModel.convertDateToString(deadline: date)
     }
 }

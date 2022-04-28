@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FSCalendar",
+        "repositoryURL": "https://github.com/WenchaoD/FSCalendar.git",
+        "state": {
+          "branch": "master",
+          "revision": "0fbdec5172fccb90f707472eeaea4ffe095278f6",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

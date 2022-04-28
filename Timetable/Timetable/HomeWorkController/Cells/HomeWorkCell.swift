@@ -31,7 +31,7 @@ final class HomeWorkCell: UITableViewCell {
     func setup(with homeWorkModel: HomeWorkModel, addButtonId: Int){
         lessonNameLabel.text = homeWorkModel.lessonName
         homeWorkLabel.text = homeWorkModel.homeWork
-        deadlineLabel.text = homeWorkModel.deadline
+        deadlineLabel.text = homeWorkModel.deadlineString
         switch homeWorkModel.isDone {
         case true:
             isDoneButton.setImage(UIImage(systemName: "checkmark.rectangle.portrait"), for: .normal)

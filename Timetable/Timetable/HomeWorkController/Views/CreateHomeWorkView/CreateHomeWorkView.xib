@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateHomeWorkView" customModule="Timetable" customModuleProvider="target">
             <connections>
+                <outlet property="calendarView" destination="jBQ-J6-fKw" id="cl3-aP-FNM"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="mbD-kk-ZR3"/>
                 <outletCollection property="textFields" destination="eu0-yW-fc9" collectionClass="NSMutableArray" id="Kxw-V0-NCf"/>
                 <outletCollection property="textFields" destination="uHc-R7-sp9" collectionClass="NSMutableArray" id="c8W-G8-YCG"/>
@@ -84,14 +85,22 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBQ-J6-fKw" customClass="CalendarView" customModule="Timetable" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="mainColor"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jBQ-J6-fKw" secondAttribute="trailing" id="6cw-CD-QSl"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hUs-ZI-eS8" secondAttribute="bottom" constant="15" id="A1p-3v-qk8"/>
                 <constraint firstItem="hUs-ZI-eS8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="G50-wa-Jmn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jBQ-J6-fKw" secondAttribute="bottom" id="HOl-uJ-8BH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hUs-ZI-eS8" secondAttribute="trailing" constant="15" id="S0r-vW-5Xi"/>
+                <constraint firstItem="jBQ-J6-fKw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Wc3-Bx-emO"/>
                 <constraint firstItem="hUs-ZI-eS8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="lFd-ZZ-t73"/>
+                <constraint firstItem="jBQ-J6-fKw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rH5-6g-Fsw"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="139" y="82"/>

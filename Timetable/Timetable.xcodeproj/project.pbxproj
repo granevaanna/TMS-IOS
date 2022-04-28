@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		191BB98928143FFD0012CDAD /* CreateHomeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BB98828143FFD0012CDAD /* CreateHomeWorkView.swift */; };
 		191BB98B2814402A0012CDAD /* CreateHomeWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191BB98A2814402A0012CDAD /* CreateHomeWorkView.xib */; };
+		1960ED30281ADAB400DD9CDD /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 1960ED2F281ADAB400DD9CDD /* FSCalendar */; };
+		1960ED33281ADB7100DD9CDD /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960ED32281ADB7100DD9CDD /* CalendarView.swift */; };
+		1960ED35281ADB9D00DD9CDD /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1960ED34281ADB9D00DD9CDD /* CalendarView.xib */; };
 		197774D42804500700554AD0 /* HomeWorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197774D22804500700554AD0 /* HomeWorkViewController.swift */; };
 		197774D52804500700554AD0 /* HomeWorkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197774D32804500700554AD0 /* HomeWorkViewController.xib */; };
 		197774D7280450C300554AD0 /* HomeWorkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197774D6280450C300554AD0 /* HomeWorkModel.swift */; };
@@ -58,6 +61,8 @@
 /* Begin PBXFileReference section */
 		191BB98828143FFD0012CDAD /* CreateHomeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHomeWorkView.swift; sourceTree = "<group>"; };
 		191BB98A2814402A0012CDAD /* CreateHomeWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateHomeWorkView.xib; sourceTree = "<group>"; };
+		1960ED32281ADB7100DD9CDD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		1960ED34281ADB9D00DD9CDD /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		197774D22804500700554AD0 /* HomeWorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkViewController.swift; sourceTree = "<group>"; };
 		197774D32804500700554AD0 /* HomeWorkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeWorkViewController.xib; sourceTree = "<group>"; };
 		197774D6280450C300554AD0 /* HomeWorkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkModel.swift; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1960ED30281ADAB400DD9CDD /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +149,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1960ED31281ADB5A00DD9CDD /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				1960ED32281ADB7100DD9CDD /* CalendarView.swift */,
+				1960ED34281ADB9D00DD9CDD /* CalendarView.xib */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
 		197774D028044FB400554AD0 /* MainController */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +185,7 @@
 		197774D82804521000554AD0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1960ED31281ADB5A00DD9CDD /* CalendarView */,
 				199235D72819D3CD0044E2D7 /* SelectedHomeWorkView */,
 				191BB98128143B000012CDAD /* CreateHomeWorkView */,
 				197774DE2804565900554AD0 /* ActiveHomeWork */,
@@ -403,6 +419,9 @@
 			dependencies = (
 			);
 			name = Timetable;
+			packageProductDependencies = (
+				1960ED2F281ADAB400DD9CDD /* FSCalendar */,
+			);
 			productName = Timetable;
 			productReference = 19E5BC6927BC539400B58EF8 /* Timetable.app */;
 			productType = "com.apple.product-type.application";
@@ -431,6 +450,9 @@
 				Base,
 			);
 			mainGroup = 19E5BC6027BC539400B58EF8;
+			packageReferences = (
+				1960ED2E281ADAB400DD9CDD /* XCRemoteSwiftPackageReference "FSCalendar" */,
+			);
 			productRefGroup = 19E5BC6A27BC539400B58EF8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -463,6 +485,7 @@
 				197C87D927BF86E10087D3CC /* CreateLessonView.xib in Resources */,
 				197774D52804500700554AD0 /* HomeWorkViewController.xib in Resources */,
 				199235DB2819D3FE0044E2D7 /* SelectedHomeWorkView.xib in Resources */,
+				1960ED35281ADB9D00DD9CDD /* CalendarView.xib in Resources */,
 				197C87DE27C3EF8C0087D3CC /* SelectedLessonView.xib in Resources */,
 				197774DD2804534400554AD0 /* HeaderHomeWorkView.xib in Resources */,
 			);
@@ -489,6 +512,7 @@
 				197C87D727BF86BC0087D3CC /* CreateLessonView.swift in Sources */,
 				19E5BC9827BD21C900B58EF8 /* DaysView.swift in Sources */,
 				197774D7280450C300554AD0 /* HomeWorkModel.swift in Sources */,
+				1960ED33281ADB7100DD9CDD /* CalendarView.swift in Sources */,
 				19F1102127D01BAC00337249 /* SettingView.swift in Sources */,
 				197774E02804567400554AD0 /* ActiveHomeWork.swift in Sources */,
 				197C87D427BF84D80087D3CC /* LessonModel.swift in Sources */,
@@ -718,6 +742,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1960ED2E281ADAB400DD9CDD /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1960ED2F281ADAB400DD9CDD /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1960ED2E281ADAB400DD9CDD /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 19E5BC6127BC539400B58EF8 /* Project object */;
 }

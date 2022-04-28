@@ -90,17 +90,6 @@ final class ActiveHomeWork: UIView{
         tableView.reloadData()
     }
     
-    
-    
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        super.touchesBegan(touches, with: event)
-//
-//        if !selectedHomeWorkView.isHidden{
-//            selectedHomeWorkView.isHidden = true
-//            delegate?.enabledViews()
-//        }
-//    }
-    
     @IBAction private func addButtonAction(_ sender: Any) {
         showCreateHomeWorkView()
         delegate?.disableViews()
