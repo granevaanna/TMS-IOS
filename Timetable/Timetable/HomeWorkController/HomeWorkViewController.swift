@@ -108,6 +108,12 @@ extension HomeWorkViewController: ActiveHomeWorkDelegate{
             self?.activeHomeWork.removeFromActiveHomeWorks(at: index)
             self?.activeHomeWork.updateTableView()
             self?.enabledViews()
+            
+            if self?.activeHomeWork.countOfActiveHomeWorks() == 0{
+                self?.activeHomeWork.showEmptyActiveHomeWorkView()
+            } else {
+                self?.activeHomeWork.showActiveHomeWorks()
+            }
         }))
         alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: { [weak self] cancel in
             self?.enabledViews()

@@ -20,6 +20,7 @@ final class ActiveHomeWork: UIView{
     @IBOutlet private weak var addButton: UIButton!
     @IBOutlet private weak var hideConstraintCreateHomeWorkView: NSLayoutConstraint!
     @IBOutlet private(set) weak var selectedHomeWorkView: SelectedHomeWorkView!
+    @IBOutlet private weak var emptyActiveHomeWorkView: EmptyActiveHomeWorkView!
     
     private var activeHomeWorks: [HomeWorkModel] {
         set {
@@ -62,6 +63,8 @@ final class ActiveHomeWork: UIView{
             tableView.register(UINib(nibName: "HomeWorkCell", bundle: nil), forCellReuseIdentifier: HomeWorkCell.identifier)
             createHomeWorkView.delegate = self
             selectedHomeWorkView.delegate = self
+            
+            activeHomeWorks.isEmpty ? showEmptyActiveHomeWorkView() : showActiveHomeWorks()
         }
     
     func setActiveHomeWork(activeHomeWorks: [HomeWorkModel]){
@@ -88,6 +91,20 @@ final class ActiveHomeWork: UIView{
     
     func updateTableView(){
         tableView.reloadData()
+    }
+    
+    func showEmptyActiveHomeWorkView(){
+        tableView.isHidden = true
+        emptyActiveHomeWorkView.isHidden = false
+    }
+    
+    func showActiveHomeWorks(){
+        tableView.isHidden = false
+        emptyActiveHomeWorkView.isHidden = true
+    }
+    
+    func countOfActiveHomeWorks() -> Int{
+        return activeHomeWorks.count
     }
     
     @IBAction private func addButtonAction(_ sender: Any) {
@@ -146,6 +163,7 @@ extension ActiveHomeWork: CreateHomeWorkViewDelegate{
     func addHomeWorkToActiveHomeworks(homeWork: HomeWorkModel) {
         activeHomeWorks.append(homeWork)
         tableView.reloadData()
+        showActiveHomeWorks()
     }
     
     func hideCreateHomeWorkView() {

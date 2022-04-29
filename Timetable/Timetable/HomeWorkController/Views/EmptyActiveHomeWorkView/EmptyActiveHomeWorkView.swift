@@ -1,13 +1,13 @@
 //
-//  EmptyLessonsView.swift
+//  EmptyActiveHomeWorkView.swift
 //  Timetable
 //
-//  Created by Анна Гранёва on 3.03.22.
+//  Created by Анна Гранёва on 29.04.22.
 //
 
 import UIKit
 
-final class EmptyLessonsView: UIView{
+final class EmptyActiveHomeWorkView: UIView{
     @IBOutlet private var contentView: UIView!
 
     override init(frame: CGRect) {

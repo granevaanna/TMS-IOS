@@ -20,7 +20,6 @@ class CreateHomeWorkView: UIView{
     @IBOutlet private var textFields: [UITextField]!
     @IBOutlet private weak var calendarView: CalendarView!
     
-    
     weak var delegate: CreateHomeWorkViewDelegate?
     
     private enum TextFieldsType: Int{
@@ -30,8 +29,7 @@ class CreateHomeWorkView: UIView{
     }
     
     private var createHomeWorkViewType: CreateLessonViewType = .add
-//    private var selectedHomeWorkIndex: Int?
-//    private var selectedHomeWork: HomeWorkModel?
+    private var selectedDeadline: Date?
     
     override init(frame: CGRect) {
             super.init(frame: frame)
@@ -101,8 +99,10 @@ class CreateHomeWorkView: UIView{
             return
         }
         
-        let deadline = HomeWorkModel.convertStringToDate(deadlineString: deadlineString)
-        let homeWorkModel = HomeWorkModel(deadline: deadline, lessonName: lessonName, homeWork: homeWork)
+//        let deadline = HomeWorkModel.convertStringToDate(deadlineString: deadlineString)
+        guard let selectedDeadline = selectedDeadline else { return }
+
+        let homeWorkModel = HomeWorkModel(deadline: selectedDeadline, lessonName: lessonName, homeWork: homeWork)
         
         switch createHomeWorkViewType {
         case .add:
@@ -134,6 +134,7 @@ extension CreateHomeWorkView: CalendarViewDelegate{
     }
     
     func saveSelectedDate(date: Date) {
+        selectedDeadline = date
         textFields.first(where: { $0.tag == TextFieldsType.deadline.rawValue })?.text = HomeWorkModel.convertDateToString(deadline: date)
     }
 }
