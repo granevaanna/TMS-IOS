@@ -58,4 +58,13 @@ extension CalendarView: FSCalendarDelegate{
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         selectedDate = date
     }
+    
+    func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+        guard let todayDate = calendar.today else { return true}
+        if date < todayDate{
+            return false
+        }else {
+            return true
+        }
+    }
 }

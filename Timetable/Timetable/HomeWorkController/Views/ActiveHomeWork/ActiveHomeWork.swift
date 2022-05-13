@@ -33,7 +33,7 @@ final class ActiveHomeWork: UIView{
         get {
             if let data = UserDefaults.standard.value(forKey: "kToDoHomeWorkDataSource") as? Data,
                let array = try? JSONDecoder().decode([HomeWorkModel].self, from: data) {
-                return array
+                return array.sorted(by: { $0.deadline < $1.deadline })
             } else {
                 return []
             }
@@ -67,9 +67,9 @@ final class ActiveHomeWork: UIView{
             activeHomeWorks.isEmpty ? showEmptyActiveHomeWorkView() : showActiveHomeWorks()
         }
     
-    func setActiveHomeWork(activeHomeWorks: [HomeWorkModel]){
-        self.activeHomeWorks = activeHomeWorks
-    }
+//    func setActiveHomeWork(activeHomeWorks: [HomeWorkModel]){
+//        self.activeHomeWorks = activeHomeWorks
+//    }
     
     func disableTableView(){
         tableView.isUserInteractionEnabled = false
@@ -162,6 +162,7 @@ extension ActiveHomeWork: CreateHomeWorkViewDelegate{
     
     func addHomeWorkToActiveHomeworks(homeWork: HomeWorkModel) {
         activeHomeWorks.append(homeWork)
+        activeHomeWorks = activeHomeWorks.sorted(by: { $0.deadline < $1.deadline })
         tableView.reloadData()
         showActiveHomeWorks()
     }
