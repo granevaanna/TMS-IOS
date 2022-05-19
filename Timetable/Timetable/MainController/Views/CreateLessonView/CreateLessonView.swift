@@ -112,6 +112,7 @@ final class CreateLessonView: UIView{
         textFields.first(where: { $0.tag == TextFieldsType.audience.rawValue })?.text = lessonModel.audience
         textFields.first(where: { $0.tag == TextFieldsType.startTime.rawValue })?.text = lessonModel.startTime
         textFields.first(where: { $0.tag == TextFieldsType.endTime.rawValue })?.text = lessonModel.endTime
+        textFields.first(where: { $0.tag == TextFieldsType.lessonType.rawValue })?.text = lessonModel.lessonType
     }
     
     func changeCreateLessonViewType(createLessonViewType: CreateLessonViewType){

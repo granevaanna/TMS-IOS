@@ -133,6 +133,12 @@ final class ActiveHomeWork: UIView{
         return activeHomeWorks.count
     }
     
+    func removeAllFromActiveHomeWorks(){
+        activeHomeWorks.removeAll()
+        tableView.reloadData()
+        showEmptyActiveHomeWorkView()
+    }
+    
     @IBAction private func addButtonAction(_ sender: Any) {
         showCreateHomeWorkView()
         delegate?.disableViews()

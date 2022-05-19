@@ -37,6 +37,8 @@
 		199235DB2819D3FE0044E2D7 /* SelectedHomeWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199235DA2819D3FE0044E2D7 /* SelectedHomeWorkView.xib */; };
 		199EB06E2835D20800402BA4 /* EmptyArchiveHomeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199EB06D2835D20800402BA4 /* EmptyArchiveHomeWorkView.swift */; };
 		199EB0702835D22900402BA4 /* EmptyArchiveHomeWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199EB06F2835D22900402BA4 /* EmptyArchiveHomeWorkView.xib */; };
+		199EB0732836E92F00402BA4 /* SettingsHomeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199EB0722836E92F00402BA4 /* SettingsHomeWorkView.swift */; };
+		199EB0752836E94A00402BA4 /* SettingsHomeWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199EB0742836E94A00402BA4 /* SettingsHomeWorkView.xib */; };
 		19CD531E281C287E0056C18B /* EmptyActiveHomeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CD531D281C287E0056C18B /* EmptyActiveHomeWorkView.swift */; };
 		19CD5320281C28990056C18B /* EmptyActiveHomeWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19CD531F281C28990056C18B /* EmptyActiveHomeWorkView.xib */; };
 		19E5BC6D27BC539400B58EF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC6C27BC539400B58EF8 /* AppDelegate.swift */; };
@@ -92,6 +94,8 @@
 		199235DA2819D3FE0044E2D7 /* SelectedHomeWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedHomeWorkView.xib; sourceTree = "<group>"; };
 		199EB06D2835D20800402BA4 /* EmptyArchiveHomeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyArchiveHomeWorkView.swift; sourceTree = "<group>"; };
 		199EB06F2835D22900402BA4 /* EmptyArchiveHomeWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyArchiveHomeWorkView.xib; sourceTree = "<group>"; };
+		199EB0722836E92F00402BA4 /* SettingsHomeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHomeWorkView.swift; sourceTree = "<group>"; };
+		199EB0742836E94A00402BA4 /* SettingsHomeWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsHomeWorkView.xib; sourceTree = "<group>"; };
 		19CD531D281C287E0056C18B /* EmptyActiveHomeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyActiveHomeWorkView.swift; sourceTree = "<group>"; };
 		19CD531F281C28990056C18B /* EmptyActiveHomeWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyActiveHomeWorkView.xib; sourceTree = "<group>"; };
 		19E5BC6927BC539400B58EF8 /* Timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +197,7 @@
 		197774D82804521000554AD0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				199EB0712836E91000402BA4 /* SettingsHomeWorkView */,
 				199EB06C2835D1E800402BA4 /* EmptyArchiveHomeWorkView */,
 				19CD531C281C283E0056C18B /* EmptyActiveHomeWorkView */,
 				1960ED31281ADB5A00DD9CDD /* CalendarView */,
@@ -284,6 +289,15 @@
 				199EB06F2835D22900402BA4 /* EmptyArchiveHomeWorkView.xib */,
 			);
 			path = EmptyArchiveHomeWorkView;
+			sourceTree = "<group>";
+		};
+		199EB0712836E91000402BA4 /* SettingsHomeWorkView */ = {
+			isa = PBXGroup;
+			children = (
+				199EB0722836E92F00402BA4 /* SettingsHomeWorkView.swift */,
+				199EB0742836E94A00402BA4 /* SettingsHomeWorkView.xib */,
+			);
+			path = SettingsHomeWorkView;
 			sourceTree = "<group>";
 		};
 		19CD531C281C283E0056C18B /* EmptyActiveHomeWorkView */ = {
@@ -496,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19F1102327D01BB600337249 /* SettingView.xib in Resources */,
+				199EB0752836E94A00402BA4 /* SettingsHomeWorkView.xib in Resources */,
 				197774E72804A47500554AD0 /* ArchiveHomeWorkView.xib in Resources */,
 				197774ED2804AE4200554AD0 /* HomeWorkCell.xib in Resources */,
 				191BB98B2814402A0012CDAD /* CreateHomeWorkView.xib in Resources */,
@@ -535,6 +550,7 @@
 				197774EF2804B15A00554AD0 /* UITableViewCell+Extentions.swift in Sources */,
 				197774E52804A45F00554AD0 /* ArchiveHomeWorkView.swift in Sources */,
 				19E5BC9427BD209F00B58EF8 /* DaysCell.swift in Sources */,
+				199EB0732836E92F00402BA4 /* SettingsHomeWorkView.swift in Sources */,
 				19E5BC9E27BD26F100B58EF8 /* LessonCell.swift in Sources */,
 				199235D92819D3E80044E2D7 /* SelectedHomeWorkView.swift in Sources */,
 				197774D42804500700554AD0 /* HomeWorkViewController.swift in Sources */,

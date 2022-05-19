@@ -16,6 +16,7 @@
                 <outlet property="headerHomeWorkView" destination="wnR-bw-J0S" id="0KI-3D-3CT"/>
                 <outlet property="homeWorkTabBar" destination="MvN-9A-8F0" id="HhM-oP-kbn"/>
                 <outlet property="menuView" destination="Wev-ZU-ldc" id="XWX-WY-Z2C"/>
+                <outlet property="settingsHomeWorkView" destination="vFK-iT-9Fc" id="We2-61-O8o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -63,6 +64,14 @@
                         <constraint firstAttribute="width" constant="300" id="24t-8G-v8w"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFK-iT-9Fc" customClass="SettingsHomeWorkView" customModule="Timetable" customModuleProvider="target">
+                    <rect key="frame" x="209" y="104" width="200" height="80"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="1T4-yo-qAh"/>
+                        <constraint firstAttribute="width" constant="200" id="4VH-S3-g18"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="backgroundColor"/>
@@ -71,12 +80,14 @@
                 <constraint firstItem="MHx-mv-JcA" firstAttribute="top" secondItem="MvN-9A-8F0" secondAttribute="bottom" constant="5" id="7DP-b7-qxD"/>
                 <constraint firstItem="f7K-qE-gdg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Mh-0c-yhj"/>
                 <constraint firstItem="MvN-9A-8F0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="B7F-R9-gPC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vFK-iT-9Fc" secondAttribute="trailing" constant="5" id="Bdb-yx-J4w"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MHx-mv-JcA" secondAttribute="bottom" id="CcR-ir-WfV"/>
                 <constraint firstItem="Wev-ZU-ldc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DS9-Nh-5I8"/>
                 <constraint firstItem="mg0-OE-RfD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="M34-BK-EIB"/>
                 <constraint firstItem="MvN-9A-8F0" firstAttribute="top" secondItem="wnR-bw-J0S" secondAttribute="bottom" constant="5" id="VJc-7R-G94"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mg0-OE-RfD" secondAttribute="trailing" id="aNF-a5-j03"/>
                 <constraint firstItem="wnR-bw-J0S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="adJ-Bm-Wou"/>
+                <constraint firstItem="vFK-iT-9Fc" firstAttribute="top" secondItem="wnR-bw-J0S" secondAttribute="bottom" constant="-20" id="c21-dg-qFA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wnR-bw-J0S" secondAttribute="trailing" id="cQB-f4-iHI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Wev-ZU-ldc" secondAttribute="bottom" id="coC-hf-Hrw"/>
                 <constraint firstItem="mg0-OE-RfD" firstAttribute="top" secondItem="MvN-9A-8F0" secondAttribute="bottom" constant="5" id="fV5-dK-lOd"/>

@@ -24,6 +24,9 @@
                     <rect key="frame" x="532" y="80.5" width="48" height="38"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="threePoints"/>
+                    <connections>
+                        <action selector="settingButtonAction:" destination="-1" eventType="touchUpInside" id="UNC-3c-RZW"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJM-sf-kXU">
                     <rect key="frame" x="10" y="77.5" width="54" height="44"/>

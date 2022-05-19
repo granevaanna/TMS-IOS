@@ -13,7 +13,7 @@ final class HomeWorkViewController: UIViewController {
     @IBOutlet private weak var archiveHomeWorkView: ArchiveHomeWorkView!
     @IBOutlet private weak var homeWorkTabBar: UITabBar!
     @IBOutlet private weak var menuView: MenuView!
-    
+    @IBOutlet private weak var settingsHomeWorkView: SettingsHomeWorkView!
     
     private enum TabBarItemType: Int{
         case active = 1
@@ -26,6 +26,7 @@ final class HomeWorkViewController: UIViewController {
         headerHomeWorkView.delegate = self
         menuView.delegate = self
         activeHomeWork.delegate = self
+        settingsHomeWorkView.delegate = self
         showActiveHomeWorkView()
         settingsForTabBar()
     }
@@ -39,6 +40,10 @@ final class HomeWorkViewController: UIViewController {
         }
         if !activeHomeWork.selectedHomeWorkView.isHidden{
             activeHomeWork.hideSelectedHomeWorkView()
+            enabledViews()
+        }
+        if !settingsHomeWorkView.isHidden{
+            settingsHomeWorkView.isHidden = true
             enabledViews()
         }
     }
@@ -76,6 +81,11 @@ extension HomeWorkViewController: UITabBarDelegate{
 
 //MARK: - HeaderHomeWorkViewDelegate
 extension HomeWorkViewController: HeaderHomeWorkViewDelegate{
+    func showSettingView() {
+        settingsHomeWorkView.isHidden = false
+        disableViews()
+    }
+    
     func showMenuView() {
         menuView.isHidden = false
         disableViews()
@@ -136,5 +146,22 @@ extension HomeWorkViewController: ActiveHomeWorkDelegate{
         headerHomeWorkView.disableHeaderView()
         activeHomeWork.disableTableView()
         homeWorkTabBar.isUserInteractionEnabled = false
+    }
+}
+
+
+//MARK: - SettingsHomeWorkViewDelegate
+extension HomeWorkViewController: SettingsHomeWorkViewDelegate{
+    func showDeleteAllHomeWorkAlert() {
+        settingsHomeWorkView.isHidden = true
+        let alertController = UIAlertController(title: "", message: "Вы точно хотите очистить домашние задания?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] ok in
+            self?.activeHomeWork.removeAllFromActiveHomeWorks()
+            self?.enabledViews()
+        }))
+        alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: { [weak self] cancel in
+                self?.enabledViews()
+        }))
+        present(alertController, animated: true, completion: nil)
     }
 }

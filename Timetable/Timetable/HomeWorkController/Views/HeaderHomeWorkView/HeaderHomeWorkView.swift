@@ -9,6 +9,7 @@ import UIKit
 
 protocol HeaderHomeWorkViewDelegate: AnyObject{
     func showMenuView()
+    func showSettingView()
 }
 
 final class HeaderHomeWorkView: UIView{
@@ -45,8 +46,11 @@ final class HeaderHomeWorkView: UIView{
         menuButton.isEnabled = true
     }
     
-    @IBAction func menuButtonAction(_ sender: Any) {
+    @IBAction private func menuButtonAction(_ sender: Any) {
         delegate?.showMenuView()
     }
     
+    @IBAction private func settingButtonAction(_ sender: Any) {
+        delegate?.showSettingView()
+    }
 }
