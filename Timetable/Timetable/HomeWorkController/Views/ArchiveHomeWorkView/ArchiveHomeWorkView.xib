@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArchiveHomeWorkView" customModule="Timetable" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="K1f-Va-orJ"/>
+                <outlet property="emptyArchiveHomeWorkView" destination="wi2-nz-ZHs" id="pYJ-7Q-ngI"/>
                 <outlet property="tableView" destination="63f-KD-fHO" id="uXp-pg-SGB"/>
             </connections>
         </placeholder>
@@ -19,6 +20,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wi2-nz-ZHs" customClass="EmptyArchiveHomeWorkView" customModule="Timetable" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="63f-KD-fHO">
                     <rect key="frame" x="10" y="54" width="394" height="798"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -27,10 +32,14 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wi2-nz-ZHs" secondAttribute="trailing" id="KdX-7B-4zW"/>
+                <constraint firstItem="wi2-nz-ZHs" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="a3R-Dc-kgl"/>
                 <constraint firstItem="63f-KD-fHO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="bLb-AW-7Su"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="63f-KD-fHO" secondAttribute="trailing" constant="10" id="bn4-MB-erZ"/>
                 <constraint firstItem="63f-KD-fHO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="dv0-40-5BD"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="63f-KD-fHO" secondAttribute="bottom" constant="10" id="gzw-L1-8wQ"/>
+                <constraint firstItem="wi2-nz-ZHs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rF2-FJ-qFL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="wi2-nz-ZHs" secondAttribute="bottom" id="yDS-uZ-ZMB"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="139" y="78"/>

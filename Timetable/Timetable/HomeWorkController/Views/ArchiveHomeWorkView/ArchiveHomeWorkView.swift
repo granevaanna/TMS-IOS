@@ -10,6 +10,8 @@ import UIKit
 final class ArchiveHomeWorkView: UIView{
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var emptyArchiveHomeWorkView: EmptyArchiveHomeWorkView!
+    
 //    weak var delegate: HeaderViewDelegate?
     
     private var archiveHomeWorks: [HomeWorkModel] {
@@ -47,6 +49,8 @@ final class ArchiveHomeWorkView: UIView{
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             tableView.delegate = self
             tableView.dataSource = self
+            archiveHomeWorks.isEmpty ? showEmptyArchiveHomeWorkView() : showArchiveHomeWorks()
+            
             print(archiveHomeWorks)
             
         }
@@ -56,6 +60,16 @@ final class ArchiveHomeWorkView: UIView{
             archiveHomeWorks.append(newArchiveHomeWorks[i])
         }
         tableView.reloadData()
+    }
+    
+    private func showEmptyArchiveHomeWorkView(){
+        tableView.isHidden = true
+        emptyArchiveHomeWorkView.isHidden = false
+    }
+    
+    private func showArchiveHomeWorks(){
+        tableView.isHidden = false
+        emptyArchiveHomeWorkView.isHidden = true
     }
 }
 

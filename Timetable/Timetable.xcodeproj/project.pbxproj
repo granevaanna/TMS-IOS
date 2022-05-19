@@ -35,6 +35,8 @@
 		197C87DE27C3EF8C0087D3CC /* SelectedLessonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197C87DD27C3EF8C0087D3CC /* SelectedLessonView.xib */; };
 		199235D92819D3E80044E2D7 /* SelectedHomeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199235D82819D3E80044E2D7 /* SelectedHomeWorkView.swift */; };
 		199235DB2819D3FE0044E2D7 /* SelectedHomeWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199235DA2819D3FE0044E2D7 /* SelectedHomeWorkView.xib */; };
+		199EB06E2835D20800402BA4 /* EmptyArchiveHomeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199EB06D2835D20800402BA4 /* EmptyArchiveHomeWorkView.swift */; };
+		199EB0702835D22900402BA4 /* EmptyArchiveHomeWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199EB06F2835D22900402BA4 /* EmptyArchiveHomeWorkView.xib */; };
 		19CD531E281C287E0056C18B /* EmptyActiveHomeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CD531D281C287E0056C18B /* EmptyActiveHomeWorkView.swift */; };
 		19CD5320281C28990056C18B /* EmptyActiveHomeWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19CD531F281C28990056C18B /* EmptyActiveHomeWorkView.xib */; };
 		19E5BC6D27BC539400B58EF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC6C27BC539400B58EF8 /* AppDelegate.swift */; };
@@ -88,6 +90,8 @@
 		197C87DD27C3EF8C0087D3CC /* SelectedLessonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedLessonView.xib; sourceTree = "<group>"; };
 		199235D82819D3E80044E2D7 /* SelectedHomeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedHomeWorkView.swift; sourceTree = "<group>"; };
 		199235DA2819D3FE0044E2D7 /* SelectedHomeWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedHomeWorkView.xib; sourceTree = "<group>"; };
+		199EB06D2835D20800402BA4 /* EmptyArchiveHomeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyArchiveHomeWorkView.swift; sourceTree = "<group>"; };
+		199EB06F2835D22900402BA4 /* EmptyArchiveHomeWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyArchiveHomeWorkView.xib; sourceTree = "<group>"; };
 		19CD531D281C287E0056C18B /* EmptyActiveHomeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyActiveHomeWorkView.swift; sourceTree = "<group>"; };
 		19CD531F281C28990056C18B /* EmptyActiveHomeWorkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyActiveHomeWorkView.xib; sourceTree = "<group>"; };
 		19E5BC6927BC539400B58EF8 /* Timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +193,7 @@
 		197774D82804521000554AD0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				199EB06C2835D1E800402BA4 /* EmptyArchiveHomeWorkView */,
 				19CD531C281C283E0056C18B /* EmptyActiveHomeWorkView */,
 				1960ED31281ADB5A00DD9CDD /* CalendarView */,
 				199235D72819D3CD0044E2D7 /* SelectedHomeWorkView */,
@@ -270,6 +275,15 @@
 				199235DA2819D3FE0044E2D7 /* SelectedHomeWorkView.xib */,
 			);
 			path = SelectedHomeWorkView;
+			sourceTree = "<group>";
+		};
+		199EB06C2835D1E800402BA4 /* EmptyArchiveHomeWorkView */ = {
+			isa = PBXGroup;
+			children = (
+				199EB06D2835D20800402BA4 /* EmptyArchiveHomeWorkView.swift */,
+				199EB06F2835D22900402BA4 /* EmptyArchiveHomeWorkView.xib */,
+			);
+			path = EmptyArchiveHomeWorkView;
 			sourceTree = "<group>";
 		};
 		19CD531C281C283E0056C18B /* EmptyActiveHomeWorkView */ = {
@@ -489,6 +503,7 @@
 				19F1102D27D0C0D800337249 /* EmptyLessonsView.xib in Resources */,
 				19E5BC9A27BD21E800B58EF8 /* DaysView.xib in Resources */,
 				19E5BC7927BC539900B58EF8 /* LaunchScreen.storyboard in Resources */,
+				199EB0702835D22900402BA4 /* EmptyArchiveHomeWorkView.xib in Resources */,
 				197774E22804568600554AD0 /* ActiveHomeWork.xib in Resources */,
 				19E5BC9F27BD26F100B58EF8 /* LessonCell.xib in Resources */,
 				19E5BC7627BC539900B58EF8 /* Assets.xcassets in Resources */,
@@ -532,6 +547,7 @@
 				19F1102127D01BAC00337249 /* SettingView.swift in Sources */,
 				197774E02804567400554AD0 /* ActiveHomeWork.swift in Sources */,
 				197C87D427BF84D80087D3CC /* LessonModel.swift in Sources */,
+				199EB06E2835D20800402BA4 /* EmptyArchiveHomeWorkView.swift in Sources */,
 				19E5BC6F27BC539400B58EF8 /* SceneDelegate.swift in Sources */,
 				19E5BC8527BC554200B58EF8 /* HeaderView.swift in Sources */,
 				197774DB2804530100554AD0 /* HeaderHomeWorkView.swift in Sources */,
