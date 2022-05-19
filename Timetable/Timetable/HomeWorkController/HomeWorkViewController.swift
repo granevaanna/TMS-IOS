@@ -102,6 +102,11 @@ extension HomeWorkViewController: MenuViewDelegate{
 
 //MARK: - ActiveHomeWorkDelegate
 extension HomeWorkViewController: ActiveHomeWorkDelegate{
+    func newArchiveHomeWorks(newArchiveHomeWorks: [HomeWorkModel]) {
+        archiveHomeWorkView.appendArchiveHomeWorks(newArchiveHomeWorks: newArchiveHomeWorks)
+        print(newArchiveHomeWorks)
+    }
+    
     func showDeleteHomeWorkAlert(at index: Int) {
         let alertController = UIAlertController(title: "", message: "Вы точно хотите удалить домашнее задание?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] ok in
@@ -118,7 +123,7 @@ extension HomeWorkViewController: ActiveHomeWorkDelegate{
         alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: { [weak self] cancel in
             self?.enabledViews()
         }))
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil) 
     }
     
     func enabledViews(){

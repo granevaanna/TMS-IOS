@@ -11,6 +11,7 @@ protocol ActiveHomeWorkDelegate: AnyObject{
     func enabledViews()
     func disableViews()
     func showDeleteHomeWorkAlert(at index: Int)
+    func newArchiveHomeWorks(newArchiveHomeWorks: [HomeWorkModel])
 }
 
 final class ActiveHomeWork: UIView{
@@ -21,6 +22,7 @@ final class ActiveHomeWork: UIView{
     @IBOutlet private weak var hideConstraintCreateHomeWorkView: NSLayoutConstraint!
     @IBOutlet private(set) weak var selectedHomeWorkView: SelectedHomeWorkView!
     @IBOutlet private weak var emptyActiveHomeWorkView: EmptyActiveHomeWorkView!
+    
     
     private var activeHomeWorks: [HomeWorkModel] {
         set {
@@ -42,6 +44,7 @@ final class ActiveHomeWork: UIView{
     
     weak var delegate: ActiveHomeWorkDelegate?
     private var selectedHomeWorkIndex: Int?
+//    private var currentDate = Date()
 
     override init(frame: CGRect) {
             super.init(frame: frame)
@@ -58,6 +61,7 @@ final class ActiveHomeWork: UIView{
             addSubview(contentView)
             contentView.frame = bounds
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            sortActiveAndArchiveHomeWorks()
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(UINib(nibName: "HomeWorkCell", bundle: nil), forCellReuseIdentifier: HomeWorkCell.identifier)
@@ -70,6 +74,28 @@ final class ActiveHomeWork: UIView{
 //    func setActiveHomeWork(activeHomeWorks: [HomeWorkModel]){
 //        self.activeHomeWorks = activeHomeWorks
 //    }
+    
+//    func sortActiveAndArchiveHomeWorks(){
+//        var active: [HomeWorkModel] = []
+//        var archive: [HomeWorkModel] = []
+//        for i in 0...activeHomeWorks.count - 1 {
+//            if activeHomeWorks[i].deadline < currentDate {
+//                archive.append(activeHomeWorks[i])
+//            } else {
+//                active.append(activeHomeWorks[i])
+//            }
+//        }
+//        activeHomeWorks = active
+//        delegate?.newArchiveHomeWorks(newArchiveHomeWorks: archive)
+//    }
+    
+    func sortActiveAndArchiveHomeWorks(){
+        var active: [HomeWorkModel] = activeHomeWorks.filter({ $0.isActive == true })
+        var archive: [HomeWorkModel] = activeHomeWorks.filter({ $0.isActive == false })
+        
+        activeHomeWorks = active
+        delegate?.newArchiveHomeWorks(newArchiveHomeWorks: archive)
+    }
     
     func disableTableView(){
         tableView.isUserInteractionEnabled = false

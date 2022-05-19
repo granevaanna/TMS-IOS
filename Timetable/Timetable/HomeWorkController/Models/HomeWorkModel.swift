@@ -12,14 +12,21 @@ struct HomeWorkModel: Codable, Equatable{
     var homeWork: String
     var deadline: Date
     var isDone: Bool
-    var isActive: Bool
+    var isActive: Bool {
+        let currentDate = Date()
+        if deadline < currentDate {
+            return false
+        } else {
+            return true
+        }
+    }
     
     init(deadline: Date, lessonName: String, homeWork: String){
         self.lessonName = lessonName
         self.homeWork = homeWork
         self.deadline = deadline
         self.isDone = false
-        self.isActive = true
+//        self.isActive = true
     }
     
     var deadlineString: String{
